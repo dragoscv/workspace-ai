@@ -1,8 +1,8 @@
 # 🤖 World-Class AI Agent Instruction System
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![GitHub stars](https://img.shields.io/github/stars/dragoscatalin/workspace-ai.svg)](https://github.com/dragoscatalin/workspace-ai/stargazers)
-[![GitHub issues](https://img.shields.io/github/issues/dragoscatalin/workspace-ai.svg)](https://github.com/dragoscatalin/workspace-ai/issues)
+[![GitHub stars](https://img.shields.io/github/stars/dragoscv/workspace-ai.svg)](https://github.com/dragoscv/workspace-ai/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/dragoscv/workspace-ai.svg)](https://github.com/dragoscv/workspace-ai/issues)
 
 A comprehensive collection of instruction files for AI agents covering all business roles and operational domains to develop the best projects in the universe.
 
