@@ -1,10 +1,16 @@
-# 🤖 World-Class Agent Instruction Files
+# 🤖 World-Class AI Agent Instruction System
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub stars](https://img.shields.io/github/stars/dragoscatalin/workspace-ai.svg)](https://github.com/dragoscatalin/workspace-ai/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/dragoscatalin/workspace-ai.svg)](https://github.com/dragoscatalin/workspace-ai/issues)
 
 A comprehensive collection of instruction files for AI agents covering all business roles and operational domains to develop the best projects in the universe.
 
 ## 🎯 Overview
 
 This repository contains specialized instruction files designed to create world-class AI agents capable of operating at the highest level across all business functions. Each instruction file is crafted to ensure agents deliver exceptional results in their respective domains.
+
+> **Note**: This system integrates seamlessly with GitHub Copilot and VS Code through the Memory MCP Server and custom instruction file configurations.
 
 ## 📁 Structure
 
