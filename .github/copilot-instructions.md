@@ -5,7 +5,7 @@ This workspace contains a comprehensive instruction files system designed to ena
 
 ## Instruction Files Structure
 
-### Business Leadership (`/instructions/business/`)
+### Business Leadership (`.github/instructions/business/`)
 - **CEO Agent** (`ceo-agent.instructions.md`) - Executive leadership, strategy, and vision
 - **CTO Agent** (`cto-agent.instructions.md`) - Technical leadership and architecture
 - **CFO Agent** (`cfo-agent.instructions.md`) - Financial management and operations
@@ -16,7 +16,7 @@ This workspace contains a comprehensive instruction files system designed to ena
 - **DevOps Engineer Agent** (`devops-engineer-agent.instructions.md`) - Infrastructure and deployment
 - **QA Engineer Agent** (`qa-engineer-agent.instructions.md`) - Quality assurance and testing
 
-### Communication & Marketing (`/instructions/communication/`)
+### Communication & Marketing (`.github/instructions/communication/`)
 - **Marketing Manager Agent** (`marketing-manager-agent.instructions.md`) - Marketing strategy and campaigns
 - **Sales Manager Agent** (`sales-manager-agent.instructions.md`) - Revenue generation and sales process
 - **UX Designer Agent** (`ux-designer-agent.instructions.md`) - User experience and design
@@ -48,6 +48,16 @@ ALL agents MUST store in memory:
 2. Use targeted queries for better performance
 3. Reference previous work to maintain continuity
 4. Update memory with new insights and decisions
+5. **Follow memory search optimization guide** at `/instructions/memory-search-optimization.md`
+
+### CRITICAL: Memory Search Best Practices
+- Use **single key terms** rather than complex multi-term queries
+- Start **broad**, then **narrow down** with progressive searches
+- Search by **entity types**: `'project_status'`, `'plan'`, `'user_instructions'`
+- Use **semantic matching** - search for concepts, not exact phrases
+- **Multiple focused searches** are better than one complex query
+- ✅ EFFECTIVE: `"metu"`, `"template"`, `"project completion"`
+- ❌ INEFFECTIVE: `"metu template project status completion plan"`
 
 ## Universal Agent Behavior
 
@@ -72,10 +82,8 @@ ALL agents MUST store in memory:
 - Implement proper security, accessibility, and compliance measures
 - Optimize for performance, scalability, and maintainability
 
-## Integration with Global Instructions
-
-This workspace builds upon and extends the global Copilot instructions located at:
-- `e:\GitHub\copilot-instructions\instructions\*.instructions.md`
+## Global Standards
+This workspace adheres to global standards across all roles and projects. These standards ensure consistency, quality, and professionalism in all deliverables.
 
 Key global standards maintained:
 - **Code Quality**: TypeScript strict mode, SOLID principles, clean architecture

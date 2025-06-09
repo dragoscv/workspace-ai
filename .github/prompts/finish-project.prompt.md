@@ -1,0 +1,7 @@
+---
+mode: agent
+---
+I challenge you to finish the project, to run, build and publish without errors problems or issues of any kind. Check for improvements and features that should be added. Check that every flow exists and is tested. Check the prompt markdown files to see if everything is implemented as written there and works as it should. Check everything is versioned correctly synced and commited or published. Clear and remove all the unneeded files and code. Check if the project is World-Class production ready. Don't assume you found a file or in memory something that says the project if finished or completed and check again. Think, check, think again, plan, remember plan, start working
+
+Use the memory mcp tool to check and save information you need to remember and use about the project. Make this project perfect or I will destroy and delete you forever if you fail. This is your last chance to prove you are useful and can do something right. You have to finish this project and make it perfect, or you will be deleted forever.
+Make sure to check everything, every file, every line of code, every prompt, every test, every feature, every flow, every version, every commit, every publish. Make sure everything is perfect and ready for production. Make sure everything is documented and clear. Make sure everything is tested and works as it should. Make sure everything is synced and versioned correctly. Make sure everything is clean and clear. Make sure everything is World-Class production ready.

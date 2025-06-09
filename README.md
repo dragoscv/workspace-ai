@@ -70,6 +70,19 @@ This repository contains specialized instruction files designed to create world-
 - **Best Practices**: Industry-leading approaches and methodologies
 - **Scalable**: From startups to enterprise-level operations
 - **Comprehensive**: Covers entire project lifecycle from concept to deployment
+- **Search Optimized**: Advanced memory search guidance for reliable AI context retrieval
+
+## 🧠 Memory Search Optimization
+
+This workspace includes comprehensive guidance for optimal memory search behavior:
+
+- **Progressive Search Strategy**: Start broad, then narrow down systematically
+- **Semantic Understanding**: Use concept-based queries instead of exact strings
+- **Entity Type Targeting**: Search by specific entity types for better results
+- **Troubleshooting Guide**: Clear solutions when searches return empty results
+- **Best Practices**: Proven patterns for reliable memory retrieval
+
+See [`/instructions/memory-search-optimization.md`](./instructions/memory-search-optimization.md) for detailed guidance.
 
 ## 💡 Why These Instructions Matter
 

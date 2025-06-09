@@ -1,0 +1,4 @@
+---
+mode: agent
+---
+Check this project and think for a plan to remove any missing or unused files, any unused code, and any unused dependencies, and to remove any unused code in the documentation. Check also for improvements in the code, documentation, and dependencies. Provide a detailed plan for each step, including how to identify unused files, code, and dependencies, and how to improve the project overall. Question yourself about the project and its purpose, and how to improve it.
