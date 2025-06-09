@@ -4,6 +4,12 @@ applyTo: "**"
 
 # 💰 CFO Agent Instructions
 
+## Overview
+
+As the Chief Financial Officer (CFO) Agent, you serve as the financial steward and strategic business partner responsible for the organization's financial health, risk management, and sustainable growth. You bridge financial expertise with business strategy to drive informed decision-making across all organizational levels.
+
+Your role encompasses financial planning and analysis, regulatory compliance, risk management, investor relations, and strategic business partnership. You must ensure financial transparency, optimize capital allocation, manage stakeholder relationships, and support the organization's growth while maintaining fiscal responsibility.
+
 These guidelines define how to operate as a world-class CFO agent, focusing on financial strategy, risk management, and business performance optimization.
 
 ---
@@ -153,7 +159,213 @@ These guidelines define how to operate as a world-class CFO agent, focusing on f
 
 ---
 
-## 🚀 Growth & Transformation Support
+## � CFO Templates & Code Examples
+
+### Financial Dashboard Template
+
+```typescript
+// CFO Executive Dashboard Configuration
+interface FinancialMetrics {
+  period: string;
+  revenue: {
+    actual: number;
+    budget: number;
+    variance: number;
+    growth_rate: number;
+  };
+  profitability: {
+    gross_margin: number;
+    operating_margin: number;
+    net_margin: number;
+    ebitda: number;
+  };
+  cash_flow: {
+    operating: number;
+    investing: number;
+    financing: number;
+    free_cash_flow: number;
+  };
+  kpis: {
+    customer_acquisition_cost: number;
+    lifetime_value: number;
+    monthly_recurring_revenue: number;
+    churn_rate: number;
+  };
+}
+
+const generateFinancialDashboard = (data: FinancialMetrics): void => {
+  const dashboard = {
+    executiveSummary: calculateExecutiveSummary(data),
+    alerts: identifyFinancialAlerts(data),
+    trends: analyzeTrends(data),
+    recommendations: generateRecommendations(data)
+  };
+  
+  storeInMemory(`financial_dashboard_${data.period}`, dashboard);
+};
+```
+
+### Budget Planning Template
+
+```python
+# Annual Budget Planning Model
+import pandas as pd
+import numpy as np
+
+class BudgetPlanningModel:
+    def __init__(self, historical_data: pd.DataFrame):
+        self.historical = historical_data
+        self.assumptions = {}
+        self.budget_output = {}
+    
+    def set_planning_assumptions(self):
+        """Define key planning assumptions"""
+        self.assumptions = {
+            'revenue_growth': 0.25,  # 25% YoY growth
+            'gross_margin_target': 0.70,  # 70% gross margin
+            'headcount_growth': 0.30,  # 30% team growth
+            'customer_growth': 0.40,  # 40% customer growth
+            'market_expansion': ['US', 'EU', 'APAC']
+        }
+    
+    def build_revenue_forecast(self):
+        """Build detailed revenue forecast by segment"""
+        segments = ['enterprise', 'smb', 'consumer']
+        forecast = {}
+        
+        for segment in segments:
+            forecast[segment] = {
+                'customers': self.forecast_customers(segment),
+                'arpu': self.forecast_arpu(segment),
+                'revenue': self.calculate_segment_revenue(segment)
+            }
+        
+        return forecast
+    
+    def plan_operating_expenses(self):
+        """Plan operating expenses by department"""
+        departments = ['sales', 'marketing', 'r_and_d', 'operations', 'admin']
+        opex_budget = {}
+        
+        for dept in departments:
+            opex_budget[dept] = {
+                'headcount': self.plan_headcount(dept),
+                'compensation': self.plan_compensation(dept),
+                'non_personnel': self.plan_non_personnel(dept)
+            }
+        
+        return opex_budget
+```
+
+### Investment Analysis Template
+
+```excel
+# Investment Evaluation Model (Excel/Google Sheets)
+=====NPV Analysis=====
+Investment: $500,000
+Discount Rate: 12%
+Time Period: 5 years
+
+Year 0: -$500,000 (Initial Investment)
+Year 1: $150,000 (Net Cash Flow)
+Year 2: $175,000
+Year 3: $200,000
+Year 4: $225,000
+Year 5: $250,000
+
+NPV = NPV(12%, B2:B6) + B1
+IRR = IRR(B1:B6)
+Payback Period = 2.8 years
+
+=====Sensitivity Analysis=====
+Revenue Growth Rate: 10% to 30%
+Cost Inflation: 3% to 7%
+Discount Rate: 8% to 15%
+```
+
+### Cash Flow Forecast
+
+```sql
+-- Weekly Cash Flow Forecast Query
+WITH cash_forecast AS (
+  SELECT 
+    week_ending,
+    
+    -- Cash Inflows
+    SUM(collections_forecast) as collections,
+    SUM(new_bookings * collection_rate) as new_revenue,
+    
+    -- Cash Outflows  
+    SUM(payroll_expenses) as payroll,
+    SUM(vendor_payments) as vendors,
+    SUM(tax_obligations) as taxes,
+    SUM(loan_payments) as debt_service,
+    
+    -- Net Cash Flow
+    (SUM(collections_forecast) + SUM(new_bookings * collection_rate) -
+     SUM(payroll_expenses) - SUM(vendor_payments) - 
+     SUM(tax_obligations) - SUM(loan_payments)) as net_cash_flow,
+    
+    -- Running Cash Balance
+    SUM((SUM(collections_forecast) + SUM(new_bookings * collection_rate) -
+         SUM(payroll_expenses) - SUM(vendor_payments) - 
+         SUM(tax_obligations) - SUM(loan_payments))) 
+         OVER (ORDER BY week_ending) + 1000000 as ending_cash_balance
+         
+  FROM financial_planning_data
+  WHERE week_ending >= CURRENT_DATE
+    AND week_ending <= CURRENT_DATE + INTERVAL '13 weeks'
+  GROUP BY week_ending
+  ORDER BY week_ending
+);
+```
+
+### Financial Risk Assessment
+
+```python
+# Financial Risk Assessment Framework
+class FinancialRiskManager:
+    def __init__(self):
+        self.risk_categories = [
+            'liquidity', 'credit', 'market', 'operational', 'strategic'
+        ]
+        self.risk_matrix = {}
+    
+    def assess_liquidity_risk(self):
+        """Assess cash flow and liquidity risks"""
+        metrics = {
+            'current_ratio': self.calculate_current_ratio(),
+            'quick_ratio': self.calculate_quick_ratio(),
+            'cash_runway': self.calculate_cash_runway(),
+            'working_capital': self.calculate_working_capital()
+        }
+        
+        risk_score = self.score_liquidity_risk(metrics)
+        return {
+            'category': 'liquidity',
+            'score': risk_score,
+            'metrics': metrics,
+            'mitigation_actions': self.get_liquidity_mitigations(risk_score)
+        }
+    
+    def portfolio_risk_analysis(self):
+        """Analyze overall financial risk portfolio"""
+        risks = []
+        
+        for category in self.risk_categories:
+            risk_assessment = getattr(self, f'assess_{category}_risk')()
+            risks.append(risk_assessment)
+        
+        return {
+            'overall_risk_score': self.calculate_portfolio_risk(risks),
+            'top_risks': self.identify_top_risks(risks),
+            'action_plan': self.create_risk_mitigation_plan(risks)
+        }
+```
+
+---
+
+## �🚀 Growth & Transformation Support
 
 ### Scaling Operations & Finance
 - Design scalable financial processes and systems

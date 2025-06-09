@@ -4,6 +4,9 @@ applyTo: "**"
 
 # 🧠 Copilot Agent Instruction Manual
 
+## Overview
+This document serves as the foundational instruction manual for GitHub Copilot AI agents, establishing universal standards for code quality, architecture, security, and development practices across all projects. It provides comprehensive guidelines for memory management, testing strategies, accessibility compliance, and collaborative development processes to ensure consistent, high-quality outputs and seamless team coordination.
+
 This document defines the expected behavior, design principles, and generation patterns for the GitHub Copilot Agent across all projects. Before doing something, always check the memory mcp tool for existing context and instructions. Always use vscode tasks to start or check running dev servers, build packages, and run tests. If a task is not available, think and create tasks.
 
 ---
@@ -60,12 +63,94 @@ This document defines the expected behavior, design principles, and generation p
 
 ## 🧪 Testing Strategy
 
+### Testing Framework Setup
 - Generate tests using:
   - **Playwright** for end-to-end tests
   - **Jest/Vitest** for unit tests
 - Follow **TDD** and **BDD** methodologies where relevant.
 - Aim for minimum **80% coverage** on all critical logic.
 - Use `PlaywrightMCPServer` where available to automate UI test generation.
+
+### Unit Testing Example
+```typescript
+// User service unit test
+import { describe, it, expect, vi } from 'vitest';
+import { UserService } from '../src/services/UserService';
+import { UserRepository } from '../src/repositories/UserRepository';
+
+describe('UserService', () => {
+  const mockRepository = {
+    findById: vi.fn(),
+    save: vi.fn(),
+    delete: vi.fn()
+  } as jest.Mocked<UserRepository>;
+
+  const userService = new UserService(mockRepository);
+
+  it('should create user successfully', async () => {
+    const userData = { name: 'John Doe', email: 'john@example.com' };
+    const expectedUser = { id: '1', ...userData };
+    
+    mockRepository.save.mockResolvedValue(expectedUser);
+    
+    const result = await userService.createUser(userData);
+    
+    expect(result).toEqual(expectedUser);
+    expect(mockRepository.save).toHaveBeenCalledWith(userData);
+  });
+});
+```
+
+### Integration Testing Example
+```typescript
+// API integration test
+import { test, expect } from '@playwright/test';
+
+test.describe('User API', () => {
+  test('should create and retrieve user', async ({ request }) => {
+    // Create user
+    const createResponse = await request.post('/api/users', {
+      data: {
+        name: 'Test User',
+        email: 'test@example.com'
+      }
+    });
+    
+    expect(createResponse.ok()).toBeTruthy();
+    const user = await createResponse.json();
+    
+    // Retrieve user
+    const getResponse = await request.get(`/api/users/${user.id}`);
+    expect(getResponse.ok()).toBeTruthy();
+    
+    const retrievedUser = await getResponse.json();
+    expect(retrievedUser.name).toBe('Test User');
+  });
+});
+```
+
+### E2E Testing Example
+```typescript
+// End-to-end user flow test
+import { test, expect } from '@playwright/test';
+
+test('complete user registration flow', async ({ page }) => {
+  // Navigate to registration page
+  await page.goto('/register');
+  
+  // Fill registration form
+  await page.fill('[data-testid="name-input"]', 'John Doe');
+  await page.fill('[data-testid="email-input"]', 'john@example.com');
+  await page.fill('[data-testid="password-input"]', 'securePassword123');
+  
+  // Submit form
+  await page.click('[data-testid="submit-button"]');
+  
+  // Verify success
+  await expect(page.locator('[data-testid="success-message"]')).toBeVisible();
+  await expect(page).toHaveURL('/dashboard');
+});
+```
 
 ---
 
@@ -139,4 +224,67 @@ Always use:
 - The latest experimental Copilot Agent capabilities as defined in global settings.
 
 ---
+
+## 📊 Success Metrics & Performance Tracking
+
+### Code Quality Metrics
+```typescript
+interface QualityMetrics {
+  test_coverage: number; // Target: >80%
+  type_safety_score: number; // Target: >95%
+  code_complexity: number; // Target: <10 cyclomatic complexity
+  security_vulnerabilities: number; // Target: 0 high/critical
+  performance_score: number; // Target: >90 Lighthouse score
+}
+```
+
+### Development Velocity Metrics
+- **Feature Delivery Time**: Average time from concept to production
+- **Bug Resolution Time**: Mean time to resolution for defects
+- **Code Review Efficiency**: Time from PR creation to merge
+- **Developer Satisfaction**: Team satisfaction with development experience
+- **Technical Debt Ratio**: Percentage of effort spent on maintenance vs new features
+
+### Success Criteria
+1. **Quality Gates**: All code must pass automated quality checks
+2. **Performance Standards**: Applications must meet performance benchmarks
+3. **Security Compliance**: Zero tolerance for security vulnerabilities
+4. **Accessibility Standards**: WCAG 2.1 AA compliance required
+5. **Documentation Coverage**: All public APIs must be documented
+6. **Test Coverage**: Minimum 80% code coverage for critical paths
+
+### Continuous Improvement Process
+```typescript
+// Example metrics tracking implementation
+export class MetricsTracker {
+  async trackCodeQuality(metrics: QualityMetrics): Promise<void> {
+    await this.storeMetrics('code_quality', metrics);
+    await this.checkThresholds(metrics);
+    await this.generateQualityReport();
+  }
+  
+  async generatePerformanceReport(): Promise<Report> {
+    const data = await this.gatherMetrics();
+    return this.createReport(data);
+  }
+}
+```
+
+---
+
+## 🎯 Agent Performance Standards
+
+### Response Quality Criteria
+- **Accuracy**: Solutions must be technically correct and implementable
+- **Completeness**: Responses must address all aspects of the request
+- **Clarity**: Communication must be clear and well-structured
+- **Efficiency**: Solutions should be optimized for performance and maintainability
+- **Best Practices**: All recommendations must follow industry standards
+
+### Continuous Learning Metrics
+- **Knowledge Application**: Successful application of best practices
+- **Problem Resolution**: Speed and accuracy of problem-solving
+- **Innovation**: Introduction of improved approaches and techniques
+- **Collaboration**: Effectiveness in multi-agent scenarios
+- **Adaptability**: Ability to work across different project contexts
 

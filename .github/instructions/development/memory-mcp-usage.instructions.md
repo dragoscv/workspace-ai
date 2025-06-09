@@ -4,6 +4,11 @@ applyTo: "**"
 
 # 🧠 Memory MCP Server Usage Instructions for Copilot Agent
 
+## Overview
+The Memory MCP Server Usage Instructions provide a comprehensive framework for efficient memory system interaction that maximizes performance while minimizing resource consumption. This document establishes mandatory protocols for memory access patterns, context loading strategies, and data management practices that ensure optimal agent operation.
+
+The instructions address common memory performance issues including context overflow, irrelevant information retrieval, and inefficient search patterns. By following these progressive loading strategies and targeted search approaches, agents can achieve significant improvements in response time, accuracy, and resource utilization while maintaining comprehensive context awareness.
+
 This document defines the mandatory approach for using the Memory MCP Server efficiently across all projects and contexts.
 
 ---

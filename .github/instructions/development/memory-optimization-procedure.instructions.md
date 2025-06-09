@@ -4,6 +4,11 @@ applyTo: "**"
 
 # 🧠 Memory MCP Server Optimization Procedure
 
+## Overview
+The Memory MCP Server Optimization Procedure is a comprehensive methodology for transforming memory systems from inefficient, verbose knowledge graphs into highly optimized, production-grade memory architectures. This procedure achieves dramatic improvements in memory efficiency, search performance, and agent operation effectiveness.
+
+The optimization process addresses common memory bottlenecks including verbose observations, duplicate entities, missing relations, and outdated information. Through systematic analysis, cleanup, and restructuring, teams can achieve up to 95% reduction in memory usage while significantly improving search efficiency and agent performance.
+
 This document provides step-by-step instructions for completely optimizing the Memory MCP Server from scratch, achieving a 10/10 efficiency rating.
 
 ---

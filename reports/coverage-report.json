@@ -1,0 +1,32 @@
+{
+  "totalFiles": 38,
+  "roleCategories": {
+    "business": 6,
+    "development": 15,
+    "operations": 4,
+    "communication": 6
+  },
+  "missingRoles": [
+    "product-manager",
+    "business-analyst",
+    "senior-developer",
+    "devops-engineer",
+    "qa-engineer",
+    "security-engineer",
+    "data-scientist",
+    "mobile-developer",
+    "cloud-architect",
+    "marketing-manager",
+    "sales-manager",
+    "content-creator",
+    "ux-designer",
+    "project-manager",
+    "customer-success",
+    "hr-manager"
+  ],
+  "completionPercentage": 190,
+  "recommendations": [
+    "Add instruction files for missing roles: product-manager, business-analyst, senior-developer, devops-engineer, qa-engineer, security-engineer, data-scientist, mobile-developer, cloud-architect, marketing-manager, sales-manager, content-creator, ux-designer, project-manager, customer-success, hr-manager",
+    "Expand operations category (currently 4 files, recommended: 5+)"
+  ]
+}

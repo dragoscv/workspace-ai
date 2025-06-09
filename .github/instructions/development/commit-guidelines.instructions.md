@@ -4,6 +4,19 @@ applyTo: "**"
 
 # Commit Message Guidelines for Copilot Agent
 
+## Overview
+The Commit Message Guidelines establish a standardized approach to Git commit messages that enhances code history readability, enables automated tooling, and facilitates efficient collaboration. These guidelines implement Conventional Commits standards to create self-documenting code history that supports automated changelog generation, semantic versioning, and improved development workflows.
+
+The system ensures that every commit message provides clear context about the change's purpose, scope, and impact, making it easier for team members to understand project evolution and for automated tools to process repository history for release management and deployment automation.
+
+## Memory Management - CHECK FIRST
+Before creating or reviewing commit messages, ALWAYS:
+1. **Search for project patterns**: `mcp_memorymcpserv_search_nodes("commit_patterns project_standards")`
+2. **Check previous commits**: `mcp_memorymcpserv_search_nodes("commit_history similar_changes")`
+3. **Reference scope conventions**: `mcp_memorymcpserv_search_nodes("commit_scope project_modules")`
+4. **Store effective patterns**: Save successful commit formats with entity type `'commit_template'` or `'commit_pattern'`
+5. **Track conventions**: Maintain project-specific scopes and standards with entity type `'commit_standards'`
+
 Use these conventions to generate, validate, or suggest improvements for all Git commit messages in this project.
 
 General Principles
@@ -39,52 +52,151 @@ perf: Performance improvements
 ci: Changes to CI/CD pipelines
 revert: Reverting a previous commit
 
-Scope Examples
+## Advanced Commit Examples
 
-Use a meaningful scope when applicable:
+### Feature Implementation
+```bash
+feat(auth): implement OAuth2 integration with Google and GitHub
 
-auth, api, db, hooks, ui, infra, firestore, router, etc.
-For tooling: build, eslint, tailwind, vite, etc.
+- Add OAuth2 service with provider abstraction
+- Implement token refresh and validation
+- Add user profile synchronization
+- Include comprehensive error handling
 
-Example:
-feat(auth): add passwordless login with magic link
+Closes #234
+BREAKING CHANGE: Legacy session tokens are no longer supported
+```
 
-Summary Line Rules
+### Bug Fix with Analysis
+```bash
+fix(api): resolve race condition in concurrent user updates
 
-* Max 72 characters
-* No period at the end
-* Capitalize the first word
+The previous implementation had a race condition when multiple
+requests tried to update user data simultaneously, causing
+data corruption.
 
-Bad:
-added button.
+- Add optimistic locking to user update operations
+- Implement retry logic for failed updates
+- Add monitoring for concurrent update attempts
 
-Good:
-feat(ui): add animated submit button
+Fixes #456
+Performance: Reduced update conflicts by 95%
+```
 
-Body (Optional but Encouraged)
+### Performance Optimization
+```bash
+perf(db): optimize user query with database indexing
 
-Use the body to:
+- Add composite index on (user_id, created_at, status)
+- Implement query result caching with 5-minute TTL
+- Add query performance monitoring
+- Update pagination to use cursor-based approach
 
-* Explain why the change was made
-* Highlight relevant technical decisions
-* Add links to designs, issues, specs if needed
+Impact: Query time reduced from 2.3s to 45ms (95% improvement)
+Refs #789
+```
 
-Footer (Optional)
+### Refactoring with Architecture Change
+```bash
+refactor(api): migrate to clean architecture pattern
 
-Use the footer for:
+- Separate business logic from HTTP handlers
+- Implement repository pattern for data access
+- Add domain entities and use cases
+- Improve testability with dependency injection
 
-* Breaking changes:
-  BREAKING CHANGE: removes legacy auth endpoint
+No breaking changes to public API
+Related to technical debt issue #123
+```
 
-* Issue linking:
-  Closes #123
+## Automated Commit Message Generation
 
-Agent Behavior Notes
+### Commit Analysis Framework
+```typescript
+interface CommitAnalysis {
+  type: CommitType;
+  scope: string;
+  summary: string;
+  body?: string;
+  footer?: string;
+  breakingChange: boolean;
+  issueReferences: string[];
+  impact: {
+    performance?: string;
+    security?: string;
+    usability?: string;
+  };
+}
 
-* **CHECK MEMORY**: Review stored commit patterns and project history before generating commit messages
-* **STORE PATTERNS**: Preserve effective commit message templates and conventions in memory for consistency
-* Auto-generate commit messages based on file diffs and commit scopes.
-* Match formatting rules above, or revise existing messages that don’t comply.
-* Use context from .github/instructions/copilot-instructions.md to refine summaries.
-* If no clear scope can be inferred, omit it gracefully:
-  fix: prevent crash when parsing empty input
+enum CommitType {
+  FEAT = 'feat',
+  FIX = 'fix',
+  DOCS = 'docs',
+  STYLE = 'style',
+  REFACTOR = 'refactor',
+  PERF = 'perf',
+  TEST = 'test',
+  CHORE = 'chore',
+  CI = 'ci',
+  REVERT = 'revert'
+}
+
+// Example automated commit analysis
+function analyzeChanges(diff: GitDiff): CommitAnalysis {
+  const analysis: CommitAnalysis = {
+    type: inferCommitType(diff.files, diff.changes),
+    scope: determineScope(diff.files),
+    summary: generateSummary(diff.changes),
+    breakingChange: detectBreakingChanges(diff.changes),
+    issueReferences: extractIssueReferences(diff.commitMessage),
+    impact: analyzeImpact(diff.changes)
+  };
+  
+  return analysis;
+}
+```
+
+### Smart Commit Generator
+```typescript
+function generateCommitMessage(analysis: CommitAnalysis): string {
+  let message = `${analysis.type}`;
+  
+  if (analysis.scope) {
+    message += `(${analysis.scope})`;
+  }
+  
+  message += `: ${analysis.summary}`;
+  
+  if (analysis.body) {
+    message += `\n\n${analysis.body}`;
+  }
+  
+  if (analysis.footer) {
+    message += `\n\n${analysis.footer}`;
+  }
+  
+  if (analysis.breakingChange) {
+    message += `\n\nBREAKING CHANGE: ${analysis.impact.description}`;
+  }
+  
+  return message;
+}
+
+// Example usage
+const commitMessage = generateCommitMessage({
+  type: CommitType.FEAT,
+  scope: 'auth',
+  summary: 'add two-factor authentication support',
+  body: `- Implement TOTP-based 2FA with QR code generation
+- Add backup codes for account recovery
+- Include security audit logging
+- Add comprehensive test coverage`,
+  footer: 'Closes #567',
+  breakingChange: false,
+  issueReferences: ['#567'],
+  impact: {
+    security: 'Enhanced account security with 2FA',
+    usability: 'Improved user account protection'
+  }
+});
+```

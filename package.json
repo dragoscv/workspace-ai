@@ -1,0 +1,69 @@
+{
+  "name": "workspace-ai",
+  "version": "2.0.0",
+  "description": "World-class AI agent instruction system with automation tools and validation",
+  "main": "src/index.js",
+  "type": "module",  "scripts": {
+    "dev": "tsx src/cli.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "test": "vitest",
+    "test:ui": "vitest --ui",
+    "validate": "tsx src/cli.ts validate",
+    "generate": "tsx src/cli.ts generate",
+    "metrics": "tsx src/cli.ts metrics",
+    "setup": "tsx src/setup.ts",
+    "tasks:daily": "tsx src/tasks.ts daily",
+    "tasks:ci": "tsx src/tasks.ts ci",
+    "tasks:maintenance": "tsx src/tasks.ts maintenance",
+    "lint": "eslint src --ext .ts",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "ai",
+    "agents",
+    "instructions",
+    "automation",
+    "copilot",
+    "mcp",
+    "memory"
+  ],
+  "author": "workspace-ai contributors",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^11.1.0",
+    "chalk": "^5.3.0",
+    "ora": "^8.0.1",
+    "inquirer": "^9.2.12",
+    "yaml": "^2.3.4",
+    "zod": "^3.22.4",
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.10",
+    "markdown-it": "^14.0.0",
+    "gray-matter": "^4.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.7",
+    "@types/markdown-it": "^13.0.7",
+    "typescript": "^5.3.0",
+    "tsx": "^4.6.0",
+    "vitest": "^1.0.0",
+    "@vitest/ui": "^1.0.0",
+    "eslint": "^8.55.0",
+    "@typescript-eslint/eslint-plugin": "^6.13.0",
+    "@typescript-eslint/parser": "^6.13.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dragoscv/workspace-ai.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dragoscv/workspace-ai/issues"
+  },
+  "homepage": "https://github.com/dragoscv/workspace-ai#readme"
+}
