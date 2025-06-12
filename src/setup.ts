@@ -21,7 +21,7 @@ export async function setupProject(): Promise<void> {
         message: 'This is not a Git repository. Would you like to initialize Git?',
         default: true
       }]);
-      
+
       if (initGit) {
         console.log(chalk.yellow('📦 Initializing Git repository...'));
         // Git initialization would happen here
@@ -138,7 +138,7 @@ export async function setupProject(): Promise<void> {
 async function createDirectoryStructure(): Promise<void> {
   const directories = [
     '.github/instructions/business',
-    '.github/instructions/development', 
+    '.github/instructions/development',
     '.github/instructions/operations',
     '.github/instructions/communication',
     '.github/instructions/advanced',

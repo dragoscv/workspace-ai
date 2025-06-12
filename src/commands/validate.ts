@@ -14,14 +14,14 @@ interface ValidateOptions {
 export async function validateInstructions(options: ValidateOptions): Promise<void> {
   try {
     const instructionPath = path.resolve(options.path);
-    
+
     if (!await fs.pathExists(instructionPath)) {
       console.error(chalk.red(`❌ Instruction path not found: ${instructionPath}`));
       process.exit(1);
     }
 
     console.log(chalk.blue(`🔍 Scanning instruction files in: ${instructionPath}`));
-    
+
     const instructionFiles = await glob('**/*.instructions.md', {
       cwd: instructionPath,
       absolute: true
@@ -59,17 +59,17 @@ export async function validateInstructions(options: ValidateOptions): Promise<vo
       }
 
       for (const result of results) {
-        const icon = result.severity === 'error' ? '❌' : 
-                    result.severity === 'warning' ? '⚠️' : 'ℹ️';
-        const color = result.severity === 'error' ? chalk.red : 
-                     result.severity === 'warning' ? chalk.yellow : chalk.blue;
-        
+        const icon = result.severity === 'error' ? '❌' :
+          result.severity === 'warning' ? '⚠️' : 'ℹ️';
+        const color = result.severity === 'error' ? chalk.red :
+          result.severity === 'warning' ? chalk.yellow : chalk.blue;
+
         console.log(color(`   ${icon} ${result.message}`));
-        
+
         if (result.line) {
           console.log(color(`      Line ${result.line}`));
         }
-        
+
         if (result.suggestion) {
           console.log(chalk.gray(`      💡 ${result.suggestion}`));
         }
@@ -96,7 +96,7 @@ export async function validateInstructions(options: ValidateOptions): Promise<vo
     console.log(chalk.blue(`   📁 Files processed: ${instructionFiles.length}`));
     console.log(chalk.red(`   ❌ Errors: ${totalErrors}`));
     console.log(chalk.yellow(`   ⚠️  Warnings: ${totalWarnings}`));
-    
+
     if (options.fix) {
       console.log(chalk.green(`   🔧 Auto-fixed: ${totalFixed}`));
     }

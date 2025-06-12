@@ -125,9 +125,9 @@ class TaskAutomation {
       console.log(chalk.green(`   ✅ ${result.message}`));
       return result;
     } catch (error) {
-      const result: TaskResult = { 
-        success: false, 
-        message: `${taskName} failed: ${error instanceof Error ? error.message : String(error)}` 
+      const result: TaskResult = {
+        success: false,
+        message: `${taskName} failed: ${error instanceof Error ? error.message : String(error)}`
       };
       this.results.push(result);
       console.log(chalk.red(`   ❌ ${result.message}`));
@@ -148,9 +148,9 @@ class TaskAutomation {
       await fs.writeJSON('.workspace-ai-status.json', status, { spaces: 2 });
       return { success: true, message: 'Project status updated' };
     } catch (error) {
-      return { 
-        success: false, 
-        message: `Status update failed: ${error instanceof Error ? error.message : String(error)}` 
+      return {
+        success: false,
+        message: `Status update failed: ${error instanceof Error ? error.message : String(error)}`
       };
     }
   }
@@ -184,14 +184,14 @@ class TaskAutomation {
         }
       }
 
-      return { 
-        success: allPassed, 
-        message: allPassed ? 'Quality checks passed' : 'Quality issues found' 
+      return {
+        success: allPassed,
+        message: allPassed ? 'Quality checks passed' : 'Quality issues found'
       };
     } catch (error) {
-      return { 
-        success: false, 
-        message: `Quality checks failed: ${error instanceof Error ? error.message : String(error)}` 
+      return {
+        success: false,
+        message: `Quality checks failed: ${error instanceof Error ? error.message : String(error)}`
       };
     }
   }
@@ -207,7 +207,7 @@ class TaskAutomation {
       for (const file of files) {
         const filePath = path.join(directory, file);
         const stats = await fs.stat(filePath);
-        
+
         if (stats.mtime < cutoffDate) {
           await fs.remove(filePath);
           console.log(chalk.gray(`   🗑️  Removed old file: ${file}`));
@@ -240,7 +240,7 @@ class TaskAutomation {
       const packageJson = await fs.readJSON('./package.json');
       const dependencyCount = Object.keys(packageJson.dependencies || {}).length;
       const devDependencyCount = Object.keys(packageJson.devDependencies || {}).length;
-      
+
       console.log(chalk.gray(`   📦 Dependencies: ${dependencyCount}, Dev dependencies: ${devDependencyCount}`));
     } catch (error) {
       console.log(chalk.yellow(`   ⚠️  Could not check dependencies: ${error}`));
@@ -260,7 +260,7 @@ class TaskAutomation {
       ];
 
       const timestamp = new Date().toISOString().split('T')[0];
-      
+
       for (const file of configFiles) {
         if (await fs.pathExists(file)) {
           const backupPath = path.join(backupDir, `${path.basename(file, path.extname(file))}-${timestamp}${path.extname(file)}`);
@@ -276,12 +276,12 @@ class TaskAutomation {
 
   private generateSummary(): void {
     console.log(chalk.blue('\n📊 Task Summary:'));
-    
+
     const successCount = this.results.filter(r => r.success).length;
     const totalCount = this.results.length;
-    
+
     console.log(chalk.green(`✅ Successful: ${successCount}/${totalCount}`));
-    
+
     const failures = this.results.filter(r => !r.success);
     if (failures.length > 0) {
       console.log(chalk.red(`❌ Failed: ${failures.length}`));

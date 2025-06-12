@@ -3,7 +3,8 @@
   "version": "2.0.0",
   "description": "World-class AI agent instruction system with automation tools and validation",
   "main": "src/index.js",
-  "type": "module",  "scripts": {
+  "type": "module",
+  "scripts": {
     "dev": "tsx src/cli.ts",
     "build": "tsc",
     "start": "node dist/index.js",

@@ -101,7 +101,7 @@ export class InstructionValidator {
 
   private async validateTitle(instruction: InstructionFile): Promise<ValidationResult[]> {
     const titleMatch = instruction.content.match(/^#\s+(.+)$/m);
-    
+
     if (!titleMatch) {
       return [{
         ruleId: 'has-title',
@@ -128,7 +128,7 @@ export class InstructionValidator {
 
   private async validateOverview(instruction: InstructionFile): Promise<ValidationResult[]> {
     const overviewMatch = instruction.content.match(/##\s*Overview/i);
-    
+
     if (!overviewMatch) {
       return [{
         ruleId: 'has-overview',
@@ -140,9 +140,9 @@ export class InstructionValidator {
           const titleMatch = content.match(/^#\s+(.+)$/m);
           if (titleMatch) {
             const insertIndex = content.indexOf('\n', titleMatch.index! + titleMatch[0].length);
-            return content.slice(0, insertIndex + 1) + 
-                   '\n## Overview\n\nThis instruction file provides...\n' +
-                   content.slice(insertIndex + 1);
+            return content.slice(0, insertIndex + 1) +
+              '\n## Overview\n\nThis instruction file provides...\n' +
+              content.slice(insertIndex + 1);
           }
           return content;
         }
@@ -154,7 +154,7 @@ export class InstructionValidator {
 
   private async validateMemoryManagement(instruction: InstructionFile): Promise<ValidationResult[]> {
     const memoryMatch = instruction.content.match(/Memory Management|CHECK FIRST|mcp_memorymcpserv_search_nodes/i);
-    
+
     if (!memoryMatch) {
       return [{
         ruleId: 'has-memory-management',
@@ -170,7 +170,7 @@ export class InstructionValidator {
 
   private async validateExamples(instruction: InstructionFile): Promise<ValidationResult[]> {
     const codeBlockCount = (instruction.content.match(/```/g) || []).length / 2;
-    
+
     if (codeBlockCount < 2) {
       return [{
         ruleId: 'has-examples',
@@ -186,7 +186,7 @@ export class InstructionValidator {
 
   private async validateSuccessMetrics(instruction: InstructionFile): Promise<ValidationResult[]> {
     const metricsMatch = instruction.content.match(/Success Metrics|KPIs|Performance|Measurement/i);
-    
+
     if (!metricsMatch) {
       return [{
         ruleId: 'has-success-metrics',

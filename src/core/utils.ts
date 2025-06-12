@@ -83,17 +83,17 @@ export class WorkspaceAI {
 
   async parseInstructionFile(filePath: string): Promise<{ metadata: InstructionMetadata; content: string }> {
     const content = await fs.readFile(filePath, 'utf-8');
-    
+
     // Extract frontmatter if present
     const frontmatterMatch = content.match(/^---\n([\s\S]*?)\n---/);
     let metadata: Partial<InstructionMetadata> = {};
-    
+
     if (frontmatterMatch) {
       try {
         // Simple YAML parsing for basic fields
         const yamlContent = frontmatterMatch[1];
         const lines = yamlContent.split('\n');
-        
+
         for (const line of lines) {
           const [key, ...valueParts] = line.split(':');
           if (key && valueParts.length > 0) {
@@ -141,7 +141,7 @@ export class WorkspaceAI {
   async generateProjectReport(): Promise<any> {
     const config = await this.loadConfig();
     const instructionFiles = await this.getInstructionFiles();
-    
+
     const report = {
       project: {
         config,
@@ -171,7 +171,7 @@ export class WorkspaceAI {
       try {
         const { metadata, content } = await this.parseInstructionFile(filePath);
         const size = content.length;
-        
+
         (report.instructions as any[]).push({
           file: path.relative(process.cwd(), filePath),
           metadata,
@@ -202,13 +202,13 @@ export class WorkspaceAI {
 
   private categorizeInstruction(filePath: string): string {
     const relativePath = path.relative(process.cwd(), filePath);
-    
+
     if (relativePath.includes('/business/')) return 'business';
     if (relativePath.includes('/development/')) return 'development';
     if (relativePath.includes('/operations/')) return 'operations';
     if (relativePath.includes('/communication/')) return 'communication';
     if (relativePath.includes('/advanced/')) return 'advanced';
-    
+
     return 'general';
   }
 }

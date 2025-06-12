@@ -23,11 +23,11 @@ export async function getMetrics(options: MetricsOptions): Promise<void> {
 
     // Simulate metrics data (in real implementation, this would come from usage tracking)
     const metrics = await collectMetrics(options.period);
-    
+
     console.log(chalk.blue('\n📊 Instruction Effectiveness Metrics:'));
     console.log(chalk.blue(`📅 Period: ${options.period}`));
     console.log(chalk.blue(`📁 Total Instructions Analyzed: ${Object.keys(metrics).length}`));
-    
+
     // Calculate overall effectiveness
     const overallEffectiveness = calculateOverallEffectiveness(metrics);
     console.log(chalk.green(`🎯 Overall Effectiveness: ${overallEffectiveness.toFixed(1)}%`));
@@ -61,7 +61,7 @@ export async function getMetrics(options: MetricsOptions): Promise<void> {
 async function collectMetrics(period: string): Promise<Record<string, InstructionMetrics>> {
   // Simulate metrics collection
   // In real implementation, this would integrate with usage tracking systems
-  
+
   const sampleMetrics: Record<string, InstructionMetrics> = {
     'senior-developer-agent': {
       usageCount: 145,
@@ -110,14 +110,14 @@ function calculateOverallEffectiveness(metrics: Record<string, InstructionMetric
   return scores.reduce((sum, score) => sum + score, 0) / scores.length;
 }
 
-function getTopPerformers(metrics: Record<string, InstructionMetrics>, count: number): Array<{name: string, score: number}> {
+function getTopPerformers(metrics: Record<string, InstructionMetrics>, count: number): Array<{ name: string, score: number }> {
   return Object.entries(metrics)
     .map(([name, data]) => ({ name, score: data.effectivenessScore }))
     .sort((a, b) => b.score - a.score)
     .slice(0, count);
 }
 
-function getImprovementOpportunities(metrics: Record<string, InstructionMetrics>, count: number): Array<{name: string, score: number}> {
+function getImprovementOpportunities(metrics: Record<string, InstructionMetrics>, count: number): Array<{ name: string, score: number }> {
   return Object.entries(metrics)
     .map(([name, data]) => ({ name, score: data.effectivenessScore }))
     .sort((a, b) => a.score - b.score)
@@ -145,12 +145,12 @@ async function exportMetrics(metrics: Record<string, InstructionMetrics>, format
 function generateCSV(metrics: Record<string, InstructionMetrics>): string {
   const headers = 'Instruction,Usage Count,Effectiveness Score,Last Used,Feedback Count,Avg Rating\n';
   const rows = Object.entries(metrics).map(([name, data]) => {
-    const avgRating = data.userFeedback.length > 0 
-      ? data.userFeedback.reduce((sum, f) => sum + f.rating, 0) / data.userFeedback.length 
+    const avgRating = data.userFeedback.length > 0
+      ? data.userFeedback.reduce((sum, f) => sum + f.rating, 0) / data.userFeedback.length
       : 0;
     return `${name},${data.usageCount},${data.effectivenessScore},${data.lastUsed.toISOString()},${data.userFeedback.length},${avgRating.toFixed(1)}`;
   }).join('\n');
-  
+
   return headers + rows;
 }
 

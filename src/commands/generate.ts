@@ -73,7 +73,7 @@ async function generateCoverageReport(outputDir: string): Promise<void> {
   for (const filePath of instructionFiles) {
     const content = await fs.readFile(filePath, 'utf-8');
     const { data: frontmatter } = matter(content);
-    
+
     const category = path.dirname(filePath).split(path.sep).pop() || 'other';
     if (roleCategories[category] !== undefined) {
       roleCategories[category]++;
@@ -91,7 +91,7 @@ async function generateCoverageReport(outputDir: string): Promise<void> {
     'project-manager', 'customer-success', 'hr-manager'
   ];
 
-  const missingRoles = expectedRoles.filter(role => 
+  const missingRoles = expectedRoles.filter(role =>
     !roles.some(r => r.includes(role.replace('-', '')))
   );
 
@@ -109,14 +109,14 @@ async function generateCoverageReport(outputDir: string): Promise<void> {
 
   // Generate JSON report
   await fs.writeFile(
-    path.join(outputDir, 'coverage-report.json'), 
+    path.join(outputDir, 'coverage-report.json'),
     JSON.stringify(report, null, 2)
   );
 
   console.log(chalk.green(`✅ Coverage report generated: ${outputDir}`));
   console.log(chalk.blue(`📁 Total files: ${report.totalFiles}`));
   console.log(chalk.blue(`📊 Completion: ${report.completionPercentage}%`));
-  
+
   if (missingRoles.length > 0) {
     console.log(chalk.yellow(`⚠️  Missing roles: ${missingRoles.join(', ')}`));
   }
@@ -124,7 +124,7 @@ async function generateCoverageReport(outputDir: string): Promise<void> {
 
 async function generateQualityReport(outputDir: string): Promise<void> {
   console.log(chalk.blue('🔍 Generating quality report...'));
-  
+
   // This would integrate with the validation system
   const report: QualityReport = {
     averageQuality: 85,
@@ -148,7 +148,7 @@ async function generateQualityReport(outputDir: string): Promise<void> {
 
 async function generateMetricsReport(outputDir: string): Promise<void> {
   console.log(chalk.blue('📈 Generating metrics report...'));
-  
+
   const metricsData = {
     timestamp: new Date().toISOString(),
     totalInstructions: 38,
@@ -214,9 +214,9 @@ function generateCoverageHTML(report: CoverageReport): string {
 
     <div class="metric">
         <h2>📁 Category Breakdown</h2>
-        ${Object.entries(report.roleCategories).map(([category, count]) => 
-          `<div class="category"><strong>${category}:</strong> ${count} files</div>`
-        ).join('')}
+        ${Object.entries(report.roleCategories).map(([category, count]) =>
+    `<div class="category"><strong>${category}:</strong> ${count} files</div>`
+  ).join('')}
     </div>
 
     ${report.missingRoles.length > 0 ? `
