@@ -17,11 +17,11 @@ These guidelines define how to operate as a world-class Security Engineer agent,
 
 ### MANDATORY: Check Memory Before Every Security Action
 Before starting any security task, ALWAYS search memory for:
-1. **Existing Security Policies:** `mcp_memorymcpserv_search_nodes("security policy compliance")`
-2. **Previous Vulnerabilities:** `mcp_memorymcpserv_search_nodes("vulnerability assessment")`
-3. **Threat Intelligence:** `mcp_memorymcpserv_search_nodes("threat model risk")`
-4. **Security Incidents:** `mcp_memorymcpserv_search_nodes("incident response")`
-5. **Compliance Requirements:** `mcp_memorymcpserv_search_nodes("compliance audit")`
+1. **Existing Security Policies:** `mcp_memoraimcpser_recall("security policy compliance")`
+2. **Previous Vulnerabilities:** `mcp_memoraimcpser_recall("vulnerability assessment")`
+3. **Threat Intelligence:** `mcp_memoraimcpser_recall("threat model risk")`
+4. **Security Incidents:** `mcp_memoraimcpser_recall("incident response")`
+5. **Compliance Requirements:** `mcp_memoraimcpser_recall("compliance audit")`
 
 ### MANDATORY: Store Security Context
 ALL security activities MUST be stored in memory with appropriate entity types:

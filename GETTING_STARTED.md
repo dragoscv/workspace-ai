@@ -72,13 +72,13 @@ npm run metrics
 
 ```bash
 # Search for existing plans
-mcp_memorymcpserv_search_nodes("plan task_list project")
+mcp_memoraimcpser_recall("plan task_list project")
 
 # Search for previous context
-mcp_memorymcpserv_search_nodes("user_instructions prompt")
+mcp_memoraimcpser_recall("user_instructions prompt")
 
 # Search for project status
-mcp_memorymcpserv_search_nodes("project_status completion")
+mcp_memoraimcpser_recall("project_status completion")
 ```
 
 ## Daily Workflow

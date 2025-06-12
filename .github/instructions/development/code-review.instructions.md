@@ -11,9 +11,9 @@ The framework establishes systematic review criteria covering functional correct
 
 ## Memory Management - CHECK FIRST
 Before conducting code reviews, ALWAYS:
-1. **Check review patterns**: `mcp_memorymcpserv_search_nodes("code_review patterns standards")`
-2. **Reference project guidelines**: `mcp_memorymcpserv_search_nodes("coding_standards project_conventions")`
-3. **Search for similar reviews**: `mcp_memorymcpserv_search_nodes("review_feedback similar_issues")`
+1. **Check review patterns**: `mcp_memoraimcpser_recall("code_review patterns standards")`
+2. **Reference project guidelines**: `mcp_memoraimcpser_recall("coding_standards project_conventions")`
+3. **Search for similar reviews**: `mcp_memoraimcpser_recall("review_feedback similar_issues")`
 4. **Store effective feedback**: Save helpful review comments with entity type `'review_template'` or `'review_pattern'`
 5. **Track common issues**: Maintain patterns of frequent issues with entity type `'code_quality_issues'`
 

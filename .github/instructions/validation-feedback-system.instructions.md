@@ -5,9 +5,9 @@ This system provides real-time validation, effectiveness measurement, and contin
 
 ## Memory Management - CHECK FIRST
 Before implementing validation, ALWAYS:
-1. Search memory: `mcp_memorymcpserv_search_nodes("validation feedback system metrics")`
-2. Check existing: `mcp_memorymcpserv_search_nodes("instruction effectiveness data")`
-3. Verify project context: `mcp_memorymcpserv_search_nodes("project validation requirements")`
+1. Search memory: `mcp_memoraimcpser_recall("validation feedback system metrics")`
+2. Check existing: `mcp_memoraimcpser_recall("instruction effectiveness data")`
+3. Verify project context: `mcp_memoraimcpser_recall("project validation requirements")`
 
 Store in memory:
 - Validation rules and criteria (`entity_type: 'validation_rules'`)
@@ -62,7 +62,7 @@ class InstructionValidator {
       severity: 'error',
       category: 'memory',
       validator: (instruction) => {
-        const hasMemoryCheck = instruction.content.includes('mcp_memorymcpserv_search_nodes');
+        const hasMemoryCheck = instruction.content.includes('mcp_memoraimcpser_recall');
         if (!hasMemoryCheck) {
           return [{
             ruleId: 'memory-check-required',

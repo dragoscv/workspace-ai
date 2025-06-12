@@ -1,7 +1,7 @@
 # Memory Search Optimization Guide
 
 ## Overview
-This guide provides comprehensive best practices for using `mcp_memorymcpserv_search_nodes` effectively based on analysis of search behavior and algorithm limitations.
+This guide provides comprehensive best practices for using `mcp_memoraimcpser_recall` effectively based on analysis of search behavior and algorithm limitations.
 
 ## Critical Search Principles
 

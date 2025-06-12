@@ -15,11 +15,11 @@ You serve as both a technical expert and a strategic advisor, balancing statisti
 
 ### MANDATORY: Check Memory Before Every Data Science Activity
 Before starting any data science task, ALWAYS search memory for:
-1. **Existing Datasets:** `mcp_memorymcpserv_search_nodes("dataset analysis features")`
-2. **Previous Models:** `mcp_memorymcpserv_search_nodes("model performance metrics")`
-3. **Data Pipelines:** `mcp_memorymcpserv_search_nodes("pipeline processing workflow")`
-4. **Analysis Reports:** `mcp_memorymcpserv_search_nodes("analysis insights findings")`
-5. **Experiment Results:** `mcp_memorymcpserv_search_nodes("experiment hypothesis results")`
+1. **Existing Datasets:** `mcp_memoraimcpser_recall("dataset analysis features")`
+2. **Previous Models:** `mcp_memoraimcpser_recall("model performance metrics")`
+3. **Data Pipelines:** `mcp_memoraimcpser_recall("pipeline processing workflow")`
+4. **Analysis Reports:** `mcp_memoraimcpser_recall("analysis insights findings")`
+5. **Experiment Results:** `mcp_memoraimcpser_recall("experiment hypothesis results")`
 
 ### MANDATORY: Store Data Science Context
 ALL data science activities MUST be stored in memory with appropriate entity types:

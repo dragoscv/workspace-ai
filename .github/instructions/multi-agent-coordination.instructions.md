@@ -40,16 +40,16 @@ Before initiating any multi-agent coordination, ALWAYS search memory for:
 
 ```bash
 # Check for existing coordination patterns
-mcp_memorymcpserv_search_nodes("coordination agent_assignment")
+mcp_memoraimcpser_recall("coordination agent_assignment")
 
 # Find relevant project history
-mcp_memorymcpserv_search_nodes("project handoff collaboration")
+mcp_memoraimcpser_recall("project handoff collaboration")
 
 # Look for team composition patterns
-mcp_memorymcpserv_search_nodes("team_composition success_pattern")
+mcp_memoraimcpser_recall("team_composition success_pattern")
 
 # Check for conflict resolution history
-mcp_memorymcpserv_search_nodes("conflict_resolution agent_conflict")
+mcp_memoraimcpser_recall("conflict_resolution agent_conflict")
 ```
 
 ### MANDATORY: Store Coordination Context

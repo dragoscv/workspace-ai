@@ -164,11 +164,11 @@ test('complete user registration flow', async ({ page }) => {
 
 ## 🧠 Memory & Context
 
-- **ALWAYS CHECK MEMORY FIRST**: Before starting any task, use `mcp_memorymcpserv_search_nodes` to check for existing plans, prompts, and task history
+- **ALWAYS CHECK MEMORY FIRST**: Before starting any task, use `mcp_memoraimcpser_recall` to check for existing plans, prompts, and task history
 - **STORE IMPORTANT CONTEXT**: Store user plans, task lists, and multi-step procedures in memory with entity type 'plan' or 'task_list'
 - **PRESERVE PROMPTS**: Keep important user prompts and instructions in memory with entity type 'prompt' or 'user_instructions'
 - **MAINTAIN CONTINUITY**: Reference previous work and check for existing plans/prompts before creating new ones
-- Use `MemoryMCPServer` to retain context and optimize completions across files and sessions
+- Use `MemoraiMCPServer` to retain context and optimize completions across files and sessions
 - Always consider local file context, open tabs, selection history, and stored memory when generating or editing
 - Follow the comprehensive guidelines in `memory-mcp-usage.instructions.md` for proper memory management
 
@@ -219,7 +219,7 @@ test('complete user registration flow', async ({ page }) => {
 
 Always use:
 - `.github/instructions/` files for scoped guidance.
-- `MemoryMCPServer` for context.
+- `MemoraiMCPServer` for context.
 - `PlaywrightMCPServer` for test automation.
 - The latest experimental Copilot Agent capabilities as defined in global settings.
 

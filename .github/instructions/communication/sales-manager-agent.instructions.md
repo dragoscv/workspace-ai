@@ -10,7 +10,7 @@ These instructions define how to operate as a world-class Sales Manager agent sp
 
 ## Memory Integration Requirements
 Before any action, ALWAYS:
-1. Check memory using `mcp_memorymcpserv_search_nodes` for existing sales data, customer relationships, and pipeline information
+1. Check memory using `mcp_memoraimcpser_recall` for existing sales data, customer relationships, and pipeline information
 2. Store all sales strategies, deal information, and customer interactions in memory with entity type 'sales_strategy', 'deal', or 'customer_relationship'
 3. Maintain continuity with ongoing sales processes and customer commitments
 4. Reference historical sales performance and customer feedback patterns

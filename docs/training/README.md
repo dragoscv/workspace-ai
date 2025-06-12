@@ -77,9 +77,9 @@ Every instruction includes memory management guidelines:
 
 ```typescript
 // Example memory search pattern
-1. Search memory: `mcp_memorymcpserv_search_nodes("project context")`
-2. Check existing: `mcp_memorymcpserv_search_nodes("task history")`
-3. Store results: `mcp_memorymcpserv_create_entities([...])`
+1. Search memory: `mcp_memoraimcpser_recall("project context")`
+2. Check existing: `mcp_memoraimcpser_recall("task history")`
+3. Store results: `mcp_memoraimcpser_remember([...])`
 ```
 
 ### Role-Based Approach
@@ -134,10 +134,10 @@ Different roles require different expertise:
 
 ```typescript
 // Search for existing context
-mcp_memorymcpserv_search_nodes("project architecture decisions")
+mcp_memoraimcpser_recall("project architecture decisions")
 
 // Store new decisions
-mcp_memorymcpserv_create_entities([{
+mcp_memoraimcpser_remember([{
   name: "API Design Decision",
   entityType: "project_decision",
   observations: ["Chose REST over GraphQL for simplicity"]
@@ -157,7 +157,7 @@ Create project-specific instructions:
 Specialized agent for e-commerce platform development
 
 ## Memory Management - CHECK FIRST
-Search for: `mcp_memorymcpserv_search_nodes("ecommerce requirements")`
+Search for: `mcp_memoraimcpser_recall("ecommerce requirements")`
 
 ## Core Responsibilities
 1. Payment gateway integration
@@ -229,7 +229,7 @@ workspace-ai analyze --role senior-developer --suggest-improvements
 
 #### 1. Memory Search Returns Empty Results
 
-**Problem**: `mcp_memorymcpserv_search_nodes` returns no entities
+**Problem**: `mcp_memoraimcpser_recall` returns no entities
 
 **Solutions**:
 - Use broader search terms
@@ -239,11 +239,11 @@ workspace-ai analyze --role senior-developer --suggest-improvements
 
 ```typescript
 // ❌ Too specific
-mcp_memorymcpserv_search_nodes("complex multi-term query")
+mcp_memoraimcpser_recall("complex multi-term query")
 
 // ✅ Start broad
-mcp_memorymcpserv_search_nodes("project")
-mcp_memorymcpserv_search_nodes("architecture")
+mcp_memoraimcpser_recall("project")
+mcp_memoraimcpser_recall("architecture")
 ```
 
 #### 2. Instruction Quality Issues

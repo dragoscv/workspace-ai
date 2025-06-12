@@ -11,9 +11,9 @@ This system enables both human developers and AI agents to create well-structure
 
 ## Memory Management - CHECK FIRST
 Before creating or reviewing pull requests, ALWAYS:
-1. **Search for existing patterns**: `mcp_memorymcpserv_search_nodes("pr_template project_patterns")`
-2. **Check code standards**: `mcp_memorymcpserv_search_nodes("code_standards review_guidelines")`
-3. **Reference similar PRs**: `mcp_memorymcpserv_search_nodes("successful_pr patterns templates")`
+1. **Search for existing patterns**: `mcp_memoraimcpser_recall("pr_template project_patterns")`
+2. **Check code standards**: `mcp_memoraimcpser_recall("code_standards review_guidelines")`
+3. **Reference similar PRs**: `mcp_memoraimcpser_recall("successful_pr patterns templates")`
 4. **Store effective patterns**: Save successful PR formats with entity type `'pr_template'` or `'review_pattern'`
 5. **Track review feedback**: Store common review comments and improvements with entity type `'review_insights'`
 

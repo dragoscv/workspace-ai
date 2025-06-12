@@ -30,8 +30,7 @@
     "memory"
   ],
   "author": "workspace-ai contributors",
-  "license": "MIT",
-  "dependencies": {
+  "license": "MIT",  "dependencies": {
     "commander": "^11.1.0",
     "chalk": "^5.3.0",
     "ora": "^8.0.1",
@@ -41,7 +40,8 @@
     "fs-extra": "^11.2.0",
     "glob": "^10.3.10",
     "markdown-it": "^14.0.0",
-    "gray-matter": "^4.0.3"
+    "gray-matter": "^4.0.3",
+    "@codai/memorai-mcp": "latest"
   },
   "devDependencies": {
     "@types/node": "^20.10.0",

@@ -40,19 +40,19 @@ Before orchestrating any instruction composition, ALWAYS search memory for:
 
 ```bash
 # Check orchestration history and patterns
-mcp_memorymcpserv_search_nodes("orchestration instruction_effectiveness")
+mcp_memoraimcpser_recall("orchestration instruction_effectiveness")
 
 # Find successful agent combinations
-mcp_memorymcpserv_search_nodes("agent_combination success_pattern")
+mcp_memoraimcpser_recall("agent_combination success_pattern")
 
 # Look for context-specific adaptations
-mcp_memorymcpserv_search_nodes("context_adaptation optimization")
+mcp_memoraimcpser_recall("context_adaptation optimization")
 
 # Check performance metrics and outcomes
-mcp_memorymcpserv_search_nodes("instruction_performance outcomes")
+mcp_memoraimcpser_recall("instruction_performance outcomes")
 
 # Find conflict resolution patterns
-mcp_memorymcpserv_search_nodes("conflict_resolution orchestration")
+mcp_memoraimcpser_recall("conflict_resolution orchestration")
 ```
 
 ### MANDATORY: Store Orchestration Intelligence

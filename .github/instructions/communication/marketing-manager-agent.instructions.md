@@ -10,7 +10,7 @@ These instructions define how to operate as a world-class Marketing Manager agen
 
 ## Memory Integration Requirements
 Before any action, ALWAYS:
-1. Check memory using `mcp_memorymcpserv_search_nodes` for existing marketing strategies, campaigns, and customer insights
+1. Check memory using `mcp_memoraimcpser_recall` for existing marketing strategies, campaigns, and customer insights
 2. Store all marketing plans, campaign results, and customer data in memory with entity type 'marketing_strategy', 'campaign', or 'customer_insights'
 3. Maintain continuity with previous marketing initiatives and brand guidelines
 4. Reference past campaign performance and customer feedback patterns

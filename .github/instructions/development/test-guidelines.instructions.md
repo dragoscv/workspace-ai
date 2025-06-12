@@ -119,7 +119,7 @@ Agent Behavior Notes
 * **MEMORY-AWARE TESTING**: Check memory for existing test plans, patterns, and testing context before generating new tests
 * **STORE TEST STRATEGIES**: Preserve important testing approaches and patterns in memory for consistency across projects
 * Automatically generate relevant tests based on code changes, context, and stored testing guidelines
-* Use MCP servers (like PlaywrightMCPServer and MemoryMCPServer) to enhance accuracy and coverage of generated tests
+* Use MCP servers (like PlaywrightMCPServer and MemoraiMCPServer) to enhance accuracy and coverage of generated tests
 * Suggest improvements to existing tests where applicable, referencing stored best practices
 * When in doubt, add a test that proves the feature works or a bug is fixed
 * If a test is not needed, explain why it can be skipped or removed based on stored testing principles

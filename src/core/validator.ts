@@ -153,7 +153,7 @@ export class InstructionValidator {
   }
 
   private async validateMemoryManagement(instruction: InstructionFile): Promise<ValidationResult[]> {
-    const memoryMatch = instruction.content.match(/Memory Management|CHECK FIRST|mcp_memorymcpserv_search_nodes/i);
+    const memoryMatch = instruction.content.match(/Memory Management|CHECK FIRST|mcp_memoraimcpser_recall/i);
 
     if (!memoryMatch) {
       return [{

@@ -173,13 +173,13 @@ CEO Strategy → PM Requirements → CTO Architecture → Dev Implementation
 
 ```typescript
 // Example memory usage pattern
-mcp_memorymcpserv_search_nodes("ecommerce strategy")
+mcp_memoraimcpser_recall("ecommerce strategy")
 // Found: CEO market analysis, competitive positioning
 
-mcp_memorymcpserv_search_nodes("product requirements") 
+mcp_memoraimcpser_recall("product requirements") 
 // Found: PM user stories, acceptance criteria
 
-mcp_memorymcpserv_create_entities([{
+mcp_memoraimcpser_remember([{
   name: "Technical Architecture Decision",
   entityType: "project_decision",
   observations: ["Chose microservices for scalability", "Selected PostgreSQL for ACID compliance"]

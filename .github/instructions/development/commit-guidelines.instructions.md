@@ -11,9 +11,9 @@ The system ensures that every commit message provides clear context about the ch
 
 ## Memory Management - CHECK FIRST
 Before creating or reviewing commit messages, ALWAYS:
-1. **Search for project patterns**: `mcp_memorymcpserv_search_nodes("commit_patterns project_standards")`
-2. **Check previous commits**: `mcp_memorymcpserv_search_nodes("commit_history similar_changes")`
-3. **Reference scope conventions**: `mcp_memorymcpserv_search_nodes("commit_scope project_modules")`
+1. **Search for project patterns**: `mcp_memoraimcpser_recall("commit_patterns project_standards")`
+2. **Check previous commits**: `mcp_memoraimcpser_recall("commit_history similar_changes")`
+3. **Reference scope conventions**: `mcp_memoraimcpser_recall("commit_scope project_modules")`
 4. **Store effective patterns**: Save successful commit formats with entity type `'commit_template'` or `'commit_pattern'`
 5. **Track conventions**: Maintain project-specific scopes and standards with entity type `'commit_standards'`
 

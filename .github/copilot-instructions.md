@@ -30,7 +30,7 @@ This workspace contains a comprehensive instruction files system designed to ena
 
 ### MANDATORY: Check Memory First
 Before starting any task, ALL agents MUST:
-1. Search memory using `mcp_memorymcpserv_search_nodes` for:
+1. Search memory using `mcp_memoraimcpser_recall` for:
    - Existing plans: `search_nodes("plan task_list [keyword]")`
    - Previous prompts: `search_nodes("prompt user_instructions [keyword]")`
    - Task history: `search_nodes("[task] history context")`

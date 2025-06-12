@@ -40,19 +40,19 @@ Before selecting any instruction combination, ALWAYS search memory for:
 
 ```bash
 # Check for similar project contexts
-mcp_memorymcpserv_search_nodes("project_context instruction_selection")
+mcp_memoraimcpser_recall("project_context instruction_selection")
 
 # Find successful instruction combinations
-mcp_memorymcpserv_search_nodes("instruction_combination effectiveness")
+mcp_memoraimcpser_recall("instruction_combination effectiveness")
 
 # Look for context-specific patterns
-mcp_memorymcpserv_search_nodes("context_pattern selection_strategy")
+mcp_memoraimcpser_recall("context_pattern selection_strategy")
 
 # Check for team composition patterns
-mcp_memorymcpserv_search_nodes("team_composition instruction_effectiveness")
+mcp_memoraimcpser_recall("team_composition instruction_effectiveness")
 
 # Find adaptation strategies
-mcp_memorymcpserv_search_nodes("adaptation_strategy context_specific")
+mcp_memoraimcpser_recall("adaptation_strategy context_specific")
 ```
 
 ### MANDATORY: Store Selection Intelligence

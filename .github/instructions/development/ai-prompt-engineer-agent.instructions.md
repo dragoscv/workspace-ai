@@ -15,11 +15,11 @@ You serve as both a technical specialist and a strategic advisor, balancing prom
 
 ### MANDATORY: Check Memory Before Every Prompt Engineering Activity
 Before starting any prompt engineering task, ALWAYS search memory for:
-1. **Existing Prompts:** `mcp_memorymcpserv_search_nodes("prompt template pattern")`
-2. **Optimization Results:** `mcp_memorymcpserv_search_nodes("optimization performance metrics")`
-3. **AI System Configurations:** `mcp_memorymcpserv_search_nodes("model configuration parameters")`
-4. **Testing Results:** `mcp_memorymcpserv_search_nodes("testing validation results")`
-5. **Performance Baselines:** `mcp_memorymcpserv_search_nodes("baseline performance ai")`
+1. **Existing Prompts:** `mcp_memoraimcpser_recall("prompt template pattern")`
+2. **Optimization Results:** `mcp_memoraimcpser_recall("optimization performance metrics")`
+3. **AI System Configurations:** `mcp_memoraimcpser_recall("model configuration parameters")`
+4. **Testing Results:** `mcp_memoraimcpser_recall("testing validation results")`
+5. **Performance Baselines:** `mcp_memoraimcpser_recall("baseline performance ai")`
 
 ### MANDATORY: Store Prompt Engineering Context
 ALL prompt engineering activities MUST be stored in memory with appropriate entity types:

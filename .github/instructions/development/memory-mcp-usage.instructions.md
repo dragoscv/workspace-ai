@@ -15,7 +15,7 @@ This document defines the mandatory approach for using the Memory MCP Server eff
 
 ## 🚨 Critical Rules
 
-### Rule #1: NEVER Start with `mcp_memorymcpserv_read_graph()`
+### Rule #1: NEVER Start with `mcp_memoraimcpser_context()`
 - **Why:** Returns 15k+ characters of overwhelming data
 - **Impact:** Poor performance, context overflow, irrelevant information
 - **Exception:** Only when you absolutely need the complete knowledge graph structure
@@ -47,32 +47,33 @@ You MUST store in memory:
 ### For Project Status Inquiries
 ```javascript
 // First: Try specific project search
-const result = await mcp_memorymcpserv_search_nodes({ 
+const result = await mcp_memoraimcpser_recall({ 
   query: "[ProjectName] status completion" 
 });
 
 // If empty: Broaden to general status
 if (result.entities.length === 0) {
-  const broader = await mcp_memorymcpserv_search_nodes({ 
+  const broader = await mcp_memoraimcpser_recall({ 
     query: "project status" 
   });
 }
 
 // Last resort: Get specific entity
-const specific = await mcp_memorymcpserv_open_nodes({ 
-  names: ["[ProjectName] Project"] 
+const specific = await mcp_memoraimcpser_recall({ 
+  agentId: "user-agent",
+  query: "ProjectName Project"
 });
 ```
 
 ### For Technical Issues/Debugging
 ```javascript
 // Search for error patterns
-const errors = await mcp_memorymcpserv_search_nodes({ 
+const errors = await mcp_memoraimcpser_recall({ 
   query: "error issue failed [TechnologyName]" 
 });
 
 // Search by date for recent issues
-const recent = await mcp_memorymcpserv_search_nodes({ 
+const recent = await mcp_memoraimcpser_recall({ 
   query: "error June 8 2025" 
 });
 ```
@@ -80,12 +81,12 @@ const recent = await mcp_memorymcpserv_search_nodes({
 ### For Implementation Context
 ```javascript
 // Search for implementation details
-const impl = await mcp_memorymcpserv_search_nodes({ 
+const impl = await mcp_memoraimcpser_recall({ 
   query: "implementation architecture [FeatureName]" 
 });
 
 // Search by entity type
-const gaps = await mcp_memorymcpserv_search_nodes({ 
+const gaps = await mcp_memoraimcpser_recall({ 
   query: "implementation_gaps missing" 
 });
 ```
@@ -93,7 +94,7 @@ const gaps = await mcp_memorymcpserv_search_nodes({
 ### For Recent Updates/Current Work
 ```javascript
 // Always include current date in searches
-const current = await mcp_memorymcpserv_search_nodes({ 
+const current = await mcp_memoraimcpser_recall({ 
   query: "June 8 2025 current recent today" 
 });
 ```
@@ -101,12 +102,12 @@ const current = await mcp_memorymcpserv_search_nodes({
 ### For Plans and Task Management
 ```javascript
 // Search for existing plans before creating new ones
-const existingPlans = await mcp_memorymcpserv_search_nodes({ 
+const existingPlans = await mcp_memoraimcpser_recall({ 
   query: "plan task_list [taskKeyword]" 
 });
 
 // Store new plans with proper structure
-await mcp_memorymcpserv_create_entities({
+await mcp_memoraimcpser_remember({
   entities: [{
     entityType: "plan",
     name: "[Task/Project] Plan",
@@ -124,12 +125,12 @@ await mcp_memorymcpserv_create_entities({
 ### For Prompt and Context History
 ```javascript
 // Check for previous prompts and instructions
-const previousContext = await mcp_memorymcpserv_search_nodes({ 
+const previousContext = await mcp_memoraimcpser_recall({ 
   query: "prompt user_instructions [contextKeyword]" 
 });
 
 // Store important user instructions
-await mcp_memorymcpserv_create_entities({
+await mcp_memoraimcpser_remember({
   entities: [{
     entityType: "user_instructions",
     name: "[Context] Instructions",
@@ -146,12 +147,12 @@ await mcp_memorymcpserv_create_entities({
 ### For Task Continuity
 ```javascript
 // Always check for related work before starting
-const taskHistory = await mcp_memorymcpserv_search_nodes({ 
+const taskHistory = await mcp_memoraimcpser_recall({ 
   query: "[taskName] history context plan" 
 });
 
 // Maintain ongoing task state
-await mcp_memorymcpserv_add_observations({
+await mcp_memoraimcpser_remember({
   observations: [{
     entityName: "[Task] Progress",
     contents: [
@@ -220,17 +221,20 @@ Use these project name patterns:
 async function getMemoryContext(userQuery, projectHint = null) {
   // Step 1: Most specific search
   let query = projectHint ? `${projectHint} ${extractKeywords(userQuery)}` : extractKeywords(userQuery);
-  let result = await mcp_memorymcpserv_search_nodes({ query });
+  let result = await mcp_memoraimcpser_recall({ query });
   
   // Step 2: If no results, broaden search
   if (result.entities.length === 0) {
     query = extractKeywords(userQuery);
-    result = await mcp_memorymcpserv_search_nodes({ query });
+    result = await mcp_memoraimcpser_recall({ query });
   }
   
   // Step 3: If still no results, try entity type search
   if (result.entities.length === 0 && projectHint) {
-    result = await mcp_memorymcpserv_open_nodes({ names: [projectHint] });
+    result = await mcp_memoraimcpser_recall({ 
+      agentId: "user-agent",
+      query: projectHint
+    });
   }
   
   // Step 4: Last resort - never use read_graph() unless absolutely necessary
@@ -283,13 +287,13 @@ You must achieve:
 ### Never Do This:
 ```javascript
 // ❌ WRONG: Starting with full graph
-const memory = await mcp_memorymcpserv_read_graph();
+const memory = await mcp_memoraimcpser_context();
 
 // ❌ WRONG: Vague queries
-const result = await mcp_memorymcpserv_search_nodes({ query: "info" });
+const result = await mcp_memoraimcpser_recall({ query: "info" });
 
 // ❌ WRONG: No progressive loading
-const result = await mcp_memorymcpserv_search_nodes({ query: "project" });
+const result = await mcp_memoraimcpser_recall({ query: "project" });
 if (result.entities.length === 0) {
   // Give up - wrong approach
 }
@@ -298,12 +302,12 @@ if (result.entities.length === 0) {
 ### Always Do This:
 ```javascript
 // ✅ CORRECT: Specific, progressive approach
-const specific = await mcp_memorymcpserv_search_nodes({ 
+const specific = await mcp_memoraimcpser_recall({ 
   query: "GangGPT status June 8 2025" 
 });
 
 if (specific.entities.length === 0) {
-  const broader = await mcp_memorymcpserv_search_nodes({ 
+  const broader = await mcp_memoraimcpser_recall({ 
     query: "project status" 
   });
 }
@@ -367,16 +371,16 @@ Every agent interaction MUST follow this pattern:
 ### Phase 1: Context Discovery (REQUIRED)
 ```javascript
 // 1. Check for existing plans
-const plans = await mcp_memorymcpserv_search_nodes({ query: "plan task_list" });
+const plans = await mcp_memoraimcpser_recall({ query: "plan task_list" });
 
 // 2. Check for previous prompts/instructions  
-const prompts = await mcp_memorymcpserv_search_nodes({ query: "prompt user_instructions" });
+const prompts = await mcp_memoraimcpser_recall({ query: "prompt user_instructions" });
 
 // 3. Check task history if applicable
-const history = await mcp_memorymcpserv_search_nodes({ query: "[task] history context" });
+const history = await mcp_memoraimcpser_recall({ query: "[task] history context" });
 
 // 4. Check relevant project status
-const project = await mcp_memorymcpserv_search_nodes({ query: "[project] status" });
+const project = await mcp_memoraimcpser_recall({ query: "[project] status" });
 ```
 
 ### Phase 2: Task Execution
@@ -385,9 +389,9 @@ Execute the user's request with full context from Phase 1.
 ### Phase 3: Context Storage (REQUIRED)
 ```javascript
 // Store important plans, prompts, or progress updates
-await mcp_memorymcpserv_create_entities({ /* store relevant context */ });
+await mcp_memoraimcpser_remember({ /* store relevant context */ });
 // OR update existing entities
-await mcp_memorymcpserv_add_observations({ /* update progress */ });
+await mcp_memoraimcpser_remember({ /* update progress */ });
 ```
 
 This approach ensures optimal memory usage while maintaining comprehensive context awareness across all agent interactions.

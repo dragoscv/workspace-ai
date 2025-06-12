@@ -5,9 +5,9 @@ This system provides seamless integration with external knowledge sources, proje
 
 ## Memory Management - CHECK FIRST
 Before implementing integrations, ALWAYS:
-1. Search memory: `mcp_memorymcpserv_search_nodes("external integrations knowledge management")`
-2. Check existing: `mcp_memorymcpserv_search_nodes("project tools integration status")`
-3. Verify requirements: `mcp_memorymcpserv_search_nodes("integration requirements apis")`
+1. Search memory: `mcp_memoraimcpser_recall("external integrations knowledge management")`
+2. Check existing: `mcp_memoraimcpser_recall("project tools integration status")`
+3. Verify requirements: `mcp_memoraimcpser_recall("integration requirements apis")`
 
 Store in memory:
 - Integration configurations and credentials (`entity_type: 'integration_config'`)
