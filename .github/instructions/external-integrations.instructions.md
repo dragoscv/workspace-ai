@@ -4,15 +4,17 @@
 This system provides seamless integration with external knowledge sources, project management tools, and real-time updates to ensure AI agent instructions remain current, contextually aware, and aligned with evolving project requirements.
 
 ## Memory Management - CHECK FIRST
+✅ **MEMORAI MCP PRODUCTION-READY**: The memorai MCP system is fully operational and optimized for external integrations.
+
 Before implementing integrations, ALWAYS:
 1. Search memory: `mcp_memoraimcpser_recall("external integrations knowledge management")`
 2. Check existing: `mcp_memoraimcpser_recall("project tools integration status")`
 3. Verify requirements: `mcp_memoraimcpser_recall("integration requirements apis")`
 
-Store in memory:
-- Integration configurations and credentials (`entity_type: 'integration_config'`)
-- External knowledge sources and sync status (`entity_type: 'knowledge_source'`)
-- Context updates and change notifications (`entity_type: 'context_update'`)
+Store in memory using `mcp_memoraimcpser_remember`:
+- Integration configurations and credentials (`metadata: {entityType: 'integration_config'}`)
+- External knowledge sources and sync status (`metadata: {entityType: 'knowledge_source'}`)
+- Context updates and change notifications (`metadata: {entityType: 'context_update'}`)
 
 ## Core Integration Components
 
