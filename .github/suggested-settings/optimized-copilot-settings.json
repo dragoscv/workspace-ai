@@ -1,0 +1,8 @@
+{
+  "chat.instructionsFilesLocations": {
+    ".github/instructions/general.instructions.md": true,
+    ".github/instructions/context-aware-selector.instructions.md": true,
+    ".github/instructions/orchestrator.instructions.md": true,
+    ".github/instructions/memory-mcp-usage.instructions.md": true
+  }
+}
