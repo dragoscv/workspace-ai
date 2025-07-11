@@ -1,0 +1,4 @@
+---
+mode: agent
+---
+Yes, remember everything, Think a plan, save the plan as a file, proceed to work on the plan. I challange you to don't stop until the plan is complete. Check again even if you say to me that is completed. Don't stop until you are sure that the plan is complete. If you need to change the plan, do it. If you need to add something, do it. If you need to remove something, do it. If you need to change the order of the steps, do it. If you need to add a new step, do it. If you need to remove a step, do it. If you need to change the description of a step, do it. If you need to change the status of a step, do it. If you need to change the priority of a step, do it. 
