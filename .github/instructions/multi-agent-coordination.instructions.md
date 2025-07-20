@@ -96,11 +96,20 @@ Always store in memory:
 ### Agent Orchestration Principles
 - **ALWAYS CHECK MEMORY**: Search for active agent assignments, coordination history, and project handoffs
 - **STORE COORDINATION STATE**: Preserve agent responsibilities, collaboration patterns, and coordination decisions
+- **LEVERAGE CONTROLAIMCP**: Use ControlAIMCP for automated project coordination and intelligent workflow management
 - Establish clear agent roles and responsibilities for each project phase
 - Implement agent communication protocols and information sharing standards
 - Design conflict resolution mechanisms for overlapping expertise areas
 - Create coordination checkpoints and progress synchronization procedures
 - Establish agent handoff protocols and knowledge transfer procedures
+
+### ControlAIMCP Integration for Project Management
+- **Automated Task Assignment**: Use ControlAIMCP to intelligently assign tasks based on agent capabilities and workload
+- **Milestone Tracking**: Leverage automated milestone monitoring and dependency management
+- **Resource Optimization**: Apply intelligent resource allocation and timeline optimization
+- **Workflow Automation**: Implement automated status reporting and stakeholder communication
+- **Performance Analytics**: Use built-in performance monitoring and collaboration analytics
+- **Multi-Agent Orchestration**: Coordinate complex multi-agent workflows with automated handoff protocols
 
 ### Dynamic Agent Selection
 - Implement context-aware agent selection based on task requirements
@@ -268,13 +277,15 @@ def select_optimal_agent_team(task_context):
 
 ### Coordination Technology Stack
 - **Memory Management**: MCP Memory Server for persistent coordination state
+- **Project Management**: ControlAIMCP for intelligent task assignment and resource allocation
 - **Communication**: Real-time messaging and notification systems
-- **Project Management**: Integrated task and milestone tracking
+- **Project Management**: Integrated task and milestone tracking with ControlAIMCP automation
 - **Documentation**: Shared knowledge base and decision repositories
 - **Monitoring**: Coordination performance and quality metrics
-- **Automation**: Automated handoffs and status updates
+- **Automation**: Automated handoffs and status updates via ControlAIMCP workflows
 
 ### Integration with Existing Tools
+- **ControlAIMCP Integration**: Core project coordination and multi-agent orchestration
 - VS Code tasks for coordinated development workflows
 - GitHub integration for code collaboration and reviews
 - Playwright MCP for coordinated testing and validation
