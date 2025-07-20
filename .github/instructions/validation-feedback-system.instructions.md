@@ -2,11 +2,11 @@
 ✅ **MEMORAI MCP PRODUCTION-READY**: The memorai MCP system is fully operational and optimized for validation feedback systems.
 
 Before implementing validation systems, ALWAYS:
-1. Search memory: `mcp_memoraimcpser_recall("validation feedback system metrics")`
-2. Check existing: `mcp_memoraimcpser_recall("instruction effectiveness data")`
-3. Verify project context: `mcp_memoraimcpser_recall("project validation requirements")`
+1. Search memory: `mcp_memoraimcp_recall("validation feedback system metrics")`
+2. Check existing: `mcp_memoraimcp_recall("instruction effectiveness data")`
+3. Verify project context: `mcp_memoraimcp_recall("project validation requirements")`
 
-Store in memory using `mcp_memoraimcpser_remember`:
+Store in memory using `mcp_memoraimcp_remember`:
 - Validation rules and criteria (`metadata: {entityType: 'validation_rules'}`)
 - Effectiveness metrics and trends (`metadata: {entityType: 'instruction_metrics'}`)
 - Feedback data and improvement suggestions (`metadata: {entityType: 'instruction_feedback'}`)alidation and Feedback System
@@ -16,9 +16,9 @@ This system provides real-time validation, effectiveness measurement, and contin
 
 ## Memory Management - CHECK FIRST
 Before implementing validation, ALWAYS:
-1. Search memory: `mcp_memoraimcpser_recall("validation feedback system metrics")`
-2. Check existing: `mcp_memoraimcpser_recall("instruction effectiveness data")`
-3. Verify project context: `mcp_memoraimcpser_recall("project validation requirements")`
+1. Search memory: `mcp_memoraimcp_recall("validation feedback system metrics")`
+2. Check existing: `mcp_memoraimcp_recall("instruction effectiveness data")`
+3. Verify project context: `mcp_memoraimcp_recall("project validation requirements")`
 
 Store in memory:
 - Validation rules and criteria (`entity_type: 'validation_rules'`)
@@ -73,7 +73,7 @@ class InstructionValidator {
       severity: 'error',
       category: 'memory',
       validator: (instruction) => {
-        const hasMemoryCheck = instruction.content.includes('mcp_memoraimcpser_recall');
+        const hasMemoryCheck = instruction.content.includes('mcp_memoraimcp_recall');
         if (!hasMemoryCheck) {
           return [{
             ruleId: 'memory-check-required',

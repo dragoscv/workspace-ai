@@ -2,7 +2,24 @@
 applyTo: "**"
 ---
 
-# 🧠 Context-Aware Instruction Selector
+# 🧠 Context-Awar# Check for similar project contexts
+mcp_memoraimcp_recall("project_context instruction_selection");
+
+# Find successful instruction combinations
+mcp_memoraimcp_recall("instruction_combination effectiveness");
+
+# Look for context-specific patterns
+mcp_memoraimcp_recall("context_pattern selection_strategy");
+
+# Check for team composition patterns
+mcp_memoraimcp_recall("team_composition instruction_effectiveness");
+
+# Find adaptation strategies
+mcp_memoraimcp_recall("adaptation_strategy context_specific");
+```
+
+### MANDATORY: Store Selection Intelligence
+Always store in memory using `mcp_memoraimcp_remember`:ctor
 
 ## Overview
 

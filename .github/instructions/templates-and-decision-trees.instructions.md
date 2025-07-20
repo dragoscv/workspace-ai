@@ -15,16 +15,16 @@ The memorai MCP system is **fully operational and production-ready**, providing 
 ### MANDATORY: Search Memory Before Template Selection
 ```typescript
 // Search for existing templates and usage patterns using production-ready memorai MCP
-await mcp_memoraimcpser_recall("template project_type [specific_type]");
-await mcp_memoraimcpser_recall("decision_tree workflow [domain]");
-await mcp_memoraimcpser_recall("template_effectiveness metrics [project_context]");
-await mcp_memoraimcpser_recall("project_template customization [similar_context]");
+await mcp_memoraimcp_recall("template project_type [specific_type]");
+await mcp_memoraimcp_recall("decision_tree workflow [domain]");
+await mcp_memoraimcp_recall("template_effectiveness metrics [project_context]");
+await mcp_memoraimcp_recall("project_template customization [similar_context]");
 ```
 
 ### Store Template Usage and Effectiveness
 ```typescript
 // Store template selections and outcomes using memorai MCP
-await mcp_memoraimcpser_remember({
+await mcp_memoraimcp_remember({
   content: "[ProjectName] Template Selection - [outcome]",
   metadata: { entityType: "template_usage", effectiveness: "high/medium/low" }
 });

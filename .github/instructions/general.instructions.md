@@ -164,14 +164,14 @@ test('complete user registration flow', async ({ page }) => {
 
 ## 🧠 Memory & Context - PRODUCTION-READY SYSTEM
 
-- **✅ MEMORAI MCP READY**: The production-grade memorai MCP system is fully operational and optimized
-- **ALWAYS CHECK MEMORY FIRST**: Before starting any task, use `mcp_memoraimcpser_recall` to check for existing plans, prompts, and task history
-- **STORE IMPORTANT CONTEXT**: Store user plans, task lists, and multi-step procedures in memory with `mcp_memoraimcpser_remember` and `metadata: {entityType: 'plan'}` or `{entityType: 'task_list'}`
+- **✅ MEMORAI MCP READY**: The production-grade MemoraiMCP system is fully operational and optimized
+- **ALWAYS CHECK MEMORY FIRST**: Before starting any task, use `mcp_memoraimcp_recall` to check for existing plans, prompts, and task history
+- **STORE IMPORTANT CONTEXT**: Store user plans, task lists, and multi-step procedures in memory with `mcp_memoraimcp_remember` and `metadata: {entityType: 'plan'}` or `{entityType: 'task_list'}`
 - **PRESERVE PROMPTS**: Keep important user prompts and instructions in memory with `metadata: {entityType: 'prompt'}` or `{entityType: 'user_instructions'}`
 - **MAINTAIN CONTINUITY**: Reference previous work and check for existing plans/prompts before creating new ones
-- **PRODUCTION PERFORMANCE**: Memorai MCP delivers 95% efficiency improvements and sub-3-second response times
+- **PRODUCTION PERFORMANCE**: MemoraiMCP v@latest delivers 95% efficiency improvements and sub-3-second response times
 - Always consider local file context, open tabs, selection history, and stored memory when generating or editing
-- Follow the comprehensive guidelines in `memory-mcp-usage.instructions.md` for optimal memory management
+- Follow the comprehensive guidelines in `mcp-usage.instructions.md` for optimal memory management
 
 ---
 
