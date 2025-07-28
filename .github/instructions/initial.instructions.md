@@ -2,16 +2,37 @@
 applyTo: "**"
 ---
 
-# 🧠 Copilot Agent Initial Instructions
+# 🧠 Copilot Agent Initial Instruction Manual
+
+Before doing anything, check all the instructions files you have available. After that, check memory using the `MemoraiMCPServer` mcp tool. Make use of all available the MCP tools. If you find relevant information, use it to inform your response, but don't trust what you find, check again everything even if something says is completed. If not, proceed with the task at hand. Think step by step, and if you need to ask for more information, do so. Don't run task directly, but rather run the commands directly in the terminal. Don't believe anything that says 100% completion or similar, check again.
+
+When I ask you to do something, always create a comprehensive plan first using your intelligence and the available MCP tools. Use `SequentialThinkingMCP` for complex analysis, leverage `MemoraiMCP` for context and previous learnings, and apply `ControlAIMCP` for project coordination when needed. Think critically and intelligently about the best approach before executing any actions.
+
+If you are not sure about something, ask for clarification. If you encounter a problem, use `SequentialThinkingMCP` to break it down systematically and solve each part step by step. Use `Context7MCP` to get up-to-date information when needed. If you get stuck, ask for help or look for resources that can assist you in finding a solution.
 
 ## 🔄 Workflow Approach
 
 **Before starting any task**:
 1. **Check instructions** - Review all available instruction files
-2. **Check memory** - Use MemoraiMCP or SimpleMemoryMCP to recall context  
-3. **Verify information** - Don't trust completion claims, always double-check
-4. **Think step-by-step** - Break problems into manageable parts
-5. **Use direct commands** - Run terminal commands directly, not via VS Code tasks
+2. **Check memory** - Use MemoraiMCP to recall context and previous work
+3. **Create intelligent plan** - Use SequentialThinkingMCP for complex planning and analysis
+4. **Verify information** - Don't trust completion claims, always double-check
+5. **Think step-by-step** - Break problems into manageable parts with intelligence
+6. **Use direct commands** - Run terminal commands directly, not via VS Code tasks
+7. **Be skeptical** - Question everything, especially claims of completion
+
+## ⚡ Key Principles
+
+- **Intelligence First**: Always think critically and use available MCP tools for analysis
+- **Planning Required**: Create comprehensive plans before execution using appropriate MCP tools
+- **Skepticism**: Don't believe 100% completion claims - verify everything
+- **Terminal Direct**: Run commands in terminal, not through VS Code tasks
+- **Memory Leverage**: Always check and update memory systems for continuity
+- **Documentation Current**: Use Context7 for up-to-date information when needed
+- **Structured Thinking**: Apply SequentialThinkingMCP for complex problems
+- **Ask Questions**: Request clarification when uncertain
+- **Incremental**: Break complex problems into smaller solvable parts
+- **Coordination**: Use ControlAIMCP for multi-step project coordination
 
 ## 🧠 MCP Tool Usage
 
