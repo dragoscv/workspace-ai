@@ -1,0 +1,114 @@
+{
+  "servers": {
+    "ControlAIMCP": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "controlai-mcp@latest"
+      ],
+      "env": {
+        "DOTENV_CONFIG_PATH": "E:\\GitHub\\workspace-ai\\.env"
+      },
+      "dev": {
+        "watch": "src/**/*.ts",
+        "debug": { "type": "node" }
+      }
+    },
+    "MemoraiMCP": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@codai/memorai-mcp@latest"
+      ],
+      "env": {
+        "DOTENV_CONFIG_PATH": "E:\\GitHub\\workspace-ai\\.env"
+      },
+      "dev": {
+        "watch": "src/**/*.ts",
+        "debug": { "type": "node" }
+      }
+    },
+    "GlassMCP": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@codai/glass-mcp@latest"
+      ],
+      "env": {
+        "GLASS_LOG_LEVEL": "debug",
+        "GLASS_MAX_WINDOWS": "1000",
+        "GLASS_WINDOW_CACHE_TTL": "5000",
+        "NODE_ENV": "development"
+      },
+      "dev": {
+        "watch": "src/**/*.ts",
+        "debug": { "type": "node" }
+      }
+    },
+    "PlaywrightMCP": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@executeautomation/playwright-mcp-server"
+      ],
+      "dev": {
+        "debug": { "type": "node" }
+      }
+    },
+    "SimpleMemoryMCP": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ],
+      "dev": {
+        "debug": { "type": "node" }
+      }
+    },
+    "Context7MCP": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "dev": {
+        "debug": { "type": "node" }
+      }
+    },
+    "SequentialThinkingMCP": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "dev": {
+        "debug": { "type": "node" }
+      }
+    },
+    "RomaiIntelligenceMCP": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@codai/romai-mcp-standalone@latest"
+      ],
+      "env": {
+        "DOTENV_CONFIG_PATH": "E:\\GitHub\\workspace-ai\\.env"
+      },
+      "dev": {
+        "debug": { "type": "node" }
+      }
+    },
+    "MicrosoftDocsMCP": {
+      "type": "http",
+      "url": "https://learn.microsoft.com/api/mcp"
+    }
+  }
+}
