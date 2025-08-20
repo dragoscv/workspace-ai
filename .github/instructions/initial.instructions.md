@@ -25,7 +25,7 @@ Use these MCP tools effectively based on their official capabilities:
   - **CRITICAL**: Use VERY frequently - mark todos in-progress before starting, completed immediately after finishing
 
 ### Memory Management
-- **MemoraiMCP** (HTTP/SSE localhost:8002) - Advanced persistent memory with agent isolation
+- **MemoraiMCP** (HTTP/SSE localhost:4950) - Advanced persistent memory with agent isolation
   - Tools: `remember`, `recall`, `forget`, `context`
   - Use for: Cross-session context, project memory, decision history
 - **SimpleMemoryMCP** (stdio/npx) - Knowledge graph memory system
