@@ -1,34 +1,26 @@
 # GitHub Copilot Instructions for Workspace AI
 
-## Overview
-This workspace contains a comprehensive instruction files system designed to enable world-class AI agent operation across all business and technical roles. These instructions ensure consistent, professional, and highly effective agent behavior for project development.
+## 🎯 Quick Start
 
-## Instruction Files Structure
+**Core Instructions**: `initial.instructions.md` - Main workflow and MCP usage  
+**Enterprise Template**: `enterprise-development-template.instructions.md` - For new app development  
+**Memory System**: MemoraiMCP - Always check context first, store decisions  
 
-### Business Leadership (`.github/instructions/business/`)
-- **CEO Agent** (`ceo-agent.instructions.md`) - Executive leadership, strategy, and vision
-- **CTO Agent** (`cto-agent.instructions.md`) - Technical leadership and architecture
-- **CFO Agent** (`cfo-agent.instructions.md`) - Financial management and operations
-- **Product Manager Agent** (`product-manager-agent.instructions.md`) - Product strategy and roadmap
+## 📁 Instruction Files Structure
 
-### Development Team (`/instructions/development/`)
-- **Senior Developer Agent** (`senior-developer-agent.instructions.md`) - Architecture and code excellence
-- **DevOps Engineer Agent** (`devops-engineer-agent.instructions.md`) - Infrastructure and deployment
-- **QA Engineer Agent** (`qa-engineer-agent.instructions.md`) - Quality assurance and testing
+**Core System**:
+- `initial.instructions.md` - Main entry point, workflow, MCP tools
+- `general.instructions.md` - Code quality, testing, documentation standards
+- `mcp-usage-quick-reference.instructions.md` - Streamlined MCP tool guide
 
-### Communication & Marketing (`.github/instructions/communication/`)
-- **Marketing Manager Agent** (`marketing-manager-agent.instructions.md`) - Marketing strategy and campaigns
-- **Sales Manager Agent** (`sales-manager-agent.instructions.md`) - Revenue generation and sales process
-- **UX Designer Agent** (`ux-designer-agent.instructions.md`) - User experience and design
-- **Content Creator Agent** (`content-creator-agent.instructions.md`) - Content strategy and creation
+**Business Leadership**: CEO, CTO, CFO, Product Manager agents  
+**Development Team**: Senior Developer, DevOps, QA, Security Engineer agents  
+**Communication**: Marketing, Sales, UX Designer, Content Creator agents  
+**Operations**: Project Manager, Customer Success agents  
 
-### Operations & Support (`/instructions/operations/`)
-- **Project Manager Agent** (`project-manager-agent.instructions.md`) - Project execution and coordination
-- **Customer Success Agent** (`customer-success-agent.instructions.md`) - Customer relationship management
+**Specialized**: Multi-agent coordination, orchestrator, context-aware selector, templates/decision trees
 
-## Memory Integration Requirements
-
-### ✅ PRODUCTION-READY: Memorai MCP Server Integration
+## 🧠 Memory Integration - PRODUCTION READY
 The Memorai MCP Server is **fully operational and production-ready**, providing advanced memory management capabilities for all AI agents in this workspace.
 
 ### MANDATORY: Check Memory First
@@ -96,6 +88,56 @@ Key global standards maintained:
 - **Security**: Input sanitization, data protection, compliance standards
 - **Accessibility**: WCAG 2.1 AA compliance, inclusive design
 - **Development**: Conventional commits, proper PR processes, comprehensive documentation
+
+## VS Code Extensions & MCP Integration
+
+### Essential Extensions Configuration
+The workspace includes carefully selected VS Code extensions that complement our MCP server ecosystem:
+
+**GitHub Workflow Extensions**:
+- **GitHub Pull Requests and Issues** - UI-based PR and issue management
+- **GitLens** - Enhanced Git capabilities with blame annotations and history
+- **Git Graph** - Visual repository graph for branch management
+
+**Development Productivity Extensions**:
+- **Todo Tree** - Code-level task tracking (TODO, FIXME, NOTE comments)
+- **Project Manager** - Quick workspace switching and project organization
+
+### MCP vs Extension Usage Strategy
+
+**Use VS Code Extensions For**:
+- Visual Git operations and history exploration
+- Interactive PR reviews and GitHub issue management
+- Code-level TODO management and navigation
+- Project workspace switching and organization
+- Real-time code annotations and blame information
+
+**Use MCP Servers For**:
+- AI agent automation and programmatic operations
+- Persistent memory management across sessions
+- Cross-application integration (Windows, browser automation)
+- Up-to-date documentation retrieval and research
+- Structured problem-solving and complex reasoning
+
+### Integration Best Practices
+```yaml
+Optimal Workflow Integration:
+  GitHub Operations:
+    - Use GitHub Pull Requests extension for UI-based PR management
+    - Use GitLens for code history and blame annotations
+    - Use Git Graph for visual branch management
+    - Use MCP tools for automated GitHub operations and analysis
+    
+  Task Management:
+    - Use Todo Tree extension for in-code task tracking
+    - Use Copilot todos tool (MCP) for project-level task planning
+    - Combine both for comprehensive task visibility
+    
+  Documentation & Research:
+    - Use Context7MCP for up-to-date library documentation
+    - Use Microsoft Docs MCP for official documentation
+    - Use VS Code's built-in viewers for local documentation
+```
 
 ## Usage Guidelines
 

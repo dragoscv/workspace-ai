@@ -216,12 +216,57 @@ test('complete user registration flow', async ({ page }) => {
 
 ---
 
+## 🔧 VS Code Extensions Integration
+
+### Essential Extensions for Development Workflow
+- **GitHub Pull Requests & Issues** (`github.vscode-pull-request-github`): Use for GitHub workflow management, PR reviews, and issue tracking
+- **GitLens** (`eamodio.gitlens`): Enhanced Git capabilities - blame annotations, repository insights, and file history
+- **Git Graph** (`mhutchie.git-graph`): Visual Git repository graph for branch management and commit visualization
+- **Todo Tree** (`gruntfuggly.todo-tree`): Manage TODO, FIXME, and NOTE comments across the codebase
+- **Project Manager** (`alefragnani.project-manager`): Quick project switching and workspace management
+
+### Extension vs MCP Server Usage Guidelines
+
+#### Use VS Code Extensions For:
+- **UI-Based Workflows**: Visual Git operations, PR reviews, project navigation
+- **Interactive Features**: Code annotations, visual graphs, workspace management
+- **User Interface Enhancements**: Enhanced Git blame, TODO management, project switching
+- **Developer Experience**: Quick access to GitHub features, visual repository insights
+
+#### Use MCP Servers For:
+- **Programmatic Operations**: AI agent automation, scripted tasks, background processes
+- **Cross-Application Integration**: Windows automation, browser automation, external APIs
+- **AI-Specific Features**: Memory management, documentation retrieval, structured thinking
+- **Workflow Automation**: Automated testing, deployment processes, data processing
+
+### Extension Usage Best Practices
+```yaml
+GitHub Workflow:
+  - Use GitHub Pull Requests extension for PR creation, review, and merge
+  - Use GitLens for code history analysis and blame annotations
+  - Use Git Graph for visual branch management and merge planning
+  - Reference GitHub issues directly in commit messages and PR descriptions
+
+Task Management:
+  - Use Todo Tree extension for code-level task tracking (TODO, FIXME, NOTE)
+  - Use GitHub Copilot todos tool (MCP) for project-level task planning
+  - Combine both for comprehensive task visibility across code and project levels
+
+Project Navigation:
+  - Use Project Manager extension for quick workspace switching
+  - Organize projects by type, client, or development stage
+  - Maintain consistent project naming conventions
+```
+
+---
+
 ## 🤖 Agent Awareness Summary
 
 Always use:
 - `.github/instructions/` files for scoped guidance.
-- `MemoraiMCPServer` for context.
-- `PlaywrightMCPServer` for test automation.
+- `MemoraiMCPServer` for context and memory management.
+- `PlaywrightMCPServer` for test automation and browser workflows.
+- VS Code extensions for UI-based development workflows.
 - The latest experimental Copilot Agent capabilities as defined in global settings.
 
 ---
