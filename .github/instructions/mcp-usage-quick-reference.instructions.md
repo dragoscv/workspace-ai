@@ -4,7 +4,7 @@ applyTo: "**'
 
 # 🧠 MCP Usage Guide - Quick Reference
 
-## 🔧 8 Active MCP Servers
+## 🔧 9 Active MCP Servers
 **Location**: `C:\Users\vladu\VS Code Insiders Profiles\Dragos_metu\User\profiles\2843e\mcp.json`
 
 ### Core Tools
@@ -12,6 +12,7 @@ applyTo: "**'
 **GitHub Copilot Todos** (Built-in) - `manage_todo_list`  
 **Context7MCP** (stdio) - `resolve-library-id`, `get-library-docs` - Add "use context7"  
 **Sequential-thinking MCP** (stdio) - `sequential_thinking`  
+**Web Search MCP** (Extension) - `vscode-websearchforcopilot_webSearch`  
 
 ### Automation & Testing
 **GlassMCP** (stdio) - 8 tools: `window_list`, `window_focus`, `window_send_text`, `window_send_text_by_title`, `window_extract_text`, `window_extract_text_by_title`, `clipboard_get_text`, `clipboard_set_text`  
@@ -26,8 +27,9 @@ applyTo: "**'
 1. **Check Memory First**: `mcp_memoraimcp_recall` with agent ID and search query
 2. **Plan Complex Work**: `manage_todo_list` with operation="write"
 3. **Get Current Docs**: Add "use context7" to prompts or use `mcp_context7mcp_resolve-library-id` + `mcp_context7mcp_get-library-docs`
-4. **Store Decisions**: `mcp_memoraimcp_remember` with agent ID, content, and metadata
-5. **Complex Analysis**: Use `mcp_sequentialthi_sequentialthinking` tool
+4. **Search Web Info**: `vscode-websearchforcopilot_webSearch` for current information and trends
+5. **Store Decisions**: `mcp_memoraimcp_remember` with agent ID, content, and metadata
+6. **Complex Analysis**: Use `mcp_sequentialthi_sequentialthinking` tool
 
 ## 🎯 Best Practices
 
@@ -45,6 +47,7 @@ applyTo: "**'
 - "use context7" for up-to-date library docs
 - "use library /library-name" for specific libraries
 - Search Microsoft docs for official guidance
+- Use web search for current trends and real-time information
 
 **Tool Selection**:
 - All tools available in agent mode

@@ -25,24 +25,24 @@ The Memorai MCP Server is **fully operational and production-ready**, providing 
 
 ### MANDATORY: Check Memory First
 Before starting any task, ALL agents MUST:
-1. Search memory using `mcp_memoraimcpser_recall` for:
-   - Existing plans: `mcp_memoraimcpser_recall("plan task_list [keyword]")`
-   - Previous prompts: `mcp_memoraimcpser_recall("prompt user_instructions [keyword]")`
-   - Task history: `mcp_memoraimcpser_recall("[task] history context")`
-   - Project status: `mcp_memoraimcpser_recall("[project] status")`
+1. Search memory using `mcp_memoraimcp_recall` for:
+   - Existing plans: `mcp_memoraimcp_recall("plan task_list [keyword]")`
+   - Previous prompts: `mcp_memoraimcp_recall("prompt user_instructions [keyword]")`
+   - Task history: `mcp_memoraimcp_recall("[task] history context")`
+   - Project status: `mcp_memoraimcp_recall("[project] status")`
 
 ### MANDATORY: Store Important Context
-ALL agents MUST store in memory using `mcp_memoraimcpser_remember`:
+ALL agents MUST store in memory using `mcp_memoraimcp_remember`:
 - User plans and procedures (`metadata: {entityType: 'plan'}` or `{entityType: 'task_list'}`)
 - Important prompts and instructions (`metadata: {entityType: 'prompt'}` or `{entityType: 'user_instructions'}`)
 - Task progress and status (`metadata: {entityType: 'task_progress'}`)
 - Project context and decisions (`metadata: {entityType: 'project_context'}`)
 
 ### Progressive Memory Loading - OPTIMIZED FOR PRODUCTION
-1. Start with specific searches using `mcp_memoraimcpser_recall`, never use `mcp_memoraimcpser_context()` first
+1. Start with specific searches using `mcp_memoraimcp_recall`, never use `mcp_memoraimcp_context()` first
 2. Use targeted, single-keyword queries for better performance
 3. Reference previous work to maintain continuity
-4. Update memory with new insights and decisions using `mcp_memoraimcpser_remember`
+4. Update memory with new insights and decisions using `mcp_memoraimcp_remember`
 5. **Follow production-grade memory optimization procedures** - all patterns are battle-tested
 
 ### CRITICAL: Memory Search Best Practices - PRODUCTION GUIDELINES
@@ -136,6 +136,7 @@ Optimal Workflow Integration:
   Documentation & Research:
     - Use Context7MCP for up-to-date library documentation
     - Use Microsoft Docs MCP for official documentation
+    - Use Web Search MCP for current trends and real-time information
     - Use VS Code's built-in viewers for local documentation
 ```
 

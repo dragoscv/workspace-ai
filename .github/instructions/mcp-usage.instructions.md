@@ -9,7 +9,7 @@ This guide provides comprehensive instructions for using the configured MCP serv
 ## 🔧 Current MCP Configuration
 **Location**: `C:\Users\vladu\VS Code Insiders Profiles\Dragos_metu\User\profiles\2843e\mcp.json`
 
-Your environment includes 8 active MCP servers providing specialized tools and capabilities:
+Your environment includes 9 active MCP servers providing specialized tools and capabilities:
 - **MemoraiMCP**: Advanced memory management with agent isolation
 - **GlassMCP**: Windows automation and UI interaction
 - **PlaywrightMCP**: Browser automation and web testing
@@ -18,6 +18,7 @@ Your environment includes 8 active MCP servers providing specialized tools and c
 - **Sequential-thinking MCP**: Structured problem-solving and analysis
 - **Microsoft Docs MCP**: Official Microsoft documentation search
 - **GitHub MCP**: GitHub repository and issue management
+- **Web Search MCP**: Real-time web search for current information
 
 ---
 
@@ -894,5 +895,53 @@ list_issues --owner "username" --repo "project" --state "open" --labels "bug,urg
 - Store token securely in environment variables
 - Be cautious with destructive operations (delete_repository, delete_file)
 - Always test operations on non-critical repositories first
+
+---
+
+## 🌐 Web Search MCP - Real-Time Information
+**Transport**: Extension-based
+**Purpose**: Access current web information and research
+
+### Available Tools (1 tool):
+- `vscode-websearchforcopilot_webSearch` - Search the web for current information and context
+
+### Tool Parameters:
+```yaml
+vscode-websearchforcopilot_webSearch:
+  query (required): The search query to find relevant web information
+```
+
+### Usage Examples:
+```bash
+# Technology research
+vscode-websearchforcopilot_webSearch --query "React 18 new features best practices 2025"
+
+# API documentation
+vscode-websearchforcopilot_webSearch --query "OpenAI GPT-4 API rate limits pricing"
+
+# Current trends and news
+vscode-websearchforcopilot_webSearch --query "TypeScript 5.3 release notes changes"
+
+# Troubleshooting
+vscode-websearchforcopilot_webSearch --query "Node.js memory leak debugging tools"
+
+# Framework comparisons
+vscode-websearchforcopilot_webSearch --query "Next.js vs Nuxt.js performance comparison 2025"
+```
+
+### When to Use:
+- ✅ Need current information not available in documentation
+- ✅ Research emerging technologies and trends
+- ✅ Check latest API changes and updates
+- ✅ Find community solutions and best practices
+- ✅ Verify current library versions and compatibility
+- ✅ Get real-time market data or news
+
+### Best Practices:
+- Use specific, targeted queries for better results
+- Include year (2025) for current information
+- Combine with Context7MCP for comprehensive research
+- Verify information from multiple sources when critical
+- Use for dynamic information that changes frequently
 
 **Remember**: These MCP servers significantly extend your development capabilities. Use them actively and strategically to enhance your workflow efficiency and code quality!
