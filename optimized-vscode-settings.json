@@ -1,0 +1,40 @@
+{
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": false
+    },
+    "github.copilot.advanced": {
+        "debug.overrideEngine": "gpt-4o",
+        "debug.useNodeFetcher": true,
+        "inlineSuggestEnable": true,
+        "authProvider": "github-enterprise"
+    },
+    "chat.instructionsFilesLocations": [
+        {
+            "location": "e:\\GitHub\\workspace-ai\\.github\\instructions\\initial.instructions.md",
+            "applyTo": "**"
+        },
+        {
+            "location": "e:\\GitHub\\workspace-ai\\.github\\instructions\\general.instructions.md",
+            "applyTo": "**"
+        },
+        {
+            "location": "e:\\GitHub\\workspace-ai\\.github\\instructions\\enterprise-development-template.instructions.md",
+            "applyTo": "**"
+        },
+        {
+            "location": "e:\\GitHub\\workspace-ai\\.github\\instructions\\mcp-usage-quick-reference.instructions.md",
+            "applyTo": "**"
+        },
+        {
+            "location": "e:\\GitHub\\workspace-ai\\.github\\instructions\\context-aware-selector.instructions.md",
+            "applyTo": "**"
+        }
+    ],
+    "githubCopilot.editor.enableAutoCompletions": true,
+    "githubCopilot.conversation.enableCodeblockActions": true,
+    "mcp.enabled": true,
+    "mcp.serverLocation": "C:\\Users\\vladu\\VS Code Insiders Profiles\\Dragos_metu\\User\\profiles\\2843e\\mcp.json"
+}

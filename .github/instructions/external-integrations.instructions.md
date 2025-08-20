@@ -1,3 +1,7 @@
+---
+applyTo: "**/*"
+---
+
 # External Integrations and Knowledge Management System
 
 ## Overview

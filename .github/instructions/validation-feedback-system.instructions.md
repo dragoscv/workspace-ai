@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # Ins## Memory Management - CHECK FIRST
 ✅ **MEMORAI MCP PRODUCTION-READY**: The memorai MCP system is fully operational and optimized for validation feedback systems.
 

@@ -1,10 +1,10 @@
 ---
-applyTo: '**'
+applyTo: "**'
 ---
 
 # 🧠 MCP Usage Guide - Quick Reference
 
-## 🔧 7 Active MCP Servers
+## 🔧 9 Active MCP Servers
 **Location**: `C:\Users\vladu\VS Code Insiders Profiles\Dragos_metu\User\profiles\2843e\mcp.json`
 
 ### Core Tools
@@ -12,6 +12,10 @@ applyTo: '**'
 **GitHub Copilot Todos** (Built-in) - `manage_todo_list`  
 **Context7MCP** (stdio) - `resolve-library-id`, `get-library-docs` - Add "use context7"  
 **Sequential-thinking MCP** (stdio) - `sequential_thinking`  
+
+### Development & Version Control
+**Git MCP Server** (stdio) - 25+ Git tools: `git_init`, `git_clone`, `git_add`, `git_commit`, `git_push`, `git_pull`, `git_status`, `git_log`, `git_branch`, `git_checkout`, `git_merge`, `git_rebase`, `git_stash`, `git_tag`, `git_diff`, `git_reset`, `git_remote`, etc.  
+**GitHub MCP Server** (stdio) - Repository management, issues, PRs, releases, organizations, workflows  
 
 ### Automation
 **GlassMCP** (stdio) - 8 tools: `window_list`, `window_focus`, `window_send_text`, `window_send_text_by_title`, `window_extract_text`, `window_extract_text_by_title`, `clipboard_get_text`, `clipboard_set_text`  

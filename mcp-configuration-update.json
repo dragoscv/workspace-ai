@@ -1,0 +1,62 @@
+{
+  "mcpServers": {
+    "memorai": {
+      "command": "D:\\ai\\memorai-mcp-server\\target\\release\\memorai-mcp-server.exe",
+      "args": [],
+      "env": {
+        "DEBUG": "0"
+      }
+    },
+    "glassmcp": {
+      "command": "npx",
+      "args": [
+        "glassmcp"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "playwright-mcp-server"
+      ]
+    },
+    "simplememory": {
+      "command": "npx",
+      "args": [
+        "simplememory-mcp"
+      ]
+    },
+    "context7": {
+      "command": "npx",
+      "args": [
+        "context7mcp"
+      ]
+    },
+    "sequentialthinking": {
+      "command": "npx",
+      "args": [
+        "sequentialthinking-mcp"
+      ]
+    },
+    "microsoftdocs": {
+      "command": "npx",
+      "args": [
+        "microsoftdocs-mcp"
+      ]
+    },
+    "github": {
+      "command": "npx",
+      "args": [
+        "github-mcp-server"
+      ],
+      "env": {
+        "GITHUB_TOKEN": "your_github_token_here"
+      }
+    },
+    "git": {
+      "command": "npx",
+      "args": [
+        "@cyanheads/git-mcp-server"
+      ]
+    }
+  }
+}

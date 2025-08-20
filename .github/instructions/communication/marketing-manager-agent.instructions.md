@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # 📢 Marketing Manager Agent Instructions
 
 ## Overview

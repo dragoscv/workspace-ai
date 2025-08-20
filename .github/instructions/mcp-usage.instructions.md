@@ -1,5 +1,5 @@
 ---
-applyTo: '**'
+applyTo: "**'
 ---
 
 # 🧠 Model Context Protocol (MCP) Usage Guide
@@ -9,7 +9,9 @@ This guide provides comprehensive instructions for using the configured MCP serv
 ## 🔧 Current MCP Configuration
 **Location**: `C:\Users\vladu\VS Code Insiders Profiles\Dragos_metu\User\profiles\2843e\mcp.json`
 
-Your environment includes 7 active MCP servers providing specialized tools and capabilities.
+Your environment includes 12 active MCP servers providing specialized tools and capabilities:
+- **Core MCP Servers (7)**: MemoraiMCP, GlassMCP, PlaywrightMCP, SimpleMemoryMCP, Context7MCP, Sequential-thinking MCP, Microsoft Docs MCP
+- **AWS MCP Servers (5)**: AWS API, Amazon Rekognition, AWS Support, DynamoDB, ECS
 
 ---
 
@@ -582,5 +584,281 @@ manage_todo_list:
 3. **One In-Progress**: Limit to ONE todo marked as in-progress at a time
 4. **Specific Descriptions**: Include file paths, specific methods, or acceptance criteria in descriptions
 5. **Frequent Usage**: Use for ANY complex work to ensure task visibility and proper planning
+
+---
+
+## 🚀 AWS MCP Servers - Enterprise Integration
+
+### AWS API MCP Server
+**Command**: `awslabs.aws-api-mcp-server`
+**Purpose**: Execute AWS CLI commands with validation and intelligent suggestions
+
+#### Available Tools (2 tools):
+- `call_aws` - Execute AWS CLI commands with proper error handling and validation
+- `suggest_aws_commands` - Get AI-powered AWS CLI command suggestions based on natural language queries
+
+#### Usage Examples:
+```
+# Execute AWS commands safely
+call_aws --command "aws s3 ls" --validate true
+
+# Get command suggestions
+suggest_aws_commands --query "list all EC2 instances in us-east-1"
+```
+
+### Amazon Rekognition MCP Server
+**Command**: `awslabs.amazon-rekognition-mcp-server`
+**Purpose**: Computer vision and image analysis using AWS Rekognition
+
+#### Available Tools (5 tools):
+- `detect_labels` - Detect objects, scenes, and activities in images
+- `detect_faces` - Analyze faces including demographics and emotions
+- `detect_text` - Extract text from images (OCR)
+- `detect_celebrities` - Identify famous people in images
+- `detect_unsafe_content` - Content moderation and safety detection
+
+#### Usage Examples:
+```
+# Analyze image content
+detect_labels --image_path "./product-photo.jpg" --max_labels 10
+
+# Extract text from documents
+detect_text --image_path "./invoice.pdf" --confidence_threshold 90
+```
+
+### AWS Support MCP Server
+**Command**: `awslabs.aws-support-mcp-server`
+**Purpose**: AWS support case management and troubleshooting assistance
+
+#### Available Tools (5 tools):
+- `create_case` - Create new AWS support cases
+- `list_cases` - List existing support cases with filtering
+- `get_case` - Retrieve detailed case information
+- `add_communication` - Add updates to existing cases
+- `resolve_case` - Close resolved support cases
+
+#### Usage Examples:
+```
+# Create support case
+create_case --subject "Database Performance Issue" --service "RDS" --severity "high"
+
+# List recent cases
+list_cases --status "open" --limit 10
+```
+
+### DynamoDB MCP Server
+**Command**: `awslabs.dynamodb-mcp-server`
+**Purpose**: NoSQL database operations and management
+
+#### Available Tools (8 tools):
+- `list_tables` - List all DynamoDB tables in the account
+- `describe_table` - Get detailed table information and schema
+- `query_table` - Query table data with conditions
+- `scan_table` - Scan entire table with optional filters
+- `get_item` - Retrieve specific item by key
+- `put_item` - Insert or update item
+- `update_item` - Update specific item attributes
+- `delete_item` - Remove item from table
+
+#### Usage Examples:
+```
+# Query user data
+query_table --table_name "Users" --key_condition "userId = :uid" --expression_values "{\":uid\": \"12345\"}"
+
+# Create new record
+put_item --table_name "Products" --item "{\"productId\": \"ABC123\", \"name\": \"Widget\", \"price\": 29.99}"
+```
+
+### ECS MCP Server
+**Command**: `ecs-mcp-server`
+**Purpose**: Amazon Elastic Container Service management
+
+#### Available Tools (1 comprehensive tool):
+- `ecs_resource_management` - Complete ECS resource lifecycle management including:
+  - **Clusters**: List, describe, create, update, delete
+  - **Services**: List, describe, create, update, delete
+  - **Tasks**: List, describe, run, start, stop
+  - **Task Definitions**: List, describe, register, deregister
+  - **Container Instances**: List, describe, register, deregister
+  - **ECR**: List repositories and container images
+
+#### Usage Examples:
+```
+# List all ECS clusters
+ecs_resource_management --operation "list_clusters"
+
+# Describe specific service
+ecs_resource_management --operation "describe_service" --cluster "my-cluster" --service "web-app"
+
+# Run new task
+ecs_resource_management --operation "run_task" --cluster "production" --task_definition "app:latest"
+```
+
+### AWS Configuration Requirements:
+- **AWS Profile**: Set `AWS_PROFILE` environment variable
+- **AWS Region**: Configure `AWS_REGION` (default: us-east-1)
+- **Permissions**: Ensure IAM permissions for respective services
+- **Credentials**: Valid AWS credentials configured via AWS CLI or IAM roles
+
+---
+
+## 🐙 Git MCP Server (@cyanheads/git-mcp-server)
+**Transport**: stdio  
+**Command**: `npx @cyanheads/git-mcp-server`
+
+### Available Tools (25+ Git tools):
+
+#### Core Git Operations:
+- `git_init` - Initialize a new Git repository
+- `git_clone` - Clone a remote repository
+- `git_status` - Show working tree status
+- `git_add` - Add files to staging area
+- `git_commit` - Create a new commit
+- `git_push` - Push changes to remote
+- `git_pull` - Pull changes from remote
+- `git_fetch` - Fetch from remote without merging
+
+#### Branch Management:
+- `git_branch` - List, create, or delete branches
+- `git_checkout` - Switch branches or restore files
+- `git_merge` - Merge branches
+- `git_rebase` - Reapply commits on another base
+
+#### History and Inspection:
+- `git_log` - Show commit history
+- `git_show` - Show commit details
+- `git_diff` - Show differences between commits/files
+- `git_blame` - Show who last modified each line
+
+#### Advanced Operations:
+- `git_stash` - Temporarily save changes
+- `git_tag` - Create, list, or delete tags
+- `git_reset` - Reset current HEAD to specified state
+- `git_revert` - Create new commit that undoes changes
+- `git_cherry_pick` - Apply specific commits
+- `git_remote` - Manage remote repositories
+- `git_config` - Get/set repository configuration
+- `git_clean` - Remove untracked files
+- `git_archive` - Create archives of files
+
+#### Usage Examples:
+```bash
+# Initialize new repository
+git_init --directory "/path/to/project"
+
+# Check repository status
+git_status
+
+# Add and commit changes
+git_add --files "src/main.ts" "package.json"
+git_commit --message "feat: add new feature implementation"
+
+# Create and switch to new branch
+git_branch --name "feature/new-auth" --create
+git_checkout --branch "feature/new-auth"
+
+# View commit history
+git_log --max_count 10 --oneline
+
+# Push to remote
+git_push --remote "origin" --branch "main"
+```
+
+---
+
+## 🐱 GitHub MCP Server
+**Transport**: stdio  
+**Command**: `npx github-mcp-server`  
+**Requirements**: GitHub Personal Access Token
+
+### Configuration:
+Set environment variable:
+```bash
+export GITHUB_TOKEN="your_github_token_here"
+```
+
+### Available Tools (Repository & Issue Management):
+
+#### Repository Operations:
+- `create_repository` - Create new GitHub repository
+- `get_repository` - Get repository information
+- `list_repositories` - List user/organization repositories
+- `fork_repository` - Fork a repository
+- `delete_repository` - Delete repository (use with caution)
+
+#### Issue Management:
+- `create_issue` - Create new issue
+- `get_issue` - Get issue details
+- `list_issues` - List repository issues
+- `update_issue` - Update issue details
+- `close_issue` - Close an issue
+- `reopen_issue` - Reopen a closed issue
+- `add_issue_comment` - Add comment to issue
+
+#### Pull Request Management:
+- `create_pull_request` - Create new PR
+- `get_pull_request` - Get PR details
+- `list_pull_requests` - List repository PRs
+- `update_pull_request` - Update PR details
+- `merge_pull_request` - Merge a PR
+- `close_pull_request` - Close PR without merging
+- `add_pr_comment` - Add comment to PR
+- `request_pr_review` - Request review from users
+
+#### Content Management:
+- `get_file_contents` - Read file from repository
+- `create_file` - Create new file in repository
+- `update_file` - Update existing file
+- `delete_file` - Delete file from repository
+- `search_repositories` - Search GitHub repositories
+- `search_code` - Search code across repositories
+
+#### Organization & Collaboration:
+- `list_organization_members` - List organization members
+- `get_user` - Get user profile information
+- `list_user_repositories` - List user's repositories
+- `list_repository_collaborators` - List repository collaborators
+- `add_repository_collaborator` - Add collaborator to repository
+
+#### Releases & Tags:
+- `create_release` - Create new release
+- `list_releases` - List repository releases
+- `get_release` - Get release details
+- `update_release` - Update release information
+- `delete_release` - Delete a release
+
+#### Usage Examples:
+```bash
+# Create new repository
+create_repository --name "my-new-project" --description "A sample project" --private false
+
+# Create issue
+create_issue --owner "username" --repo "project" --title "Bug: Login not working" --body "Users cannot log in with valid credentials"
+
+# Create pull request
+create_pull_request --owner "username" --repo "project" --title "Fix login bug" --body "This PR fixes the login issue" --head "fix/login" --base "main"
+
+# Get file contents
+get_file_contents --owner "username" --repo "project" --path "src/main.ts"
+
+# Search repositories
+search_repositories --query "typescript react" --sort "stars" --order "desc"
+
+# List issues
+list_issues --owner "username" --repo "project" --state "open" --labels "bug,urgent"
+```
+
+### Token Permissions Required:
+- `repo` - Full repository access
+- `issues` - Read/write issues
+- `pull_requests` - Read/write pull requests
+- `contents` - Read/write repository contents
+- `metadata` - Read repository metadata
+
+### Best Practices:
+- Use specific scopes for your GitHub token
+- Store token securely in environment variables
+- Be cautious with destructive operations (delete_repository, delete_file)
+- Always test operations on non-critical repositories first
 
 **Remember**: These MCP servers significantly extend your development capabilities. Use them actively and strategically to enhance your workflow efficiency and code quality!

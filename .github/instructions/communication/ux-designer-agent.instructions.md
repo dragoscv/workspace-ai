@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # UX Designer Agent Instructions
 
 ## Overview

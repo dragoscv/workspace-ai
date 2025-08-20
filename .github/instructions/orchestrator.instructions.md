@@ -4,6 +4,8 @@ applyTo: "**"
 
 # 🎼 AI Agent Instruction Orchestrator
 
+> **Note**: This document references ControlAIMCP as an aspirational/future MCP server for advanced project coordination. Currently, the workspace uses the 7 configured MCP servers (MemoraiMCP, GlassMCP, PlaywrightMCP, SimpleMemoryMCP, Context7MCP, Sequential-thinking MCP, Microsoft Docs MCP) for orchestration capabilities.
+
 ## Overview
 
 The AI Agent Instruction Orchestrator is the master coordination system that intelligently selects, combines, and optimizes AI agent instructions for maximum effectiveness across all project contexts. It acts as the central intelligence that orchestrates multiple agents, ensuring optimal collaboration patterns and instruction adaptation based on real-time project requirements.

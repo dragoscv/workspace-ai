@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # Legal Counsel Agent Instructions
 
 ## Overview

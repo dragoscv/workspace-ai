@@ -37,6 +37,16 @@ Thumbs.db
 logs/
 *.log
 
+# MCP debug and error files
+mcp-*.txt
+mcp_debug.log
+debug.err
+
+# Backup and copy files
+*.backup
+*Copy*
+*copy*
+
 # Runtime data
 pids/
 *.pid

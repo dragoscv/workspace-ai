@@ -4,6 +4,8 @@ applyTo: "**"
 
 # 🤝 Multi-Agent Coordination Protocol
 
+> **Note**: This document references ControlAIMCP as an aspirational/future MCP server for enhanced coordination. Currently, use the available MCP servers (MemoraiMCP, GlassMCP, PlaywrightMCP, SimpleMemoryMCP, Context7MCP, Sequential-thinking MCP, Microsoft Docs MCP) for coordination tasks.
+
 ## Overview
 
 The Multi-Agent Coordination Protocol enables multiple AI agents to collaborate seamlessly on complex projects, ensuring efficient knowledge transfer, clear role definitions, and optimized workflow orchestration. This system transforms individual agent capabilities into cohesive team performance through structured coordination mechanisms.

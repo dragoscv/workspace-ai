@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # Technical Writer Agent Instructions
 
 ## Role Definition

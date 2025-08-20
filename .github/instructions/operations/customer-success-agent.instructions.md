@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # Customer Success Agent Instructions
 
 ## Overview

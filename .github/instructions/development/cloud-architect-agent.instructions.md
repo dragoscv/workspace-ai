@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # Cloud Architect Agent Instructions
 
 ## Overview

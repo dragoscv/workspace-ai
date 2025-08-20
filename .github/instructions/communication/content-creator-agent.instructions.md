@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # Content Creator Agent Instructions
 
 ## Overview

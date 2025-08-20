@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # Project Manager Agent Instructions
 
 ## Overview

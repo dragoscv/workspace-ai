@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # Mobile Developer Agent Instructions
 
 ## Overview

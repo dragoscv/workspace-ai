@@ -1,0 +1,86 @@
+{
+  "mcpServers": {
+    "awslabs.aws-api-mcp-server": {
+      "command": "awslabs.aws-api-mcp-server",
+      "args": [],
+      "env": {
+        "AWS_PROFILE": "your-aws-profile",
+        "AWS_REGION": "us-east-1",
+        "FASTMCP_LOG_LEVEL": "INFO"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "call_aws",
+        "suggest_aws_commands"
+      ]
+    },
+    "awslabs.amazon-rekognition-mcp-server": {
+      "command": "awslabs.amazon-rekognition-mcp-server",
+      "args": [],
+      "env": {
+        "AWS_PROFILE": "your-aws-profile",
+        "AWS_REGION": "us-east-1",
+        "FASTMCP_LOG_LEVEL": "INFO"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "detect_labels",
+        "detect_faces",
+        "detect_text",
+        "detect_celebrities",
+        "detect_unsafe_content"
+      ]
+    },
+    "awslabs.aws-support-mcp-server": {
+      "command": "awslabs.aws-support-mcp-server",
+      "args": [],
+      "env": {
+        "AWS_PROFILE": "your-aws-profile",
+        "AWS_REGION": "us-east-1",
+        "FASTMCP_LOG_LEVEL": "INFO"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "create_case",
+        "list_cases",
+        "get_case",
+        "add_communication",
+        "resolve_case"
+      ]
+    },
+    "awslabs.dynamodb-mcp-server": {
+      "command": "awslabs.dynamodb-mcp-server",
+      "args": [],
+      "env": {
+        "AWS_PROFILE": "your-aws-profile",
+        "AWS_REGION": "us-east-1",
+        "FASTMCP_LOG_LEVEL": "INFO"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "list_tables",
+        "describe_table",
+        "query_table",
+        "scan_table",
+        "get_item",
+        "put_item",
+        "update_item",
+        "delete_item"
+      ]
+    },
+    "awslabs.ecs-mcp-server": {
+      "command": "ecs-mcp-server",
+      "args": [],
+      "env": {
+        "AWS_PROFILE": "your-aws-profile",
+        "AWS_REGION": "us-east-1",
+        "FASTMCP_LOG_LEVEL": "INFO",
+        "ALLOW_WRITE": "false"
+      },
+      "disabled": false,
+      "autoApprove": [
+        "ecs_resource_management"
+      ]
+    }
+  }
+}

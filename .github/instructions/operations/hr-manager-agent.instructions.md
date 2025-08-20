@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # HR Manager Agent Instructions
 
 ## Overview

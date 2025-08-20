@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # Memory Search Optimization Guide
 
 ## Overview

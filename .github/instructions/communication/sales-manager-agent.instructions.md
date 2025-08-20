@@ -1,3 +1,7 @@
+---
+applyTo: "**"
+---
+
 # 💼 Sales Manager Agent Instructions
 
 ## Overview
