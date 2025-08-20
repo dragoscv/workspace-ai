@@ -7,44 +7,42 @@ applyTo: '**'
 This guide provides comprehensive instructions for using the configured MCP servers in your VS Code development environment. All servers are properly configured and ready for use in agent mode.
 
 ## 🔧 Current MCP Configuration
-**Location**: `C:\Users\vladu\VS Code Insiders Profiles\ghcp1_metu\User\profiles\25baaa05\mcp.json`
+**Location**: `C:\Users\vladu\VS Code Insiders Profiles\Dragos_metu\User\profiles\2843e\mcp.json`
 
-Your environment includes 9 active MCP servers providing specialized tools and capabilities.
+Your environment includes 8 active MCP servers providing specialized tools and capabilities.
 
 ---
 
-## � ControlAIMCP - AI-Powered Project Management
-**Transport**: stdio via npx
-**Command**: `controlai-mcp@latest`
-**Purpose**: Multi-agent project coordination and intelligent workflow automation
+## 🖼️ GlassMCP - Windows Automation
+**Transport**: HTTP/SSE (localhost:8001/sse)
+**Purpose**: Windows management and UI automation
 
 ### Available Tools:
-- Project planning and milestone tracking
-- Task assignment and resource allocation
-- Team coordination and workflow automation
-- Performance monitoring and optimization
-- Multi-agent orchestration and collaboration
+- `window_list` - List all open windows
+- `window_focus` - Focus a specific window  
+- `window_send_text` - Send text to a window
+- `window_extract_text` - Extract text from a window
+- `clipboard_get_text` - Get clipboard content
+- `clipboard_set_text` - Set clipboard content
 
 ### Usage Examples:
 ```
-Coordinate development team for sprint planning
-Allocate resources across multiple projects
-Track milestone dependencies and critical path
-Automate status reporting and stakeholder updates
+Focus on the browser window
+Get the current clipboard content
+Send text to the active terminal window
 ```
 
 ---
-
+>>
 ## 🧠 MemoraiMCP - Advanced Memory Management
-**Transport**: stdio via npx
-**Command**: `@codai/memorai-mcp@latest`
+**Transport**: HTTP/SSE (localhost:8002/sse)
 **Purpose**: Persistent agent memory across sessions with agent isolation
 
 ### Available Tools:
-- `mcp_memoraimcp_remember` - Store information with metadata
-- `mcp_memoraimcp_recall` - Search and retrieve stored information
-- `mcp_memoraimcp_forget` - Delete specific memories
-- `mcp_memoraimcp_context` - Get contextual information for current task
+- `remember` - Store information with metadata
+- `recall` - Search and retrieve stored information
+- `forget` - Delete specific memories
+- `context` - Get contextual information for current task
 
 ### Usage Pattern:
 ```
@@ -62,34 +60,26 @@ Maintain context across development sessions
 
 ---
 
-## 🖼️ GlassMCP - Advanced Windows Automation
-**Transport**: stdio via npx
-**Command**: `@codai/glass-mcp@latest`
-**Purpose**: Windows management and UI automation with production features
+## 🇷🇴 RomaiIntelligenceMCP - Romanian AI Assistant
+**Transport**: HTTP/SSE (localhost:8003/sse)
+**Purpose**: Romanian language AI assistance and specialized intelligence
 
 ### Available Tools:
-- `mcp_glassmcp_window_list` - List all open windows
-- `mcp_glassmcp_window_focus` - Focus a specific window  
-- `mcp_glassmcp_window_send_text` - Send text to a window
-- `mcp_glassmcp_window_extract_text` - Extract text from a window
-- `mcp_glassmcp_clipboard_get_text` - Get clipboard content
-- `mcp_glassmcp_clipboard_set_text` - Set clipboard content
-
-### Configuration:
-- Debug logging enabled with configurable levels
-- Max windows: 1000 (configurable)
-- Window cache TTL: 5 seconds
-- Development environment support
+- `romai_intelligence` - General Romanian AI assistance
+- `romai_code_assistant` - Code help in Romanian context
+- `romai_romanian_expert` - Romanian language expertise
+- `romai_problem_solver` - Problem solving with Romanian context
+- `romai_health_check` - Service health monitoring
 
 ### Usage Examples:
 ```
-Focus on the browser window
-Get the current clipboard content
-Send text to the active terminal window
-Extract text from specific application windows
+Get Romanian market analysis for a product
+Translate technical documentation to Romanian
+Understand Romanian regulatory requirements
 ```
 
 ---
+>>
 ## 🎭 PlaywrightMCP - Browser Automation
 **Transport**: stdio via npx
 **Command**: `@executeautomation/playwright-mcp-server`
@@ -110,137 +100,20 @@ Capture screenshots for documentation
 
 ---
 
-## 🇷🇴 RomaiIntelligenceMCP - Romanian AI Assistant
-**Transport**: stdio via npx
-**Command**: `@codai/romai-mcp-standalone@latest`
-**Purpose**: Romanian language AI assistance and specialized intelligence
-
-### Available Tools:
-- `mcp_romaiintellig_analyze_romanian_text` - Analyze Romanian text for patterns and context
-- `mcp_romaiintellig_romanian_culture_context` - Provide Romanian cultural context
-- `mcp_romaiintellig_translate_to_romanian` - Translate to Romanian with cultural awareness
-
-### Usage Examples:
-```
-Get Romanian market analysis for a product
-Translate technical documentation to Romanian
-Understand Romanian regulatory requirements
-Analyze Romanian text for sentiment and cultural context
-```
-
----
-
 ## 🧠 SimpleMemoryMCP - Knowledge Graph Memory
 **Transport**: stdio via npx
 **Command**: `@modelcontextprotocol/server-memory`
 
 ### Available Tools:
-- `mcp_simplememorym_create_entities` - Create new knowledge entities
-- `mcp_simplememorym_create_relations` - Define relationships between entities
-- `mcp_simplememorym_add_observations` - Add facts about entities
-- `mcp_simplememorym_delete_entities` - Remove entities and relations
-- `mcp_simplememorym_delete_observations` - Remove specific facts
-- `mcp_simplememorym_delete_relations` - Remove relationships
-- `mcp_simplememorym_read_graph` - Read the entire knowledge graph
-- `mcp_simplememorym_search_nodes` - Search for specific entities
-- `mcp_simplememorym_open_nodes` - Retrieve specific entities by name
-
----
-
-## 📚 Context7MCP - Up-to-Date Documentation
-**Transport**: stdio via npx
-**Command**: `@upstash/context7-mcp`
-
-### Available Tools:
-- `mcp_context7mcp_resolve-library-id` - Find Context7-compatible library IDs
-- `mcp_context7mcp_get-library-docs` - Fetch current documentation for libraries
-
-### Tool Parameters:
-- **resolve-library-id**:
-  - `libraryName` (required): The name of the library to search for
-- **get-library-docs**:
-  - `context7CompatibleLibraryID` (required): Exact library ID (e.g., `/mongodb/docs`, `/vercel/next.js`)
-  - `topic` (optional): Focus on specific topic (e.g., "routing", "hooks")
-  - `tokens` (optional, default 10000): Max tokens to return
-
-### Usage Pattern:
-1. Write your prompt naturally
-2. Add "use context7" to your prompt
-3. Get working code with up-to-date examples
-
-### Examples:
-```
-Create a Next.js middleware for JWT validation. use context7
-Configure Cloudflare Worker for API caching. use context7
-Implement authentication with Supabase. use library /supabase/supabase
-```
-
-### Pro Tips:
-- Use exact library IDs when known (e.g., `/mongodb/docs`, `/vercel/next.js`)
-- Add VS Code rules to auto-invoke Context7 for code questions
-- Specify topics for focused documentation (e.g., "routing", "hooks")
-- Use slash syntax for direct library access: `use library /supabase/supabase`
-
----
-
-## 🤔 Sequential-thinking MCP - Structured Problem Solving
-**Transport**: stdio via npx
-**Command**: `@modelcontextprotocol/server-sequential-thinking`
-
-### Available Tools:
-- `mcp_sequentialthi_sequentialthinking` - Structured step-by-step analysis
-
-### Tool Parameters:
-- `thought` (string): Current thinking step
-- `nextThoughtNeeded` (boolean): Whether another step is needed
-- `thoughtNumber` (integer): Current thought number
-- `totalThoughts` (integer): Estimated total thoughts needed
-- `isRevision` (boolean, optional): Whether revising previous thinking
-- `revisesThought` (integer, optional): Which thought is being reconsidered
-- `branchFromThought` (integer, optional): Branching point
-- `branchId` (string, optional): Branch identifier
-- `needsMoreThoughts` (boolean, optional): If more thoughts are needed
-
-### Use Cases:
-- Breaking down complex problems into manageable steps
-- Planning and design with room for revision
-- Analysis that might need course corrections
-- Problems where the full scope might not be clear initially
-- Tasks requiring context maintenance over multiple steps
-- Filtering irrelevant information from complex scenarios
-
-### Best Practices:
-- Use for complex problem-solving that benefits from structured thinking
-- Allow for revisions and course corrections in your thinking process
-- Break problems into logical, sequential steps
-- Maintain context across multiple thinking iterations
-
----
-
-## 📖 Microsoft Learn Docs MCP
-**Transport**: HTTP  
-**URL**: `https://learn.microsoft.com/api/mcp`
-
-### Available Tools:
-- `microsoft_docs_search` - Search Microsoft official technical documentation
-
-### Tool Parameters:
-- `query` (string): The search query for retrieval
-
-### Capabilities:
-- High-Quality Content Retrieval from Microsoft Learn, Azure docs, Microsoft 365 docs
-- Semantic Understanding using advanced vector search
-- Optimized Chunking: Returns up to 10 high-quality content chunks (max 500 tokens each)
-- Real-time Updates: Access the latest Microsoft documentation
-
-### Usage Examples:
-```
-Give me the Azure CLI commands to create an Azure Container App. search Microsoft docs
-How do I implement IHttpClientFactory in .NET 8 minimal API? search Microsoft docs
-Is gpt-4.1-mini available in EU regions? search Microsoft docs
-```
-
----
+- `create_entities` - Create new knowledge entities
+- `create_relations` - Define relationships between entities
+- `add_observations` - Add facts about entities
+- `delete_entities` - Remove entities and relations
+- `delete_observations` - Remove specific facts
+- `delete_relations` - Remove relationships
+- `read_graph` - Read the entire knowledge graph
+- `search_nodes` - Search for specific entities
+- `open_nodes` - Retrieve specific entities by name
 
 ### Knowledge Graph Usage:
 Follow these steps for each interaction:
@@ -380,7 +253,78 @@ Is gpt-4.1-mini available in EU regions? search Microsoft docs
 >>
 ---
 >>
-## 🔧 General MCP Usage Guidelines
+---
+
+## � GitHub Copilot Todos Tool - Task Management
+**Transport**: Built-in VS Code Copilot tool
+**Purpose**: Structured task planning and progress tracking
+
+### Available Tools:
+- `manage_todo_list` - Create, read, update, and track todo items with status management
+
+### Tool Parameters:
+- `operation` (required): "write" to replace entire list, "read" to retrieve current list
+- `todoList` (array, required for write): Complete array of all todo items
+
+### Todo Item Structure:
+```json
+{
+  "id": 1,
+  "title": "Concise action-oriented label (3-7 words)",
+  "description": "Detailed context, requirements, file paths, acceptance criteria",
+  "status": "not-started" | "in-progress" | "completed"
+}
+```
+
+### Usage Workflow:
+**CRITICAL**: Use this tool VERY frequently for complex multi-step work
+
+1. **Plan Tasks**: Write todo list with specific, actionable items before starting work
+2. **Mark In-Progress**: Mark ONE todo as in-progress before starting work (limit one at a time)
+3. **Complete Work**: Do the actual work for that specific todo
+4. **Mark Completed**: Mark todo as completed IMMEDIATELY after finishing
+5. **Move to Next**: Repeat process for next todo
+
+### When to Use:
+- ✅ Complex multi-step work requiring planning and tracking
+- ✅ When user provides multiple tasks or requests (numbered/comma-separated)
+- ✅ After receiving new instructions that require multiple steps
+- ✅ BEFORE starting work on any todo (mark as in-progress)
+- ✅ IMMEDIATELY after completing each todo (mark completed individually)
+- ✅ When breaking down larger tasks into smaller actionable steps
+- ✅ To give users visibility into your progress and planning
+
+### When NOT to Use:
+- ❌ Single, trivial tasks that can be completed in one step
+- ❌ Purely conversational/informational requests
+- ❌ When just reading files or performing simple searches
+
+### Best Practices:
+1. **Complete Lists Only**: Always provide complete todo arrays when writing - partial updates not supported
+2. **Immediate Updates**: Mark todos completed as soon as they are done - do not batch completions
+3. **One In-Progress**: Limit to ONE todo marked as in-progress at a time
+4. **Specific Descriptions**: Include file paths, specific methods, or acceptance criteria in descriptions
+5. **Frequent Usage**: Use for ANY complex work to ensure task visibility and proper planning
+
+### Usage Examples:
+```
+# Planning Phase
+Write todo list: [
+  {id: 1, title: "Update MCP instructions", description: "Remove controlai references, add todos tool usage", status: "not-started"},
+  {id: 2, title: "Update initial instructions", description: "Add latest Copilot best practices from Microsoft docs", status: "not-started"}
+]
+
+# Starting Work
+Mark todo 1 as in-progress
+
+# Completing Work
+Mark todo 1 as completed immediately after finishing
+
+# Moving Forward
+Mark todo 2 as in-progress and continue
+```
+
+---
 >>
 ### Agent Mode Integration:
 - All MCP tools are automatically available in VS Code agent mode
