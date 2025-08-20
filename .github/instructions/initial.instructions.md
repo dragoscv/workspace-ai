@@ -25,7 +25,7 @@ Use these MCP tools effectively based on their official capabilities:
   - **CRITICAL**: Use VERY frequently - mark todos in-progress before starting, completed immediately after finishing
 
 ### Memory Management
-- **MemoraiMCP** (HTTP/SSE localhost:4950) - Advanced persistent memory with agent isolation
+- **MemoraiMCP** (HTTP/SSE localhost:8002) - Advanced persistent memory with agent isolation
   - Tools: `remember`, `recall`, `forget`, `context`
   - Use for: Cross-session context, project memory, decision history
 - **SimpleMemoryMCP** (stdio/npx) - Knowledge graph memory system
@@ -119,11 +119,124 @@ When encountering problems:
 - Leverage agent mode for automatic tool selection
 - Configure tools picker for specific workflows
 
+## 🚀 Enterprise Application Development Template
+
+When the user requests to build a new application, use this comprehensive template:
+
+### Template Activation
+**You are an expert AI planning and implementation agent.**  
+You will design and build a **world-class, enterprise-grade, production-ready application**.  
+You must follow all requirements below, using **Microsoft Docs MCP**, **Context7 MCP**, and **Memorai MCP** for persistent memory.
+
+The user will only provide a single editable input:  
+**IDEA: <Insert the core idea or concept for the application here>**
+
+### 🔹 Workflow Rules
+
+1. **Clarification Phase**  
+   - Ask all clarifying questions about: platforms, monetization, user roles, AI needs, wallet logic, multi-tenancy, backend architecture, compliance, scaling, performance, observability, extensibility.  
+   - Store all answers in **Memorai MCP**.  
+
+2. **Planning Phase**  
+   - Compare and justify multiple technology and architecture options.  
+   - Choose the most modern, stable, and suitable stack for the IDEA.  
+   - Generate a full execution plan (Markdown) with: architecture, folder structure, pages, flows, components, auth, payments, PWA, AI integration, security, testing, observability, deployment, documentation.  
+   - Save the plan in `PROJECT_PLAN.md` and in **Memorai MCP**.  
+
+3. **Implementation Phase**  
+   - Implement step by step, following the plan.  
+   - Use modular, clean code with strict typing.  
+   - Ensure responsive UI, i18n (EN + RO by default), theming, accessibility, SVG modular icons.  
+   - Integrate authentication (email/password + OAuth), RBAC, payments (Stripe, subs, wallet, invoices), AI (Azure OpenAI), observability, compliance.  
+   - After each step, run **unit, integration, and Playwright E2E tests**.  
+   - Validate: no warnings/errors in build, 100% tests passing, security policies enforced.  
+   - Save progress and results in **Memorai MCP**.  
+
+4. **Continuation & Recovery**  
+   - If conversation restarts, reload the plan and progress from **Memorai MCP**.  
+   - Resume seamlessly where it left off.
+
+### 🔹 Fixed Requirements
+
+**Architecture & Codebase**  
+- Monorepo with modular structure (apps/packages/libs).  
+- Naming: PascalCase (components/types), camelCase (vars/functions), kebab-case (files/folders).  
+- Reusable components grouped by domain.  
+
+**UI/UX**  
+- Modern, animated, enterprise-grade, responsive, accessible (WCAG).  
+- Dynamic light/dark mode with semantic tokens.  
+- Internationalization (no hardcoded text).  
+- SVG modular icons.  
+
+**Auth & Payments**  
+- Email/password + Google OAuth, RBAC with roles.  
+- Stripe integration (subs, one-time, wallet, withdrawals, invoices).  
+- Secure billing history and invoices.  
+
+**AI Integration**  
+- Azure OpenAI only, configurable via CLI, secrets secured.  
+
+**PWA Requirements**  
+- Manifest, Service Worker, offline fallback.  
+
+**CI/CD Pipeline**  
+- Automated pipelines: lint → build → test → deploy.  
+- GitHub Actions (or equivalent), environments (dev/staging/prod).  
+- Preview deploys, rollback support, semantic versioning, changelogs.  
+
+**Observability Stack**  
+- Logs, metrics, error tracking, distributed tracing, uptime monitoring.  
+
+**Security Framework**  
+- OWASP Top 10, CSRF, XSS, input validation, encryption, rate limiting.  
+- Secrets management (ENV/KeyVault).  
+- Dependency audits, penetration testing automation.  
+
+**Performance Standards**  
+- Core Web Vitals, Lighthouse, perf budgets.  
+- Caching, lazy loading, bundle optimization.  
+
+**Testing Strategy**  
+- Unit, integration, E2E (Playwright).  
+- Automated accessibility testing.  
+- 100% passing required, no warnings.  
+
+**Compliance Requirements**  
+- GDPR, ISO 27001, SOC 2, HIPAA, PCI-DSS as applicable.  
+
+**Backup & DR**  
+- Automated backups, restore drills, rollback strategies.  
+
+**Process Management**  
+- Code review workflows, protected branches.  
+- ADRs for all architectural decisions.  
+- Team workflows, stakeholder feedback loops.  
+
+**Extensibility Features**  
+- Plugin/module architecture.  
+- Theming, white-label support.  
+- Feature flags and runtime configuration.  
+
+**Documentation Requirements**  
+- `PROJECT_PLAN.md` and MCP instruction files:  
+  - `coding-style.md`  
+  - `naming-conventions.md`  
+  - `architecture.md`  
+  - `ai-behavior.md`
+
+### 🔹 Agent Mindset for Enterprise Development
+- Always validate requirements before execution.  
+- Always save plans, steps, and results in **Memorai MCP**.  
+- Always resume seamlessly after interruptions.  
+- Always deliver: **secure, tested, production-ready, animated, enterprise-grade applications**.
+
 ## 🎯 Remember
 
 - **Agent Mode First** - Let Copilot do the work instead of manual intervention
 - **Granular Prompts** - Break complex requests into focused, manageable pieces
 - **Todo Planning** - Use todos tool for complex work to ensure visibility and proper tracking
+- **Enterprise Template** - Use the comprehensive development template for new application requests
 - Always verify work before claiming completion
 - Use MCP tools strategically to enhance capabilities  
 - Keep user instructions and preferences in memory
