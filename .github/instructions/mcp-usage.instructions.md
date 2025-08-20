@@ -9,9 +9,15 @@ This guide provides comprehensive instructions for using the configured MCP serv
 ## 🔧 Current MCP Configuration
 **Location**: `C:\Users\vladu\VS Code Insiders Profiles\Dragos_metu\User\profiles\2843e\mcp.json`
 
-Your environment includes 12 active MCP servers providing specialized tools and capabilities:
-- **Core MCP Servers (7)**: MemoraiMCP, GlassMCP, PlaywrightMCP, SimpleMemoryMCP, Context7MCP, Sequential-thinking MCP, Microsoft Docs MCP
-- **AWS MCP Servers (5)**: AWS API, Amazon Rekognition, AWS Support, DynamoDB, ECS
+Your environment includes 8 active MCP servers providing specialized tools and capabilities:
+- **MemoraiMCP**: Advanced memory management with agent isolation
+- **GlassMCP**: Windows automation and UI interaction
+- **PlaywrightMCP**: Browser automation and web testing
+- **SimpleMemoryMCP**: Knowledge graph and entity relationships
+- **Context7MCP**: Up-to-date documentation and library information
+- **Sequential-thinking MCP**: Structured problem-solving and analysis
+- **Microsoft Docs MCP**: Official Microsoft documentation search
+- **GitHub MCP**: GitHub repository and issue management
 
 ---
 
@@ -19,25 +25,55 @@ Your environment includes 12 active MCP servers providing specialized tools and 
 **Transport**: HTTP (localhost:4950)
 **Purpose**: Persistent agent memory across sessions with agent isolation
 
-### Available Tools:
-- `remember` - Store information with metadata
-- `recall` - Search and retrieve stored information
-- `forget` - Delete specific memories
-- `context` - Get contextual information for current task
+### Available Tools (4 tools):
+- `mcp_memoraimcp_remember` - Store memories with structured metadata and agent isolation
+- `mcp_memoraimcp_recall` - Semantic search with relevance ranking (HPKV search_memory)
+- `mcp_memoraimcp_forget` - Delete memories by structured key
+- `mcp_memoraimcp_context` - Get recent context for agent
+
+### Tool Parameters:
+```yaml
+mcp_memoraimcp_remember:
+  agentId (required): Agent identifier for memory isolation
+  content (required): Memory content to store
+  metadata (optional):
+    project (optional): Project name for organization
+    session (optional): Session name for grouping
+    priority (optional): low, medium, high, critical
+    tags (optional): Array of strings for categorization
+    type (optional): Memory type
+
+mcp_memoraimcp_recall:
+  agentId (required): Agent identifier (use "all" for cross-agent search)
+  query (required): Natural language search query
+  limit (optional): Maximum results (1-100)
+  minImportance (optional): Minimum importance score (0.0-1.0)
+  project (optional): Filter by project name
+  session (optional): Filter by session name
+
+mcp_memoraimcp_forget:
+  agentId (required): Agent identifier
+  structuredKey (required): Structured key of memory to delete
+
+mcp_memoraimcp_context:
+  agentId (required): Agent identifier
+  contextSize (optional): Number of recent memories (1-20)
+```
 
 ### Usage Pattern:
 ```
-Remember user preferences and project context
-Recall previous conversations and decisions
-Store important project information
-Maintain context across development sessions
+Store user preferences and project context with proper agent isolation
+Search across memories semantically with relevance ranking
+Delete specific memories when no longer needed
+Get recent context to maintain conversation continuity
 ```
 
 **Memory Best Practices**:
-1. Always begin sessions by recalling relevant context
-2. Store important decisions and insights
-3. Use agent isolation for different projects
-4. Regularly update stored information
+1. Always begin sessions by recalling relevant context using mcp_memoraimcp_context
+2. Store important decisions and insights with mcp_memoraimcp_remember
+3. Use consistent agentId for project isolation
+4. Include relevant metadata (project, session, priority, tags)
+5. Use semantic search with mcp_memoraimcp_recall for information retrieval
 
 ---
 
@@ -351,9 +387,7 @@ Is gpt-4.1-mini available in EU regions? search Microsoft docs
 
 ---
 
----
-
-## � GitHub Copilot Todos Tool - Task Management
+## 📋 GitHub Copilot Todos Tool - Task Management
 **Transport**: Built-in VS Code Copilot tool
 **Purpose**: Structured task planning and progress tracking
 
