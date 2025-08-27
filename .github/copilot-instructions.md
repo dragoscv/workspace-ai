@@ -11,14 +11,21 @@
 **Core System**:
 - `initial.instructions.md` - Main entry point, workflow, MCP tools
 - `general.instructions.md` - Code quality, testing, documentation standards
+- `core.instructions.md` - Fundamental engineering principles and guardrails
 - `mcp-usage-quick-reference.instructions.md` - Streamlined MCP tool guide
+
+**Specialized Workflow Agents**:
+- `launcher.instructions.md` - Launcher/Architect: Initialize and migrate products for continuous delivery
+- `feature-builder.instructions.md` - Feature Builder: Ship vertical slices via strict TDD
+- `infra-qa.instructions.md` - Infra/QA Builder: Pipeline optimization, E2E testing, security
+- `auditor-release.instructions.md` - Auditor/Release Engineer: Audit, version, release management
 
 **Business Leadership**: CEO, CTO, CFO, Product Manager agents  
 **Development Team**: Senior Developer, DevOps, QA, Security Engineer agents  
 **Communication**: Marketing, Sales, UX Designer, Content Creator agents  
 **Operations**: Project Manager, Customer Success agents  
 
-**Specialized**: Multi-agent coordination, orchestrator, context-aware selector, templates/decision trees
+**System Architecture**: Multi-agent coordination, orchestrator, context-aware selector, templates/decision trees
 
 ## 🧠 Memory Integration - PRODUCTION READY
 The Memorai MCP Server is **fully operational and production-ready**, providing advanced memory management capabilities for all AI agents in this workspace.

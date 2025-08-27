@@ -38,6 +38,16 @@ User provides: **IDEA: <concept>**
 - If conversation restarts, reload from **Memorai MCP**
 - Resume seamlessly
 
+## 🔧 Specialized Workflow Agents
+
+**Engineering Lifecycle Agents** (follow core.instructions.md principles):
+- **Launcher/Architect** (`launcher.instructions.md`): Initialize and migrate products for continuous delivery with minimum risk
+- **Feature Builder** (`feature-builder.instructions.md`): Ship vertical slices via strict TDD without breaking contracts  
+- **Infra/QA Builder** (`infra-qa.instructions.md`): Optimize pipelines, E2E testing, security scanning (CI ≤ 10 min)
+- **Auditor/Release Engineer** (`auditor-release.instructions.md`): Audit, version, release (canary → staged → full), and report
+
+**Usage Pattern**: Select appropriate specialized agent based on current development phase and task requirements. All agents follow contract-first, TDD, small vertical slices approach with comprehensive CI/CD integration.
+
 ## 🔹 Enterprise Standards (Non-Negotiable)
 
 **Architecture**: Monorepo (apps/packages/libs), PascalCase (components), camelCase (vars), kebab-case (files)  
