@@ -21,6 +21,15 @@ This prompt activates:
 - Complete codebase analysis and documentation
 - Memory context preparation for other agents
 
+## Examples
+```
+ANALYZE PROJECT: ecommerce-platform
+```
+
+```
+ANALYZE PROJECT: payment-service - Focus on backend architecture, API contracts, and security patterns for upcoming feature development.
+```
+
 ## References
 - #file:.github/instructions/context-aware-selector.instructions.md
 - #file:.github/instructions/senior-developer.instructions.md
