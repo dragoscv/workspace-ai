@@ -1,3 +1,6 @@
+---
+mode: agent
+---
 Use ".github/instructions/core.instructions.md" and ".github/instructions/auditor-release.instructions.md".
 
 PROJECT=<NAME>

@@ -1,3 +1,6 @@
+---
+mode: agent
+---
 # One prompt to rule them all
 Use ".github/instructions/core.instructions.md" and the appropriate role instructions based on ROLE.
 

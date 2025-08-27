@@ -1,3 +1,6 @@
+---
+mode: agent
+---
 # Purpose
 Boot the agent with shared guardrails and variables, then delegate to a role-specific instructions file.
 
