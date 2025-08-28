@@ -4,7 +4,7 @@ applyTo: "**'
 
 # 🧠 MCP Usage Guide - Quick Reference
 
-## 🔧 9 Active MCP Servers
+## 🔧 10 Active MCP Servers
 **Location**: `C:\Users\vladu\VS Code Insiders Profiles\Dragos_metu\User\profiles\2843e\mcp.json`
 
 ### Core Tools
@@ -12,6 +12,7 @@ applyTo: "**'
 **GitHub Copilot Todos** (Built-in) - `manage_todo_list`  
 **Context7MCP** (stdio) - `resolve-library-id`, `get-library-docs` - Add "use context7"  
 **Sequential-thinking MCP** (stdio) - `sequential_thinking`  
+**CAUTAI MCP** (stdio) - `mcp_cautaimcp_search_web`, `mcp_cautaimcp_compose_answer` - High-speed web search  
 **Web Search MCP** (Extension) - `vscode-websearchforcopilot_webSearch`  
 
 ### Automation & Testing
@@ -27,7 +28,9 @@ applyTo: "**'
 1. **Check Memory First**: `mcp_memoraimcp_recall` with agent ID and search query
 2. **Plan Complex Work**: `manage_todo_list` with operation="write"
 3. **Get Current Docs**: Add "use context7" to prompts or use `mcp_context7mcp_resolve-library-id` + `mcp_context7mcp_get-library-docs`
-4. **Search Web Info**: `vscode-websearchforcopilot_webSearch` for current information and trends
+4. **Search Web Info**: 
+   - **CAUTAI MCP**: `mcp_cautaimcp_search_web` for speed-critical applications, API integrations, multiple source research, structured data processing
+   - **VS Code Web Search**: `vscode-websearchforcopilot_webSearch` for deep research tasks, VS Code-integrated workflows, content analysis, contextual understanding
 5. **Store Decisions**: `mcp_memoraimcp_remember` with agent ID, content, and metadata
 6. **Complex Analysis**: Use `mcp_sequentialthi_sequentialthinking` tool
 
@@ -47,7 +50,10 @@ applyTo: "**'
 - "use context7" for up-to-date library docs
 - "use library /library-name" for specific libraries
 - Search Microsoft docs for official guidance
-- Use web search for current trends and real-time information
+
+**Web Search Selection**:
+- **CAUTAI MCP**: Speed-critical applications, API integrations, multiple source research, structured data processing
+- **VS Code Web Search**: Deep research tasks, VS Code-integrated workflows, content analysis, contextual understanding
 
 **Tool Selection**:
 - All tools available in agent mode

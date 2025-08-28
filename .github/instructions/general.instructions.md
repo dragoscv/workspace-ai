@@ -256,6 +256,11 @@ Project Navigation:
   - Use Project Manager extension for quick workspace switching
   - Organize projects by type, client, or development stage
   - Maintain consistent project naming conventions
+
+Web Search Tools:
+  - Use CAUTAI MCP for speed-critical applications, API integrations, multiple source research, structured data processing
+  - Use VS Code Web Search for deep research tasks, VS Code-integrated workflows, content analysis, contextual understanding
+  - Choose based on use case: CAUTAI MCP for speed & volume, VS Code Web Search for depth & integration
 ```
 
 ---

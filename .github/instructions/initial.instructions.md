@@ -20,6 +20,7 @@ applyTo: "**"
 **Memory**: `mcp_memoraimcp_recall` + `mcp_memoraimcp_remember` - Check context first, store decisions  
 **Documentation**: Context7MCP - Add "use context7" for current library docs  
 **Thinking**: Sequential-thinking MCP - For complex problem analysis  
+**Web Search**: CAUTAI MCP (`mcp_cautaimcp_search_web`) for speed & volume, VS Code Web Search for depth & integration  
 **Automation**: GlassMCP (8 Windows tools), PlaywrightMCP (25+ browser tools), Microsoft Docs MCP  
 
 **Critical Usage Pattern**:
@@ -49,7 +50,7 @@ applyTo: "**"
 
 1. **Plan**: Use `manage_todo_list` for multi-step troubleshooting
 2. **Think**: Use sequential-thinking MCP for structured analysis  
-3. **Research**: Check Context7 ("use context7") and recall memory
+3. **Research**: Check Context7 ("use context7"), recall memory, CAUTAI MCP for fast searches, VS Code Web Search for deep analysis
 4. **Execute**: Break into components, solve systematically
 5. **Store**: Save solutions in memory for future reference
 

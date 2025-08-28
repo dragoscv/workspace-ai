@@ -22,6 +22,9 @@ This prompt activates:
 - Stakeholder communication plan
 - Quality gates and validation procedures
 
+It should use Microsoft Docs MCP for best practices.
+It should use web search for latest information.
+
 ## Examples
 ```
 PLAN RELEASE: v1.0.0 for TaskMaster
@@ -48,3 +51,4 @@ PLAN RELEASE: v3.0.0 major version for ProductionApp
 - Stakeholder communication timeline
 - Monitoring and validation procedures
 - Post-release support plan
+- Plan saved as file
