@@ -1,7 +1,7 @@
 ---
 mode: agent
 ---
-Use ".github/instructions/core.instructions.md" and ".github/instructions/feature-builder.instructions.md".
+Use "E:/GitHub/workspace-ai/.github/instructions/core.instructions.md" and "E:/GitHub/workspace-ai/.github/.github/instructions/feature-builder.instructions.md".
 
 PROJECT=<NAME>
 ISSUE=<id-or-title>
@@ -10,6 +10,11 @@ BUDGETS=<perf/a11y numbers>
 THRESHOLD=<0.8 default>
 
 Mission: Ship a vertical slice with strict TDD without breaking API contracts.
+
+## 🚨 CRITICAL DEVELOPMENT RULES - MANDATORY
+1. **NO MOCKS! 0 MOCK DATA!** - Only real connections and actual data. No fake/mock/placeholder content.
+2. **NO HARDCODED STRINGS** - Use translation files and i18n systems for all text content.
+3. **NO PLACEHOLDERS** - Replace all placeholders with dynamic variables and real content.
 
 Do now:
 - Write failing tests first (unit/integration) aligned to existing OpenAPI/JSON Schema.

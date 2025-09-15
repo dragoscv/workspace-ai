@@ -36,9 +36,9 @@ BUILD UI: user profile and settings interface for SocialApp
 ```
 
 ## References
-- #file:.github/instructions/ux-designer-agent.instructions.md
-- #file:.github/instructions/senior-developer-agent.instructions.md
-- #file:.github/instructions/general.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/ux-designer-agent.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/senior-developer-agent.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/general.instructions.md
 
 ## Expected Output
 - Responsive UI components with Tailwind CSS
@@ -48,3 +48,9 @@ BUILD UI: user profile and settings interface for SocialApp
 - Interactive animations and micro-interactions
 - Cross-browser compatibility testing
 - Performance optimization for UI components
+
+## 🚨 CRITICAL DEVELOPMENT RULES - MANDATORY
+
+1. **NO MOCKS! 0 MOCK DATA!** - Only real connections and actual data. No fake/mock/placeholder content.
+2. **NO HARDCODED STRINGS** - Use translation files and i18n systems for all text content.
+3. **NO PLACEHOLDERS** - Replace all placeholders with dynamic variables and real content.

@@ -173,6 +173,72 @@ test('complete user registration flow', async ({ page }) => {
 - Always consider local file context, open tabs, selection history, and stored memory when generating or editing
 - Follow the comprehensive guidelines in `mcp-usage.instructions.md` for optimal memory management
 
+### Advanced Memory Features:
+- **Knowledge Graph Exploration**: Use `mcp_memoraimcp_explore_graph` for relationship discovery
+- **Performance Analytics**: Monitor with `mcp_memoraimcp_get_analytics` for usage insights
+- **AI Recommendations**: Get optimization suggestions with `mcp_memoraimcp_get_recommendations`
+- **Episodic Learning**: Record experiences with `mcp_memoraimcp_record_episodic_event`
+- **Multi-Agent Coordination**: Use `mcp_memoraimcp_federated_query` for collaborative intelligence
+- **Adaptive Organization**: Leverage `mcp_memoraimcp_adapt_organization` for continuous optimization
+
+## 🌐 Real-Time Research Intelligence - CAUTAI MCP
+
+- **✅ CAUTAI MCP READY**: Ultra-fast research capabilities with sub-200ms response times
+- **SPEED-CRITICAL RESEARCH**: Use `mcp_cautaimcp_mcp_cautai_search_web` with `fastMode: true` for immediate information
+- **STRUCTURED ANALYSIS**: Use `mcp_cautaimcp_mcp_cautai_compose_answer` for intelligent synthesis with confidence scoring
+- **DEVELOPMENT WORKFLOW INTEGRATION**: Leverage for API research, technology trends, competitive analysis
+- **MULTI-LANGUAGE SUPPORT**: English and Romanian research capabilities for global development contexts
+
+### Real-Time Research Applications:
+- **Technology Trend Analysis**: Quick research on emerging frameworks, libraries, and development practices
+- **API Documentation Discovery**: Fast searches for current API changes, rate limits, and integration patterns
+- **Competitive Intelligence**: Rapid market analysis and feature comparison research
+- **Problem-Solving Research**: Speed-critical searches for debugging solutions and implementation patterns
+- **Knowledge Synthesis**: Structured answer composition for comprehensive development insights
+
+### Integration with Development Workflow:
+```typescript
+// Example: Research-driven development decision making
+async function researchTechnologyChoice(requirement: string): Promise<TechDecision> {
+  // Fast initial research
+  const trendData = await mcp_cautaimcp_mcp_cautai_search_web({
+    query: `${requirement} best frameworks 2025 comparison`,
+    fastMode: true,
+    maxResults: 12
+  });
+  
+  // Structured analysis for decision making
+  const analysis = await mcp_cautaimcp_mcp_cautai_compose_answer({
+    query: `What are the best technology choices for ${requirement} considering performance, maintainability, and ecosystem?`,
+    results: trendData.results.map(r => ({
+      title: r.title,
+      url: r.url,
+      content: r.snippet,
+      relevance: r.relevanceScore
+    }))
+  });
+  
+  // Store research findings in memory
+  await mcp_memoraimcp_remember({
+    agentId: "development-research",
+    content: `Technology Research - ${requirement}: ${analysis.answer}. Confidence: ${analysis.confidence}. Sources: ${analysis.sources.length}`,
+    metadata: {
+      entityType: 'research_findings',
+      requirement: requirement,
+      confidence: analysis.confidence,
+      timestamp: new Date().toISOString()
+    }
+  });
+  
+  return {
+    recommendation: analysis.answer,
+    confidence: analysis.confidence,
+    sources: analysis.sources,
+    decisionBasis: 'data-driven'
+  };
+}
+```
+
 ---
 
 ## 📚 Documentation & PRs

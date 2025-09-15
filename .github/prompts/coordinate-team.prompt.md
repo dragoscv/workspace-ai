@@ -22,6 +22,11 @@ This prompt activates:
 - Progress tracking and reporting mechanisms
 - Conflict resolution and dependency management
 
+## 🚨 CRITICAL DEVELOPMENT RULES - MANDATORY
+1. **NO MOCKS! 0 MOCK DATA!** - Only real connections and actual data. No fake/mock/placeholder content.
+2. **NO HARDCODED STRINGS** - Use translation files and i18n systems for all text content.
+3. **NO PLACEHOLDERS** - Replace all placeholders with dynamic variables and real content.
+
 ## Examples
 ```
 COORDINATE TEAM: frontend and backend integration for TaskMaster
@@ -36,9 +41,9 @@ COORDINATE TEAM: product launch across development, marketing, and operations
 ```
 
 ## References
-- #file:.github/instructions/multi-agent-coordination.instructions.md
-- #file:.github/instructions/orchestrator.instructions.md
-- #file:.github/instructions/project-manager-agent.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/multi-agent-coordination.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/orchestrator.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/project-manager-agent.instructions.md
 
 ## Expected Output
 - Team coordination plan with roles and responsibilities

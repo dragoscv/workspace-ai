@@ -36,9 +36,9 @@ DESIGN ARCHITECTURE: scalable data processing pipeline for AnalyticsHub
 ```
 
 ## References
-- #file:.github/instructions/cto-agent.instructions.md
-- #file:.github/instructions/senior-developer-agent.instructions.md
-- #file:.github/instructions/security-engineer-agent.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/cto-agent.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/senior-developer-agent.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/security-engineer-agent.instructions.md
 
 ## Expected Output
 - Comprehensive architecture documentation
@@ -48,3 +48,9 @@ DESIGN ARCHITECTURE: scalable data processing pipeline for AnalyticsHub
 - Scalability and performance planning
 - Integration patterns and API design
 - Infrastructure requirements specification
+
+## 🚨 CRITICAL DEVELOPMENT RULES - MANDATORY
+
+1. **NO MOCKS! 0 MOCK DATA!** - Only real connections and actual data. No fake/mock/placeholder content.
+2. **NO HARDCODED STRINGS** - Use translation files and i18n systems for all text content.
+3. **NO PLACEHOLDERS** - Replace all placeholders with dynamic variables and real content.

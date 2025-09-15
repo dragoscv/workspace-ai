@@ -22,6 +22,11 @@ This prompt activates:
 - Previous decisions and plans recovery
 - Agent coordination based on stored state
 
+## 🚨 CRITICAL DEVELOPMENT RULES - MANDATORY
+1. **NO MOCKS! 0 MOCK DATA!** - Only real connections and actual data. No fake/mock/placeholder content.
+2. **NO HARDCODED STRINGS** - Use translation files and i18n systems for all text content.
+3. **NO PLACEHOLDERS** - Replace all placeholders with dynamic variables and real content.
+
 ## Examples
 ```
 CONTINUE: TaskMaster
@@ -36,9 +41,9 @@ CONTINUE: MigrationProject database work
 ```
 
 ## References
-- #file:.github/instructions/initial.instructions.md
-- #file:.github/instructions/mcp-usage.instructions.md
-- #file:.github/instructions/general.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/initial.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/mcp-usage.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/general.instructions.md
 
 ## Expected Output
 - Restored project context and current status

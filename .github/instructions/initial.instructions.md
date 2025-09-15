@@ -17,17 +17,32 @@ applyTo: "**"
 ## 🧠 MCP Tool Usage
 
 **Task Management**: `manage_todo_list` - Use for ALL complex multi-step work  
-**Memory**: `mcp_memoraimcp_recall` + `mcp_memoraimcp_remember` - Check context first, store decisions  
+**Memory - PRODUCTION-READY**: **MemoraiMCP** with 95% efficiency improvements and sub-millisecond response times:
+- **Core**: `mcp_memoraimcp_recall` + `mcp_memoraimcp_remember` - Check context first, store decisions
+- **Knowledge Graph**: `mcp_memoraimcp_explore_graph` + `mcp_memoraimcp_link_memories` - Relationship mapping
+- **Analytics**: `mcp_memoraimcp_get_analytics` + `mcp_memoraimcp_get_recommendations` - Performance insights
+- **Multi-Agent**: `mcp_memoraimcp_federated_query` + `mcp_memoraimcp_collective_insights` - Coordination
+- **Learning**: `mcp_memoraimcp_record_episodic_event` + `mcp_memoraimcp_enhance_query` - Adaptive intelligence
+
 **Documentation**: Context7MCP - Add "use context7" for current library docs  
 **Thinking**: Sequential-thinking MCP - For complex problem analysis  
-**Web Search**: CAUTAI MCP (`mcp_cautaimcp_search_web`) for speed & volume, VS Code Web Search for depth & integration  
+**Real-Time Research**: CAUTAI MCP - **PRODUCTION-READY** 🌐 Ultra-fast intelligence:
+- **Speed-Critical**: `mcp_cautaimcp_mcp_cautai_search_web` with fastMode for sub-200ms searches  
+- **Answer Synthesis**: `mcp_cautaimcp_mcp_cautai_compose_answer` for structured research reports
+- **Multi-Language**: Support for English/Romanian with relevance scoring and confidence analysis
+- **Market Intelligence**: Real-time trends, competitive analysis, API research workflows  
 **Automation**: GlassMCP (8 Windows tools), PlaywrightMCP (25+ browser tools), Microsoft Docs MCP  
 
 **Critical Usage Pattern**:
-1. Check memory with `recall` before starting any task
-2. Use `manage_todo_list` for multi-step work
-3. Store important decisions with `remember`
-4. Use "use context7" for up-to-date documentation
+1. **Memory First**: Check `mcp_memoraimcp_recall` before starting any task
+2. **Plan Complex Work**: Use `manage_todo_list` for multi-step tasks
+3. **Store Decisions**: Use `mcp_memoraimcp_remember` with structured metadata
+4. **Build Knowledge**: Create relationships with `mcp_memoraimcp_link_memories`
+5. **Monitor Performance**: Use `mcp_memoraimcp_get_analytics` for optimization
+6. **Learn & Adapt**: Record events with `mcp_memoraimcp_record_episodic_event`
+7. **Coordinate**: Use `mcp_memoraimcp_federated_query` for multi-agent work
+8. **Documentation**: Use "use context7" for up-to-date docs
+9. **Real-Time Research**: Use `mcp_cautaimcp_mcp_cautai_search_web` for speed-critical information, `mcp_cautaimcp_mcp_cautai_compose_answer` for structured synthesis
 
 ## 🔧 VS Code Extensions Integration
 
@@ -40,19 +55,32 @@ applyTo: "**"
 ## ⚡ Core Principles
 
 **Agent Mode First**: Let Copilot work autonomously, break large requests into focused prompts  
-**Memory First**: Always check `mcp_memoraimcp_recall` before starting tasks  
+**Memory-First Approach - PRODUCTION-READY**: Always check `mcp_memoraimcp_recall` before starting tasks:
+- **95% efficiency improvements** with sub-millisecond response times
+- **Intelligent search** with relevance scoring and content highlighting  
+- **Knowledge graphs** with relationship mapping and clustering
+- **Advanced analytics** for performance optimization and insights
+- **Multi-agent coordination** with federated queries and collective intelligence
+
 **Todo Planning**: Use `manage_todo_list` for complex work - mark in-progress, complete immediately  
 **Verify Everything**: Don't trust completion claims, double-check results  
 **Terminal Direct**: Run commands directly, prefer terminal over UI automation  
-**Context Preservation**: Store decisions and outcomes in memory for continuity
+**Context Preservation**: Store decisions and outcomes in memory for continuity using structured metadata
 
 ## 🔧 Problem Solving
 
 1. **Plan**: Use `manage_todo_list` for multi-step troubleshooting
-2. **Think**: Use sequential-thinking MCP for structured analysis  
-3. **Research**: Check Context7 ("use context7"), recall memory, CAUTAI MCP for fast searches, VS Code Web Search for deep analysis
-4. **Execute**: Break into components, solve systematically
-5. **Store**: Save solutions in memory for future reference
+2. **Memory Analysis**: Use advanced Memorai MCP features:
+   - `mcp_memoraimcp_recall` for context search with intelligent ranking
+   - `mcp_memoraimcp_explore_graph` for relationship discovery
+   - `mcp_memoraimcp_get_analytics` for pattern insights
+3. **Think**: Use sequential-thinking MCP for structured analysis  
+4. **Research**: Check Context7 ("use context7"), **CAUTAI MCP** for ultra-fast research (`fastMode: true` for sub-200ms), answer synthesis for structured reports, VS Code Web Search for deep analysis
+5. **Execute**: Break into components, solve systematically
+6. **Learn & Store**: 
+   - Save solutions with `mcp_memoraimcp_remember` using structured metadata
+   - Record experiences with `mcp_memoraimcp_record_episodic_event`
+   - Create knowledge links with `mcp_memoraimcp_link_memories`
 
 ## 🎯 MCP Best Practices
 
@@ -60,10 +88,15 @@ applyTo: "**"
 - Use `manage_todo_list` for complex work - mark in-progress before starting, completed immediately after finishing
 - Include specific file paths and acceptance criteria in descriptions
 
-### Memory Usage:
-- Start sessions by recalling relevant context: `mcp_memoraimcp_recall`
-- Store important decisions: `mcp_memoraimcp_remember`
-- Use structured data in SimpleMemoryMCP for entity relationships
+### Advanced Memory Usage - PRODUCTION-READY:
+- **Memory-First Workflow**: Start every session with `mcp_memoraimcp_recall` to check context
+- **Intelligent Search**: Use single keywords for optimal performance (avoid complex multi-term queries)
+- **Structured Storage**: Use `mcp_memoraimcp_remember` with structured metadata (entityType, priority, project, tags)
+- **Knowledge Building**: Create relationships with `mcp_memoraimcp_link_memories` for context connection
+- **Performance Monitoring**: Use `mcp_memoraimcp_get_analytics` for usage insights and optimization
+- **Episodic Learning**: Record key events with `mcp_memoraimcp_record_episodic_event`
+- **Multi-Agent Coordination**: Use `mcp_memoraimcp_federated_query` for collaborative intelligence
+- **Adaptive Optimization**: Leverage `mcp_memoraimcp_adapt_organization` for continuous improvement
 
 ### Documentation:
 - Add "use context7" for up-to-date library docs
@@ -108,6 +141,7 @@ applyTo: "**"
   - Add `copilot-instructions.md` to workspace when prompted for better results
 - Always verify work before claiming completion
 - Use MCP tools strategically to enhance capabilities  
+- **CAUTAI MCP**: Leverage ultra-fast research with `fastMode: true` for real-time intelligence, use answer composition for structured reports  
 - Keep user instructions and preferences in memory
 - Stay practical and results-focused
 - Terminal commands are preferred over UI automation

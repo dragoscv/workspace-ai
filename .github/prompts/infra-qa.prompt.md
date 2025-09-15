@@ -1,7 +1,7 @@
 ---
 mode: agent
 ---
-Use ".github/instructions/core.instructions.md" and ".github/instructions/infra-qa.instructions.md".
+Use "E:/GitHub/workspace-ai/.github/instructions/core.instructions.md" and "E:/GitHub/workspace-ai/.github/instructions/infra-qa.instructions.md".
 
 PROJECT=<NAME>
 TARGETS=<CI provider, test runner, observability stack>
@@ -21,3 +21,9 @@ Deliver:
 - Local parity commands (run CI checks locally)
 - Docs updates and playbooks
 - Update /.agent-state/state.json {pipelineTime, e2eStability}
+
+## 🚨 CRITICAL DEVELOPMENT RULES - MANDATORY
+
+1. **NO MOCKS! 0 MOCK DATA!** - Only real connections and actual data. No fake/mock/placeholder content.
+2. **NO HARDCODED STRINGS** - Use translation files and i18n systems for all text content.
+3. **NO PLACEHOLDERS** - Replace all placeholders with dynamic variables and real content.

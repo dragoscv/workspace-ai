@@ -36,9 +36,9 @@ PLAN SPRINT: 1-week sprint for critical bug fixes in ProductionApp
 ```
 
 ## References
-- #file:.github/instructions/product-manager-agent.instructions.md
-- #file:.github/instructions/project-manager-agent.instructions.md
-- #file:.github/instructions/multi-agent-coordination.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/product-manager-agent.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/project-manager-agent.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/multi-agent-coordination.instructions.md
 
 ## Expected Output
 - Sprint goal and objectives
@@ -49,3 +49,9 @@ PLAN SPRINT: 1-week sprint for critical bug fixes in ProductionApp
 - Risk assessment and mitigation
 - Sprint retrospective preparation
 - Plan saved as file
+
+## 🚨 CRITICAL DEVELOPMENT RULES - MANDATORY
+
+1. **NO MOCKS! 0 MOCK DATA!** - Only real connections and actual data. No fake/mock/placeholder content.
+2. **NO HARDCODED STRINGS** - Use translation files and i18n systems for all text content.
+3. **NO PLACEHOLDERS** - Replace all placeholders with dynamic variables and real content.

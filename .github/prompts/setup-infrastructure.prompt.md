@@ -36,9 +36,9 @@ SETUP INFRASTRUCTURE: multi-region deployment with disaster recovery for Finance
 ```
 
 ## References
-- #file:.github/instructions/devops-engineer-agent.instructions.md
-- #file:.github/instructions/sre-agent.instructions.md
-- #file:.github/instructions/security-engineer-agent.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/devops-engineer-agent.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/sre-agent.instructions.md
+- #file:E:/GitHub/workspace-ai/.github/instructions/security-engineer-agent.instructions.md
 
 ## Expected Output
 - Infrastructure as Code (Terraform/CloudFormation)
@@ -48,3 +48,9 @@ SETUP INFRASTRUCTURE: multi-region deployment with disaster recovery for Finance
 - Disaster recovery and backup strategies
 - Documentation and runbooks
 - Cost optimization recommendations
+
+## 🚨 CRITICAL DEVELOPMENT RULES - MANDATORY
+
+1. **NO MOCKS! 0 MOCK DATA!** - Only real connections and actual data. No fake/mock/placeholder content.
+2. **NO HARDCODED STRINGS** - Use translation files and i18n systems for all text content.
+3. **NO PLACEHOLDERS** - Replace all placeholders with dynamic variables and real content.
