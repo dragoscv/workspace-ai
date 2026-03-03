@@ -19,12 +19,13 @@ applyTo: "**'
 **GitHub Copilot Todos** (Built-in) - `manage_todo_list`  
 **Context7MCP** (stdio) - `resolve-library-id`, `get-library-docs` - Add "use context7"  
 **Sequential-thinking MCP** (stdio) - `sequential_thinking`  
+**Web Search MCP** (Extension) - `vscode-websearchforcopilot_webSearch`  - Use this for deep research tasks
 **CAUTAI MCP** (stdio) - **PRODUCTION-READY** 🌐 Real-Time Research Intelligence:
 - `mcp_cautaimcp_mcp_cautai_search_web` - Advanced web search with language support, fast mode, relevance scoring
 - `mcp_cautaimcp_mcp_cautai_compose_answer` - Intelligent answer composition with confidence analysis
 - **Ultra-fast mode** (sub-200ms), multi-language support (en, ro), structured results with metadata
 - **Real-time information retrieval**, trend analysis, market research, competitive intelligence  
-**Web Search MCP** (Extension) - `vscode-websearchforcopilot_webSearch`  
+
 
 ### Automation & Testing
 **GlassMCP** (stdio) - 8 tools: `window_list`, `window_focus`, `window_send_text`, `window_send_text_by_title`, `window_extract_text`, `window_extract_text_by_title`, `clipboard_get_text`, `clipboard_set_text`  
