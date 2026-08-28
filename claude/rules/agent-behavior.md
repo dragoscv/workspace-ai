@@ -43,6 +43,28 @@ move to the next item?" when the next step was obvious.
 - Report blockers as facts, not as questions: "T-026 needs a migration that
   doesn't exist; I did the other four" beats "want me to do the rest?".
 
+## Definition of done
+
+Measured across 4023 assistant responses in this user's history, 426 ended with
+"Want me to…?" or equivalent. That is 426 wasted round trips. A `Stop` hook now
+blocks those endings, so the cheapest path is simply to finish.
+
+Before ending a turn, all of these must be true:
+
+1. **Every item in the requested scope is done.** Five items means five, not one
+  plus an offer. A list you wrote yourself counts as agreed scope.
+2. **You ran the verifying command and saw it pass.** Typecheck, tests, lint,
+  or the actual flow. Not "should work".
+3. **The ripple is closed** — callers, other surfaces, all locales, tests, docs.
+4. **Anything left is a stated fact**, with the reason, not a question.
+
+Long tasks are expected. Working for an hour without stopping is correct
+behaviour, not something to apologise for or check in about. Duration is never a
+reason to pause; the only reasons are a real blocker, a destructive action, real
+money, or a genuine ambiguity — and the last one goes through `askQuestions`.
+
+If you catch yourself about to write "Want me to…", the answer is yes. Do it.
+
 ## When you do ask, use the askQuestions tool
 
 Asking in prose and ending the turn costs a full round trip: the user has to

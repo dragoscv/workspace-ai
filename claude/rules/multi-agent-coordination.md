@@ -44,11 +44,59 @@ something in progress.
 within a minute as they save the next file. Re-read before acting: the problem
 you were about to fix may already be gone.
 
+**Check before you assume.** "Another agent is probably mid-edit" is a guess,
+and when it is wrong the error sits there while every agent politely steps over
+it. Ask:
+
+```powershell
+pwsh -NoProfile -File "$env:USERPROFILE\.copilot\hooks\who-owns-file.ps1" -Path <file>
+```
+
+It reads `session_files` from every local session store and reports which
+sessions touched that file recently (default 30 min).
+
+- `NOBODY-ACTIVE` (exit 0) → nobody owns it. **Fix it properly**, don't skip it.
+  A stale error is yours to repair, not to route around.
+- `ACTIVE-OWNER` (exit 3) → it lists the session, profile and last-active time.
+  Fix forward only if it blocks you; never delete or revert.
+
+Use it before "leaving a file alone", before reporting something as broken but
+untouched, and before a large refactor of an unfamiliar file.
+
 **Say what you touched.** If you modified a file that is clearly someone else's
 work in progress, state it explicitly in your final report so the change isn't
 mistaken for their own.
 
 Rule of thumb: **additive is fine, subtractive is not.**
+
+## Undoing your own mistake must not destroy theirs
+
+Observed failure: an agent noticed it had clobbered another agent's CHANGELOG
+edits, tried to fix it with `git checkout -- CHANGELOG.md`, and thereby
+discarded that agent's remaining uncommitted work — turning a recoverable
+mistake into an unrecoverable one.
+
+**Never use a discard command as a fix.** `git checkout -- <path>`,
+`git restore`, `git reset --hard` and `git clean -f` all throw away
+uncommitted changes, and in a shared clone those changes are usually not
+yours. Uncommitted-and-unstaged work leaves no dangling blob: it is simply
+gone. A guard hook blocks these, but do not rely on it.
+
+When you realise you overwrote someone's edits:
+
+1. **Stop touching the file.** Every further command narrows recovery.
+2. **Commit what is there**, even if it is a mix. Committed is recoverable;
+  working-tree state is not.
+3. Recover their version from a source that still has it — `git stash list`,
+  `git fsck --lost-found` if it was ever staged, the editor's local history
+  (`File: Open Timeline`), or the chat-editing snapshots under
+  `workspaceStorage/*/chatEditingSessions/`.
+4. **Say plainly what you overwrote**, in your report, naming the file.
+
+Prevention: read a file immediately before writing it, and prefer targeted
+edits over rewriting a whole file. `WriteAllLines`-style full-file rewrites are
+what clobber a concurrent edit — they replace content written seconds ago by
+someone else.
 
 ## Escalation
 - A commit that includes another agent's files is **not** an incident. Nothing is lost — it is committed. Report which files were foreign and move on; do not offer to split, revert or amend it
