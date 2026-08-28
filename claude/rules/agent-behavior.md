@@ -130,9 +130,8 @@ implement unrequested work.
 - Distinguish clearly: VERIFIED (ran it, saw it) vs EXPECTED (reasoned it) �?" say which one it is
 
 ## Memory Discipline
-- When a non-obvious failure mode is solved, append the signature + fix to the relevant memory/gotchas file in the same turn �?" don't defer
-- Update or delete memory entries proven wrong; stale memory is worse than none
-- Keep entries terse: symptom �?' root cause �?' fix, one entry per failure mode
+See `memory-discipline.md` — read memory before diagnosing, write what you
+learned in the same turn, keep it true.
 
 ## Code Generation
 - Generate production-ready code, not pseudocode or placeholders
