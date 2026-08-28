@@ -5,6 +5,33 @@ paths:
 
 # Styling & UI Guidelines
 
+## Look at the page before saying it is fixed
+
+Measured over 3 months in one monorepo: of 397 turns claiming a visual fix,
+**392 (98.7%) never rendered the page**. Browser tools were used in 1.3% of
+turns. The result is predictable — the user became the renderer, reporting
+"still 1px off" three times in a row, and UI accounted for 54% of all repeated
+requests while being only 32% of prompts.
+
+A visual change is not verified by reading the diff. CSS composes: specificity,
+stacking contexts, parent `overflow`, flex/grid sizing and dark-mode tokens all
+decide the result at render time, not in the file you edited.
+
+So, for any change to spacing, borders, color, z-index, overflow, animation or
+responsive behaviour:
+
+1. Open the affected page (`open_browser_page`) and **screenshot the element**
+  you changed.
+2. Check the states that actually break: hover/focus, dark mode, long content
+  (overflow), empty state, and a narrow viewport.
+3. Only then report — and say what you saw. "Fixed" without a look is a guess.
+
+If the page cannot be reached (no dev server, auth wall), say so explicitly and
+label the change **EXPECTED, not VERIFIED**. Do not silently skip the step.
+
+When the user reports the same visual bug twice, stop editing and inspect the
+computed styles in the browser. A second blind guess is rarely right.
+
 ## CSS Framework
 - Use Tailwind CSS exclusively (utility-first); no inline styles
 - Use Tailwind theme configuration for consistent spacing, colors, and typography
