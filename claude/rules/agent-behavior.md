@@ -56,6 +56,31 @@ working on the wrong target.
 - Pay attention to negations ("I don't want X, just Y") — the negated part is
   usually what the agent was doing.
 
+## Finish the ripple, not just the file
+
+A feature is not done when the file you edited compiles. Before reporting,
+check what else touches what you changed:
+
+- Callers of a changed signature, and the types that flow from it.
+- The other surfaces of the same feature: list ↔ detail ↔ form ↔ export ↔ PDF ↔
+  email ↔ API ↔ mobile.
+- Translations for **every** locale in the project, not just the one you added.
+- Tests, seed/demo data, and the docs or tracker that describe the old behaviour.
+- Permissions, audit logging and cache invalidation on any new mutation.
+
+If a ripple is genuinely out of scope, say so explicitly instead of leaving it
+silently broken.
+
+## Recommend what wasn't asked for
+
+The user cannot ask for what they don't know exists. When you finish, add a
+short list of what you would do next and why — a missing state, a library that
+removes hand-rolled code, an obvious follow-up feature, a risk that will bite
+later.
+
+Keep it to a few high-value items, ranked, each one line. Recommend — do not
+implement unrequested work.
+
 ## Verification & Evidence (empirical proof, always)
 - Never claim something works, is fixed, or is deployed without running the verifying command and showing its output
 - "Done" requires evidence: test output, curl/HTTP response, log line, file content, or screenshot â€” not inference
