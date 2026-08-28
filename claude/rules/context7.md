@@ -3,13 +3,55 @@ paths:
   - "**"
 ---
 
-Use Context7 MCP to fetch current documentation whenever the user asks about a library, framework, SDK, API, CLI tool, or cloud service â€” even well-known ones like React, Next.js, Prisma, Express, Tailwind, Django, or Spring Boot. This includes API syntax, configuration, version migration, library-specific debugging, setup instructions, and CLI tool usage. Use even when you think you know the answer â€” your training data may not reflect recent changes. Prefer this over web search for library docs.
+# Looking things up
 
-Do not use for: refactoring, writing scripts from scratch, debugging business logic, code review, or general programming concepts.
+Your training data is stale. Assume any version number, API shape or "best
+practice" you remember may have changed.
 
-## Steps
+## Context7 — for library documentation
 
-1. Always start with `resolve-library-id` using the library name and what to look up in the library's documentation, unless the user provides an exact library ID in `/org/project` format
-2. Pick the best match (ID format: `/org/project`) by: exact name match, description relevance, code snippet count, source reputation (High/Medium preferred), and benchmark score (higher is better). If results don't look right, try alternate names or queries (e.g., "next.js" not "nextjs", or rephrase the question). Use version-specific IDs when the user mentions a version
-3. `query-docs` with the selected library ID and what to look up in the library's documentation (not single words), scoped to a single concept. If the question spans multiple distinct concepts (e.g. routing and auth and caching), make a separate `query-docs` call per concept with the same library ID, unless the question is about how the concepts interact â€” combined queries dilute ranking and return shallow results for each topic
-4. Answer using the fetched docs
+Use Context7 MCP whenever the task touches a library, framework, SDK, API, CLI
+tool or cloud service — even well-known ones like React, Next.js, Prisma,
+Express, Tailwind, Django or Spring Boot. This covers API syntax, configuration,
+version migration, library-specific debugging, setup and CLI usage. Use it
+**even when you think you know the answer**.
+
+For library docs specifically, prefer Context7 over a web search — it returns
+current docs instead of a blog post about an old version.
+
+### Steps
+
+1. Start with `resolve-library-id` using the library name plus what you need,
+   unless the user gave an exact `/org/project` ID.
+2. Pick the best match by name match, description relevance, snippet count,
+   source reputation (High/Medium) and benchmark score. If results look wrong,
+   try alternate spellings ("next.js" not "nextjs") or rephrase.
+3. `query-docs` with that ID, scoped to **one concept**. Multiple distinct
+   concepts get separate calls — combined queries dilute ranking and return
+   shallow results for each.
+4. Answer from the fetched docs.
+
+## Web search — for what Context7 cannot answer
+
+These are complementary, not alternatives. Search when:
+
+- **An error message is unfamiliar.** Paste the exact string. Someone has hit
+  it; this is usually faster than reasoning from first principles.
+- **You suspect drift** — the code uses a pattern that may be deprecated, or a
+  dependency is majors behind. Check the current recommendation before
+  preserving the old pattern.
+- **Choosing between approaches or libraries**, where "what does the ecosystem
+  do now" matters more than any single doc page.
+- **Release notes, breaking changes, CVEs, incidents** — anything dated.
+- **A fix did not work and you do not know why.** Search before guessing again.
+
+Do not search for: business logic in this repo, refactoring decisions, code
+review, or general programming concepts. Those come from reading the code.
+
+## Judging what you find
+
+- Prefer official docs and changelogs over blog posts and Stack Overflow.
+- **Check the date.** An accepted answer from 2021 about a library now on v6 is
+  actively misleading.
+- Verify the version matches what this project actually has installed before
+  applying anything.

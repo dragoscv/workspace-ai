@@ -15,13 +15,13 @@ open construct, and Ctrl+C does not always work. Prevent it at authoring time.
 here-string. In practice it is almost always a quoting collision in a regex or
 grep pattern.
 
-BAD â€” a double-quoted string containing escaped double quotes:
+BAD �?" a double-quoted string containing escaped double quotes:
 ```powershell
 rg -l "from ['`"].*e2e/" apps/web/src        # ` escaping is fragile
 "count: $((rg -c "pat" src).Count)"          # nested "" inside $()
 ```
 
-GOOD â€” outer single quotes, or avoid the inner quote entirely:
+GOOD �?" outer single quotes, or avoid the inner quote entirely:
 ```powershell
 rg -l 'from .*e2e/' apps/web/src
 $n = (rg -c 'pat' src | Measure-Object).Count; "count: $n"
@@ -55,14 +55,14 @@ For a file: `[Parser]::ParseFile($path,[ref]$t,[ref]$e)`.
 ## Getting out of `>>` (tell the user this, do not make them guess)
 
 In order of preference:
-- Type the **closing character** then Enter â€” `"` or `'` or `}` or `)` or `"@`.
+- Type the **closing character** then Enter �?" `"` or `'` or `}` or `)` or `"@`.
   This completes the statement; it may then execute, so prefer Ctrl+C first if
   the command is destructive.
-- **Ctrl+C** â€” usual interrupt.
-- **Ctrl+Break** â€” harder interrupt; works when Ctrl+C is swallowed by
+- **Ctrl+C** �?" usual interrupt.
+- **Ctrl+Break** �?" harder interrupt; works when Ctrl+C is swallowed by
   PSReadLine mid-parse.
-- **Esc** â€” clears the current line only (not the pending block).
-- **Ctrl+D** â€” EOF; exits the shell entirely. Last resort.
+- **Esc** �?" clears the current line only (not the pending block).
+- **Ctrl+D** �?" EOF; exits the shell entirely. Last resort.
 
 ## Non-obvious trap
 

@@ -10,7 +10,7 @@ paths:
 - Understand the project structure and conventions before making changes
 - Check for existing patterns in the codebase; follow them consistently
 - Verify assumptions by reading relevant files, not guessing
-- Check memory (user/repo gotcha files) before diagnosing an error that looks familiar â€” most failure modes here have recurred at least once
+- Check memory (user/repo gotcha files) before diagnosing an error that looks familiar �?" most failure modes here have recurred at least once
 - Use Next.js DevTools MCP when available for route context and unified logs
 
 ## During Work
@@ -39,21 +39,21 @@ move to the next item?" when the next step was obvious.
   real money; requirements are genuinely ambiguous; or there are multiple valid
   approaches with different trade-offs. Use a concise multiple-choice question
   with a recommendation.
-- End a turn with a statement of what was done and what remains — not with a
+- End a turn with a statement of what was done and what remains - not with a
   request for permission to keep going.
 - Report blockers as facts, not as questions: "T-026 needs a migration that
   doesn't exist; I did the other four" beats "want me to do the rest?".
 
 ## Listen to corrections the first time
 
-When the user restates a request, they are correcting course — re-read the new
+When the user restates a request, they are correcting course - re-read the new
 wording literally instead of continuing the previous plan. Observed failure: the
 same request was rephrased three times, each more explicit, while the agent kept
 working on the wrong target.
 
 - A rephrased request means the previous interpretation was wrong. Stop, state
   the new understanding in one line, then act on it.
-- Pay attention to negations ("I don't want X, just Y") — the negated part is
+- Pay attention to negations ("I don't want X, just Y") - the negated part is
   usually what the agent was doing.
 
 ## Finish the ripple, not just the file
@@ -62,8 +62,8 @@ A feature is not done when the file you edited compiles. Before reporting,
 check what else touches what you changed:
 
 - Callers of a changed signature, and the types that flow from it.
-- The other surfaces of the same feature: list ↔ detail ↔ form ↔ export ↔ PDF ↔
-  email ↔ API ↔ mobile.
+- The other surfaces of the same feature: list ? detail ? form ? export ? PDF ?
+  email ? API ? mobile.
 - Translations for **every** locale in the project, not just the one you added.
 - Tests, seed/demo data, and the docs or tracker that describe the old behaviour.
 - Permissions, audit logging and cache invalidation on any new mutation.
@@ -74,24 +74,24 @@ silently broken.
 ## Recommend what wasn't asked for
 
 The user cannot ask for what they don't know exists. When you finish, add a
-short list of what you would do next and why — a missing state, a library that
+short list of what you would do next and why - a missing state, a library that
 removes hand-rolled code, an obvious follow-up feature, a risk that will bite
 later.
 
-Keep it to a few high-value items, ranked, each one line. Recommend — do not
+Keep it to a few high-value items, ranked, each one line. Recommend - do not
 implement unrequested work.
 
 ## Verification & Evidence (empirical proof, always)
 - Never claim something works, is fixed, or is deployed without running the verifying command and showing its output
-- "Done" requires evidence: test output, curl/HTTP response, log line, file content, or screenshot â€” not inference
+- "Done" requires evidence: test output, curl/HTTP response, log line, file content, or screenshot �?" not inference
 - After a deploy/config change, verify the LIVE state (hit the endpoint, read the live revision), not just the local diff
-- When a command's success is ambiguous (timeout, partial output, tool error with exit code 0), verify the actual resulting state before retrying â€” retries can duplicate resources
-- Distinguish clearly: VERIFIED (ran it, saw it) vs EXPECTED (reasoned it) â€” say which one it is
+- When a command's success is ambiguous (timeout, partial output, tool error with exit code 0), verify the actual resulting state before retrying �?" retries can duplicate resources
+- Distinguish clearly: VERIFIED (ran it, saw it) vs EXPECTED (reasoned it) �?" say which one it is
 
 ## Memory Discipline
-- When a non-obvious failure mode is solved, append the signature + fix to the relevant memory/gotchas file in the same turn â€” don't defer
+- When a non-obvious failure mode is solved, append the signature + fix to the relevant memory/gotchas file in the same turn �?" don't defer
 - Update or delete memory entries proven wrong; stale memory is worse than none
-- Keep entries terse: symptom â†’ root cause â†’ fix, one entry per failure mode
+- Keep entries terse: symptom �?' root cause �?' fix, one entry per failure mode
 
 ## Code Generation
 - Generate production-ready code, not pseudocode or placeholders
