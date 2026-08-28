@@ -11,7 +11,8 @@ Multiple agents routinely work in the SAME clone at the same time (large monorep
 - **Never `git add -A`, `git add .`, or `git commit -a`** �?" stage only explicit paths you changed. Other agents' uncommitted work is in the working tree and `-A` sweeps it into your commit
 - Before committing, run `git diff --cached --name-only` so you KNOW what is going in. If foreign files are staged, **keep them and commit anyway** — do not `git reset <path>`. Unstaging races another agent that may be mid-`git add`, and a commit is recoverable while a lost stage is not. Name the foreign files in your report so the other agent can see where their work landed
 - A commit mutex may exist (e.g. `.git/commit.lock` via pre-commit hook). If blocked with "another commit is in progress": wait 30�?"60s and retry. Only delete the lock if the holder PID is dead
-- Never `git stash`, `git checkout <branch>`, `git rebase`, `git reset --hard`, or `git clean` while other agents are active �?" these mutate the shared working tree and destroy their in-progress work. If a branch switch is unavoidable, ask the user first
+- Never bare `git stash`, `git checkout <branch>`, `git rebase`, `git reset --hard`, or `git clean` while other agents are active — these mutate the shared working tree and destroy their in-progress work. If a branch switch is unavoidable, ask the user first
+- `git stash push -- <path>` (path-scoped) IS allowed and is the safe way to set your own changes aside: it touches only that file and keeps the content recoverable via `git stash list`. Bare `git stash` is banned precisely because it sweeps the entire tree, other agents included
 - Never amend or force-push a commit you didn't just make �?" it may be another agent's
 - After committing, re-run `git status` �?" leftover changes may belong to another agent; leave them alone
 
@@ -24,6 +25,39 @@ Multiple agents routinely work in the SAME clone at the same time (large monorep
 - Don't kill dev servers, watchers, or terminals you didn't start
 - Don't run `pnpm install` casually while other agents build �?" it invalidates node_modules under them; coordinate or do it when quiet
 - Don't run conflicting DB operations (db:push, migrations, reseeds) while another agent's dev server or tests are hitting the same local DB, unless it's the point of the task
+
+## Builds are serialised — one per repo
+
+Measured on this machine: 231 pairs of sessions were active in the monorepo within
+5 minutes of each other (97 and 93 in two other repos). Two `turbo`/`tsc` runs in one clone
+share `.next`, `.turbo` and `*.tsbuildinfo`, so a concurrent run corrupts
+incremental state and produces phantom errors the other agent then tries to
+"fix".
+
+Run builds through the wrapper — a `PreToolUse` hook enforces this, so a bare
+`pnpm build` is refused:
+
+```powershell
+pwsh -NoProfile -File "$env:USERPROFILE\.copilot\hooks\run-build.ps1" -Command 'pnpm build'
+pwsh -NoProfile -File "$env:USERPROFILE\.copilot\hooks\run-build.ps1" -Status        # who holds the lock
+pwsh -NoProfile -File "$env:USERPROFILE\.copilot\hooks\run-build.ps1" -Command 'pnpm build' -Wait
+```
+
+- Output always goes to `.copilot-tmp/build-logs/<timestamp>-<cmd>.log`, with
+  the exit code appended. **Read the newest log before starting a build** — if
+  another session just built the same tree, you already have the answer.
+- Exit 3 means someone else is mid-build. Read their log or pass `-Wait`; do
+  not work around the lock.
+- A crashed build leaves a lock file behind; the wrapper reclaims it
+  automatically by checking the PID. Never delete `build.lock` by hand.
+
+## Never overwrite a file wholesale
+
+A `PreToolUse` hook refuses a whole-file write when another live session
+touched that file in the last 15 minutes — this is the upstream cause of the
+CHANGELOG incident. Targeted edits (`apply_patch`, `replace_string`) are always
+allowed, and are what you should use anyway: a stale anchor fails loudly
+instead of silently discarding someone's work.
 
 ## When another agent's work blocks you
 
