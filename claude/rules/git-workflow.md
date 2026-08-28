@@ -5,11 +5,26 @@ paths:
 
 # Git Workflow & Conventions
 
+> **Which mode am I in?** This file describes the PR-based flow — feature
+> branches, review, squash merge. Most work on this machine happens in a
+> **shared clone with several agents committing directly to `dev`**, where
+> `multi-agent-coordination.md` takes precedence and forbids `rebase`,
+> `stash`, branch switching and history rewriting outright.
+>
+> Use this file when you own the branch (a real PR, a solo repo, an
+> open-source contribution). In a shared clone, follow the commit-message and
+> SemVer conventions here, and ignore the branch/PR/rebase mechanics.
+
 ## Branch Strategy
+
+Applies to PR-based work only — see the note above.
+
 - Protected `main` branch; all changes via pull requests
 - Feature branches from `main`: `feat/short-description`, `fix/issue-number-description`
 - Delete branches after merge
-- Rebase feature branches on `main` before PR; resolve conflicts locally
+- Rebase feature branches on `main` before PR; resolve conflicts locally.
+  **Never while another agent is active in the same clone** — rebase rewrites
+  the working tree under them. Ask the user first.
 
 ## Commit Messages (Conventional Commits)
 - Format: `type(scope): description`

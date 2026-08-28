@@ -58,6 +58,36 @@ VS Code Settings Sync covers `settings`, `keybindings`, `snippets`, `prompts`,
 `agents`, `mcp`, `tasks`. It does **not** cover `~/.claude/*` or any skills
 directory — those need a dotfiles repo.
 
+## Hooks are Copilot CLI only — VS Code does not run them
+
+`~/.copilot/hooks/the gateway-hooks.json` is read by **Copilot CLI**. The VS Code
+chat extension has no equivalent registration point, so every hook is inert
+there.
+
+Verified 2026-08-28, two independent ways:
+
+- `session-start.ps1` appends to `~/.the gateway/copilot-sessions.log` on every
+  session. 202 entries, none for the VS Code workspace that was open at the
+  time.
+- `guard-command.ps1` refuses `pnpm typecheck` (exit 2) when piped the payload
+  by hand — yet that exact command ran unblocked in the VS Code session minutes
+  earlier.
+
+What this means in practice:
+
+- The guards (`guard-command`, `guard-write`), the Stop hooks
+  (`no-permission-stop`, `nudge-parallel`) and the session-start tool audit
+  protect **CLI sessions only**.
+- In VS Code the same protection has to come from the **rules**, which are
+  loaded there — so a rule is not redundant just because a hook covers it.
+- Anything that must hold everywhere belongs in a **repo-level gate**
+  (pre-commit, CI). That layer is harness-independent and is why the build
+  lock also lives in `run-build.ps1` behind an OS mutex rather than in a hook
+  alone.
+
+Do not cite hook coverage as proof a behaviour is enforced without saying which
+harness you mean.
+
 ## Diagnosing "my instructions aren't applied"
 
 1. Right-click the Chat view → **Diagnostics** — lists every loaded instruction,
