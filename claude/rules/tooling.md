@@ -1,7 +1,20 @@
+﻿---
+paths:
+  - "**/package.json"
+  - "**/pnpm-workspace.yaml"
+  - "**/turbo.json"
+  - "**/*.config.{ts,js,mjs}"
+  - "**/eslint.config.mjs"
+---
+
 # Tooling & Configuration
 
 ## Package Management
 - Always use `pnpm`; never npm or yarn
+- **Latest stable policy**: always prefer the **latest stable** version of every dependency. When adding a dependency, look up the current latest (`npm view <pkg> version`) and use it; when touching an outdated one, suggest/perform the upgrade. Don't introduce or keep old majors without a concrete reason
+- Avoid pre-release (alpha/beta/RC) versions unless the ecosystem standard is still pre-release for that package (e.g. Auth.js v5 `next-auth@5.0.0-beta`)
+- Manage shared versions via pnpm catalogs; keep the catalog on latest stable and let packages reference `catalog:`
+- Keep deps current: run `pnpm outdated` / `pnpm up --latest` deliberately, review changelogs/breaking changes, and update in a dedicated PR
 - Use pnpm workspaces with Turborepo for monorepos (`apps/` + `packages/`)
 - Use exact versions in `package.json` for critical dependencies
 - Run `pnpm install --frozen-lockfile` in CI; never auto-update lockfiles in CI

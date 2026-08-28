@@ -1,4 +1,4 @@
----
+﻿---
 paths:
   - "**/*.{ts,tsx,js,jsx,py,go,rs}"
 ---

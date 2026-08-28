@@ -1,3 +1,8 @@
+﻿---
+paths:
+  - "**"
+---
+
 # Git Workflow & Conventions
 
 ## Branch Strategy
@@ -27,4 +32,4 @@
 - Tag releases with SemVer: `v1.2.3`
 - Generate changelogs from conventional commits
 - Document breaking changes prominently
-- Deployment: canary → staged → full rollout with monitoring
+- Deployment: canary â†’ staged â†’ full rollout with monitoring

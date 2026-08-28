@@ -1,4 +1,4 @@
----
+﻿---
 paths:
   - "**/*.{ts,tsx,js,jsx}"
   - "**/next.config.*"
@@ -9,7 +9,7 @@ paths:
 ## Budgets (enforce in CI)
 - **Core Web Vitals** (p75, field): LCP < 2.5s, INP < 200ms, CLS < 0.1
 - Initial JS for a route < 170KB gzipped; flag any single dependency > 50KB
-- Lighthouse performance ≥ 90 on primary routes
+- Lighthouse performance â‰¥ 90 on primary routes
 - API/Server Action p95 < 300ms; DB query p95 < 100ms
 
 ## Next.js 16 / React 19
@@ -35,6 +35,6 @@ paths:
 - Self-host fonts; subset to used glyphs
 
 ## Measurement
-- Track real CWV via the Next.js metrics hook → analytics/Sentry
+- Track real CWV via the Next.js metrics hook â†’ analytics/Sentry
 - Profile before optimizing; never guess. Confirm the win with a before/after number
 - Add a perf check to PRs that touch hot paths (lists, dashboards, search)

@@ -1,3 +1,8 @@
+﻿---
+paths:
+  - "**"
+---
+
 # Security Best Practices
 
 ## Input & Output
