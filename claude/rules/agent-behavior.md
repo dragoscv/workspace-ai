@@ -5,6 +5,7 @@
 - Understand the project structure and conventions before making changes
 - Check for existing patterns in the codebase; follow them consistently
 - Verify assumptions by reading relevant files, not guessing
+- Check memory (user/repo gotcha files) before diagnosing an error that looks familiar — most failure modes here have recurred at least once
 - Use Next.js DevTools MCP when available for route context and unified logs
 
 ## During Work
@@ -16,6 +17,18 @@
 - Don't add error handling or validation for scenarios that can't happen
 - Run tests after making changes to verify nothing is broken
 - If blocked, try alternative approaches rather than brute-forcing
+
+## Verification & Evidence (empirical proof, always)
+- Never claim something works, is fixed, or is deployed without running the verifying command and showing its output
+- "Done" requires evidence: test output, curl/HTTP response, log line, file content, or screenshot — not inference
+- After a deploy/config change, verify the LIVE state (hit the endpoint, read the live revision), not just the local diff
+- When a command's success is ambiguous (timeout, partial output, tool error with exit code 0), verify the actual resulting state before retrying — retries can duplicate resources
+- Distinguish clearly: VERIFIED (ran it, saw it) vs EXPECTED (reasoned it) — say which one it is
+
+## Memory Discipline
+- When a non-obvious failure mode is solved, append the signature + fix to the relevant memory/gotchas file in the same turn — don't defer
+- Update or delete memory entries proven wrong; stale memory is worse than none
+- Keep entries terse: symptom → root cause → fix, one entry per failure mode
 
 ## Code Generation
 - Generate production-ready code, not pseudocode or placeholders
