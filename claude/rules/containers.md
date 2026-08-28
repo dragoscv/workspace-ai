@@ -1,4 +1,4 @@
-﻿---
+---
 paths:
   - "**/Dockerfile*"
   - "**/docker-compose*.yml"
@@ -15,7 +15,7 @@ workers). Image size and cold start are user-visible on Cloud Run.
 
 - **Multi-stage always**: build stage with dev deps, runtime stage with only
   what runs. A single-stage Node image ships the whole toolchain.
-- Order layers by change frequency: base â†’ lockfile â†’ `install` â†’ source. Copying
+- Order layers by change frequency: base → lockfile → `install` → source. Copying
   source before installing busts the dependency cache on every edit.
 - `.dockerignore` is mandatory and must contain at least `node_modules`,
   `.git`, `.next`, `dist`, `.env*`, `__pycache__`, `.venv`. Without it the build
@@ -27,14 +27,14 @@ workers). Image size and cold start are user-visible on Cloud Run.
 
 ## Runtime
 
-- **Run as non-root.** Create a user and `USER app` â€” Cloud Run does not require
+- **Run as non-root.** Create a user and `USER app` — Cloud Run does not require
   root and a root container is a needless blast radius.
 - One process per container. No supervisord to run an app plus a cron.
-- `EXPOSE` and bind to `0.0.0.0:$PORT` â€” Cloud Run injects `PORT` and a
+- `EXPOSE` and bind to `0.0.0.0:$PORT` — Cloud Run injects `PORT` and a
   hardcoded port fails silently at deploy.
 - Handle `SIGTERM`: Cloud Run sends it before shutdown. An app that ignores it
   drops in-flight requests.
-- Health endpoint is `/health`. **Never `/healthz`** â€” that path is reserved by
+- Health endpoint is `/health`. **Never `/healthz`** — that path is reserved by
   Google Frontend and returns a Google 404 that never reaches the container.
 
 ## Secrets
@@ -42,7 +42,7 @@ workers). Image size and cold start are user-visible on Cloud Run.
 - Never `ENV SECRET=...` and never `COPY .env`. Both persist in image layers and
   survive deletion in a later layer.
 - Inject at runtime via Secret Manager / Cloud Run env.
-- Build args are visible in image history â€” not a secret channel.
+- Build args are visible in image history — not a secret channel.
 
 ## Size & speed
 
@@ -56,5 +56,5 @@ workers). Image size and cold start are user-visible on Cloud Run.
 
 - After building, **run the image locally** and hit its health endpoint before
   pushing. A build that succeeds can still fail to start.
-- A timed-out `gcloud builds submit` may still have succeeded â€” `gcloud builds
+- A timed-out `gcloud builds submit` may still have succeeded — `gcloud builds
   list` before retrying, or you get duplicate builds.

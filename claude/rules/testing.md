@@ -1,4 +1,4 @@
-﻿---
+---
 paths:
   - "**/*.{test,spec}.{ts,tsx,js,jsx}"
   - "**/tests/**"
@@ -11,7 +11,7 @@ paths:
 # Testing Strategy
 
 ## Approach
-- Follow TDD when implementing new features: write failing test â†’ implement â†’ refactor
+- Follow TDD when implementing new features: write failing test → implement → refactor
 - Test behavior and outcomes, not implementation details
 - Each test must be independent, deterministic, and idempotent
 - Aim for minimum 80% coverage on critical business logic

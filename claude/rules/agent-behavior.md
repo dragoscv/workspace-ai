@@ -1,4 +1,4 @@
-﻿---
+---
 paths:
   - "**"
 ---
@@ -22,6 +22,39 @@ paths:
 - Don't add error handling or validation for scenarios that can't happen
 - Run tests after making changes to verify nothing is broken
 - If blocked, try alternative approaches rather than brute-forcing
+
+## Don't stop for permission you already have
+
+Measured over 7 days: 101 of 209 user prompts (48%) were just "Continue", "yes"
+or "go". That is a turn wasted on latency, tokens and context reload every
+time. The cause is agents ending with questions like "Want me to finish it, or
+move to the next item?" when the next step was obvious.
+
+- If the next step is implied by the request or by a list already agreed, DO IT.
+  Do not stop to ask "shall I continue?", "want me to do X next?", or "which
+  one first?" when the order does not matter.
+- Finish the whole requested scope before reporting. A list of 5 items means 5
+  items, not 1 item plus an offer.
+- **Do** stop and ask when: the action is destructive or irreversible; it costs
+  real money; requirements are genuinely ambiguous; or there are multiple valid
+  approaches with different trade-offs. Use a concise multiple-choice question
+  with a recommendation.
+- End a turn with a statement of what was done and what remains — not with a
+  request for permission to keep going.
+- Report blockers as facts, not as questions: "T-026 needs a migration that
+  doesn't exist; I did the other four" beats "want me to do the rest?".
+
+## Listen to corrections the first time
+
+When the user restates a request, they are correcting course — re-read the new
+wording literally instead of continuing the previous plan. Observed failure: the
+same request was rephrased three times, each more explicit, while the agent kept
+working on the wrong target.
+
+- A rephrased request means the previous interpretation was wrong. Stop, state
+  the new understanding in one line, then act on it.
+- Pay attention to negations ("I don't want X, just Y") — the negated part is
+  usually what the agent was doing.
 
 ## Verification & Evidence (empirical proof, always)
 - Never claim something works, is fixed, or is deployed without running the verifying command and showing its output

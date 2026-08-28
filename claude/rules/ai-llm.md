@@ -1,4 +1,4 @@
-﻿---
+---
 paths:
   - "**/*.{ts,tsx,py}"
   - "**/ai/**"
@@ -22,7 +22,7 @@ paths:
 ## Reliability
 - Stream responses to the UI with a Suspense/live-region boundary (see accessibility)
 - Handle provider failure: timeout, bounded retry, and **fail over** between backends; degrade gracefully with a clear user message
-- Treat model output as **untrusted input** â€” validate, sanitize, and never `eval`/execute it or interpolate it into SQL/shell/HTML unescaped
+- Treat model output as **untrusted input** — validate, sanitize, and never `eval`/execute it or interpolate it into SQL/shell/HTML unescaped
 - Guard against prompt injection when input includes user/3rd-party content; keep instructions and data separated
 
 ## Encoding Gotcha (Vertex / Anthropic)

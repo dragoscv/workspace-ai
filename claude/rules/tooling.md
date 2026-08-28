@@ -1,4 +1,4 @@
-﻿---
+---
 paths:
   - "**/package.json"
   - "**/pnpm-workspace.yaml"

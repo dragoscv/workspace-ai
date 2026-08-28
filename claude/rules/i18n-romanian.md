@@ -1,4 +1,4 @@
-﻿---
+---
 paths:
   - "**/*.{ts,tsx,jsx}"
   - "**/messages/**"
@@ -20,16 +20,16 @@ paths:
 - **Numbers**: comma decimal separator, dot (or thin space) for thousands
 - **Dates**: `zz.ll.aaaa` (e.g. `16.06.2026`); use `Intl`/date-fns with `ro` locale; store UTC, render local
 - **Time zone**: `Europe/Bucharest` (EET/EEST) for display; never assume server TZ
-- Romanian diacritics required: Äƒ, Ã¢, Ã®, È™, È› (comma-below, U+0218/U+021A â€” not cedilla); ensure fonts and DB collation support them
+- Romanian diacritics required: ă, â, î, ș, ț (comma-below, U+0218/U+021A — not cedilla); ensure fonts and DB collation support them
 
 ## Business & Fiscal Terms (use correct RO terminology)
-- facturÄƒ (invoice), aviz (delivery note), chitanÈ›Äƒ (receipt), proformÄƒ, storno (credit note/reversal)
+- factură (invoice), aviz (delivery note), chitanță (receipt), proformă, storno (credit note/reversal)
 - CUI/CIF (tax id), CNP (personal id), nr. ORC / J (trade registry), cont IBAN
-- TVA (VAT), cotÄƒ TVA (VAT rate), bazÄƒ impozabilÄƒ (taxable base), scutit de TVA (VAT-exempt), taxare inversÄƒ (reverse charge)
+- TVA (VAT), cotă TVA (VAT rate), bază impozabilă (taxable base), scutit de TVA (VAT-exempt), taxare inversă (reverse charge)
 - societate, PFA, SRL, SA; sediu social (registered office)
 - Validate CUI (with/without `RO` prefix) and IBAN format; checksum where applicable
 
 ## Content Rules
-- Address users with appropriate RO register (consistent formal "dumneavoastrÄƒ" vs informal "tu" per product voice)
+- Address users with appropriate RO register (consistent formal "dumneavoastră" vs informal "tu" per product voice)
 - Legal/fiscal labels must match official ANAF wording on documents and exports
 - Keep RO and EN tone aligned; UX copy stays concise in both (see ux-writer skill)

@@ -1,4 +1,4 @@
-﻿---
+---
 paths:
   - "**/*.{ts,tsx,js,jsx}"
 ---
@@ -24,11 +24,11 @@ paths:
 ## React / Next.js
 - Use **error boundaries** (`error.tsx`) per route segment for render-time crashes; provide a recovery action
 - `not-found.tsx` for 404s; `global-error.tsx` as last resort
-- Server Action errors â†’ return typed error â†’ surface via `useActionState` and a **sonner toast**; never leave the user with a dead button
+- Server Action errors → return typed error → surface via `useActionState` and a **sonner toast**; never leave the user with a dead button
 - Streamed/Suspense errors get their own boundary so one widget failing doesn't blank the page
 
 ## User-Facing Messages
-- Messages are actionable and human ("Couldn't save the invoice â€” check the CUI and try again"), localized (see i18n-romanian)
+- Messages are actionable and human ("Couldn't save the invoice — check the CUI and try again"), localized (see i18n-romanian)
 - Never expose stack traces, SQL, internal IDs, or secrets to users
 - Log the technical detail server-side with a correlation id; show the safe message client-side
 

@@ -1,4 +1,4 @@
-﻿---
+---
 paths:
   - "**/*.{tsx,jsx,css,html,svelte,vue}"
 ---
@@ -46,7 +46,7 @@ paths:
 - Use Framer Motion or Tailwind Animate for transitions and effects
 - Respect `prefers-reduced-motion` media query
 - Keep animations under 300ms for UI feedback; longer only for deliberate emphasis
-- **React 19 + Motion crash-safety** (recurred 5+ times): NEVER use a shared `layoutId` across conditionally-rendered siblings (tab/nav active indicators) â€” use a static per-item `<span>` instead. Keyed `AnimatePresence mode="wait"` is the SAFE pattern. Don't wrap HeroUI `<Tab>` content in `motion.div` + variants. When syncing tab state to a dynamic-segment URL, use `history.replaceState`, not `router.push` (segment re-render races setState). Symptom of all these: `NotFoundError: removeChild` (Safari: "The object can not be found here"). Full detail in user memory `react19-framer-motion-crashes.md`
+- **React 19 + Motion crash-safety** (recurred 5+ times): NEVER use a shared `layoutId` across conditionally-rendered siblings (tab/nav active indicators) — use a static per-item `<span>` instead. Keyed `AnimatePresence mode="wait"` is the SAFE pattern. Don't wrap HeroUI `<Tab>` content in `motion.div` + variants. When syncing tab state to a dynamic-segment URL, use `history.replaceState`, not `router.push` (segment re-render races setState). Symptom of all these: `NotFoundError: removeChild` (Safari: "The object can not be found here"). Full detail in user memory `react19-framer-motion-crashes.md`
 
 ## SEO
 - Descriptive `<title>` and `<meta description>` on every page

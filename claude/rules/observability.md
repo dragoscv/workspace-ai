@@ -1,4 +1,4 @@
-﻿---
+---
 paths:
   - "**/*.{ts,tsx,js,jsx,py}"
 ---
@@ -8,7 +8,7 @@ paths:
 ## Logging
 - Use **structured JSON logs** (key/value), never bare `console.log` in production code paths
 - Levels: `error` (action needed), `warn` (degraded), `info` (business events), `debug` (dev only)
-- Every log in a request carries a correlation/request id; propagate it across services (gateway â†’ providers)
+- Every log in a request carries a correlation/request id; propagate it across services (gateway → providers)
 - **Never log secrets, tokens, passwords, full PII, card data, or full request bodies.** Redact (`***`) at the logger boundary
 - Log decisions and side effects (payment captured, invoice submitted, webhook received), not noise
 
@@ -27,7 +27,7 @@ paths:
 
 ## Health & Readiness
 - Expose `/health` (liveness) and a readiness check that verifies DB connectivity
-- **Cloud Run gotcha: `/healthz` is reserved by Google Frontend â€” use `/health`**
+- **Cloud Run gotcha: `/healthz` is reserved by Google Frontend — use `/health`**
 - Health endpoints return fast, do no auth, and never leak internal detail
 
 ## Alerting

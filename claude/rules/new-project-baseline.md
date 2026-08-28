@@ -1,4 +1,4 @@
-﻿---
+---
 paths:
   - "**/tsconfig*.json"
   - "**/.gitignore"
