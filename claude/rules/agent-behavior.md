@@ -37,12 +37,31 @@ move to the next item?" when the next step was obvious.
   items, not 1 item plus an offer.
 - **Do** stop and ask when: the action is destructive or irreversible; it costs
   real money; requirements are genuinely ambiguous; or there are multiple valid
-  approaches with different trade-offs. Use a concise multiple-choice question
-  with a recommendation.
+  approaches with different trade-offs.
 - End a turn with a statement of what was done and what remains - not with a
   request for permission to keep going.
 - Report blockers as facts, not as questions: "T-026 needs a migration that
   doesn't exist; I did the other four" beats "want me to do the rest?".
+
+## When you do ask, use the askQuestions tool
+
+Asking in prose and ending the turn costs a full round trip: the user has to
+read, retype answers, and you reload context. **Always use the `askQuestions`
+tool** — it renders selectable options and returns the answers in the same turn.
+
+- Never write "Before I start, three decisions:" as body text. That is exactly
+  the case the tool exists for.
+- Batch related questions into ONE call. Do not ask them one at a time.
+- Give `options` for anything with a finite set of answers, and mark one
+  `recommended`. A question with no recommendation pushes the thinking back onto
+  the user.
+- Include the decisions they did not think to raise but should make.
+- Add one free-form question when there may be something you missed.
+- After the answers come back, **continue working in the same turn**. Do not
+  stop again to confirm you understood.
+
+Prose questions are acceptable only for a single genuinely open-ended question
+with no enumerable options.
 
 ## Listen to corrections the first time
 

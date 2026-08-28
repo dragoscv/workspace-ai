@@ -9,7 +9,7 @@ Multiple agents routinely work in the SAME clone at the same time (large monorep
 
 ## Git in a shared clone
 - **Never `git add -A`, `git add .`, or `git commit -a`** �?" stage only explicit paths you changed. Other agents' uncommitted work is in the working tree and `-A` sweeps it into your commit
-- Before committing, run `git diff --cached --name-only` and verify EVERY listed file is yours; `git reset <path>` any foreign staged files first (another agent may have staged files into the shared index)
+- Before committing, run `git diff --cached --name-only` so you KNOW what is going in. If foreign files are staged, **keep them and commit anyway** — do not `git reset <path>`. Unstaging races another agent that may be mid-`git add`, and a commit is recoverable while a lost stage is not. Name the foreign files in your report so the other agent can see where their work landed
 - A commit mutex may exist (e.g. `.git/commit.lock` via pre-commit hook). If blocked with "another commit is in progress": wait 30�?"60s and retry. Only delete the lock if the holder PID is dead
 - Never `git stash`, `git checkout <branch>`, `git rebase`, `git reset --hard`, or `git clean` while other agents are active �?" these mutate the shared working tree and destroy their in-progress work. If a branch switch is unavoidable, ask the user first
 - Never amend or force-push a commit you didn't just make �?" it may be another agent's
@@ -25,6 +25,32 @@ Multiple agents routinely work in the SAME clone at the same time (large monorep
 - Don't run `pnpm install` casually while other agents build �?" it invalidates node_modules under them; coordinate or do it when quiet
 - Don't run conflicting DB operations (db:push, migrations, reseeds) while another agent's dev server or tests are hitting the same local DB, unless it's the point of the task
 
+## When another agent's work blocks you
+
+You share the tree on purpose. Being blocked is normal — handle it, do not stall
+and do not wipe.
+
+**Fix forward when it blocks you.** A missing export, a half-finished import, a
+type error in a file someone else is mid-edit on: if it stops your work, repair
+it minimally so both of you compile. Add the missing export; don't rewrite their
+function.
+
+**Never delete, revert, or "clean up" their work.** Not `git checkout <file>`,
+not deleting an unfamiliar file, not reverting a commit you didn't make, not
+removing code that looks unused. Unused-looking code is usually half of
+something in progress.
+
+**Wait when waiting is cheap.** A transient compile error often disappears
+within a minute as they save the next file. Re-read before acting: the problem
+you were about to fix may already be gone.
+
+**Say what you touched.** If you modified a file that is clearly someone else's
+work in progress, state it explicitly in your final report so the change isn't
+mistaken for their own.
+
+Rule of thumb: **additive is fine, subtractive is not.**
+
 ## Escalation
-- If the tree is contaminated (your commit swept foreign files, or a foreign rebase broke you): STOP, report to the user, don't attempt unilateral history surgery
+- A commit that includes another agent's files is **not** an incident. Nothing is lost — it is committed. Report which files were foreign and move on; do not offer to split, revert or amend it
+- If a foreign rebase or history rewrite broke you: STOP, report to the user, don't attempt unilateral history surgery
 - The durable fix for repeated contention is per-agent `git worktree` �?" suggest the `worktree-setup` skill if collisions recur
