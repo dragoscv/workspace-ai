@@ -78,3 +78,9 @@ temp/
 
 # Local VS Code settings (keep the updated one as example)
 # Note: vscode-settings-updated.json is kept as an example file
+
+# Private tooling: the redaction map itself lists every private project name.
+scripts/redact-rules.ps1
+scripts/update-rules.ps1
+data/
+

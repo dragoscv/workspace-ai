@@ -42,7 +42,7 @@
     "glob": "^10.3.10",
     "markdown-it": "^14.0.0",
     "gray-matter": "^4.0.3",
-    "@codai/memorai-mcp": "latest"
+
   },
   "devDependencies": {
     "@types/node": "^20.10.0",
