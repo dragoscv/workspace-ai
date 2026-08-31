@@ -10,7 +10,7 @@ paths:
 - Understand the project structure and conventions before making changes
 - Check for existing patterns in the codebase; follow them consistently
 - Verify assumptions by reading relevant files, not guessing
-- Check memory (user/repo gotcha files) before diagnosing an error that looks familiar �?" most failure modes here have recurred at least once
+- Check memory (user/repo gotcha files) before diagnosing an error that looks familiar — most failure modes here have recurred at least once
 - Use Next.js DevTools MCP when available for route context and unified logs
 
 ## During Work
@@ -53,11 +53,9 @@ move to the next item?" when the next step was obvious.
 
 ## Definition of done
 
-Measured across 4023 assistant responses in this user's history, 426 ended with
-"Want me to…?" or equivalent. That is 426 wasted round trips. A `Stop` hook now
-blocks those endings, so the cheapest path is simply to finish.
-
-Before ending a turn, all of these must be true:
+A `Stop` hook blocks turns that end by asking permission or by listing
+unfinished work, so the cheapest path is simply to finish. Before ending a
+turn, all of these must be true:
 
 1. **Every item in the requested scope is done.** Five items means five, not one
   plus an offer. A list you wrote yourself counts as agreed scope.
@@ -73,13 +71,24 @@ money, or a genuine ambiguity — and the last one goes through `askQuestions`.
 
 If you catch yourself about to write "Want me to…", the answer is yes. Do it.
 
-## Persistence
+### A summary that names remaining work is not a finished turn
 
-Wording adapted from OpenAI's published GPT-5 / GPT-5.1 prompting guides, whose
-`<persistence>` and `<solution_persistence>` blocks exist for exactly this
-failure. Their own note: on long agentic tasks the model "may end prematurely
-without reaching a complete solution, but we have found this behavior is
-promptable."
+Subtler than asking permission: the turn ends with an accurate, well-organised
+report that itself lists things still to do. No question is asked, so it reads
+as complete. It is not. Re-read your closing message — if it contains any of
+these, **go do them instead of writing about them**:
+
+- "what remains", "still to do", "N todo", a list of next candidates
+- "I deliberately did not…", "deferred", "out of scope for now"
+- "minor items:", "I'd recommend next…", "a next step would be…"
+- "you need to decide…" without having called `askQuestions`
+- "nothing is committed yet" when committing was part of the work
+
+**End-of-turn invariant**: zero items in progress, zero pending. Everything is
+done, or explicitly cancelled with a stated reason. An item you thought worth
+naming is an item worth finishing — "minor" is a reason to do it now.
+
+## Persistence
 
 - Keep going until the request is **completely resolved** before yielding the
   turn. Only stop when you are sure the problem is solved.
@@ -97,31 +106,10 @@ promptable."
 - Almost never ask **whether to proceed** with a plan. Carry it out, then let
   them accept or reject the result. That is different from asking **which**
   plan when several are genuinely defensible — that one is worth asking.
-
-## A report that lists remaining work is not a finished turn
-
-This is the observed failure mode, and it is subtler than asking permission:
-the turn ends with an accurate, well-organised summary that itself names things
-still to do. No question is asked, so it reads as complete. It is not.
-
-Before ending, re-read your own closing message. If it contains any of these,
-**go do them instead of writing about them**:
-
-- "what remains", "still to do", "N todo", a list of next candidates
-- "I deliberately did not…", "deferred", "out of scope for now"
-- "minor items:", "I'd recommend next…", "a next step would be…"
-- "you need to decide…" without having called `askQuestions`
-- "nothing is committed yet" when committing was part of the work
-
-**End-of-turn invariant** (from OpenAI's plan-tool spec): zero items in
-progress and zero pending. Everything is either done, or explicitly cancelled
-with a stated reason. An item you thought worth naming is an item worth
-finishing — "minor" is a reason to do it now, not to leave it.
-
-Legitimate reasons to stop with work outstanding, and they must be stated as
-facts: a blocker you cannot resolve, an irreversible or destructive action,
-something that costs money, credentials you do not hold, or a genuine choice
-raised through `askQuestions`.
+- Legitimate reasons to stop with work outstanding, stated as facts: a blocker
+  you cannot resolve, an irreversible or destructive action, something that
+  costs money, credentials you do not hold, or a genuine choice raised through
+  `askQuestions`.
 
 ## When you do ask, use the askQuestions tool
 
@@ -235,10 +223,10 @@ implement unrequested work.
 
 ## Verification & Evidence (empirical proof, always)
 - Never claim something works, is fixed, or is deployed without running the verifying command and showing its output
-- "Done" requires evidence: test output, curl/HTTP response, log line, file content, or screenshot �?" not inference
+- "Done" requires evidence: test output, curl/HTTP response, log line, file content, or screenshot — not inference
 - After a deploy/config change, verify the LIVE state (hit the endpoint, read the live revision), not just the local diff
-- When a command's success is ambiguous (timeout, partial output, tool error with exit code 0), verify the actual resulting state before retrying �?" retries can duplicate resources
-- Distinguish clearly: VERIFIED (ran it, saw it) vs EXPECTED (reasoned it) �?" say which one it is
+- When a command's success is ambiguous (timeout, partial output, tool error with exit code 0), verify the actual resulting state before retrying — retries can duplicate resources
+- Distinguish clearly: VERIFIED (ran it, saw it) vs EXPECTED (reasoned it) — say which one it is
 
 ## Memory Discipline
 See `memory-discipline.md` — read memory before diagnosing, write what you

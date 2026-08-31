@@ -12,7 +12,7 @@ Lessons hardened on a large full-SaaS monorepo. Apply these when
 scaffolding a NEW project, and when touching an existing one that lacks them.
 Each exists because it caused a real, measured failure.
 
-## 1. Repo-root `/.ignore` �?" search hygiene
+## 1. Repo-root `/.ignore` … search hygiene
 
 Create alongside `.gitignore` in every new repo. Read by ripgrep, fd and
 VS Code search; **not** by git, so it never affects commits. It covers the
@@ -38,7 +38,7 @@ full walk 0.19 s.
 If `include` uses a bare `**/*.ts` / `**/*.tsx` rooted at the app dir, the
 `.next` build output is pulled into the TypeScript program. In one case that
 was 33 538 extra files / 24 GB, which drove tsserver past its heap limit and
-killed it repeatedly with SIGABRT (exit 134) �?" breaking every agent and
+killed it repeatedly with SIGABRT (exit 134) … breaking every agent and
 IntelliSense in that window.
 
 ```jsonc
@@ -53,12 +53,12 @@ IntelliSense in that window.
 Exclude the SUBDIRECTORIES, not all of `.next`: `next-env.d.ts` imports
 `./.next/dev/types/*.d.ts` (generated route types).
 
-Verify: `npx tsc -p tsconfig.json --listFilesOnly | Measure-Object` �?" should
+Verify: `npx tsc -p tsconfig.json --listFilesOnly | Measure-Object` … should
 be ~10k, and no path should contain `\.next\`.
 
 ## 3. `.gitignore` must cover ad-hoc build dirs with a glob
 
-Enumerating `.next-perf`, `.next-verify`, `.next-audit`�?� grows unbounded.
+Enumerating `.next-perf`, `.next-verify`, `.next-audit`… grows unbounded.
 Use `.next*` plus explicit entries for anything outside the app dir.
 
 ## 4. Repo instruction file
