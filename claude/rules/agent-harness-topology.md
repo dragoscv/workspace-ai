@@ -58,11 +58,29 @@ VS Code Settings Sync covers `settings`, `keybindings`, `snippets`, `prompts`,
 `agents`, `mcp`, `tasks`. It does **not** cover `~/.claude/*` or any skills
 directory — those need a dotfiles repo.
 
-## Hooks are Copilot CLI only — VS Code does not run them
+## Hooks run in BOTH Copilot CLI and VS Code
 
-`~/.copilot/hooks/the gateway-hooks.json` is read by **Copilot CLI**. The VS Code
-chat extension has no equivalent registration point, so every hook is inert
-there.
+`~/.copilot/hooks/the gateway-hooks.json` is read by Copilot CLI **and** by the VS
+Code chat extension. An earlier version of this rule claimed VS Code ignored
+hooks; that was wrong, and it meant a broken Stop hook went undiagnosed for
+months because it was assumed inert.
+
+Verify with the extension's own log — `GitHub Copilot Chat Hooks.log` under
+`~/.vscode-server-insiders/data/logs/<session>/` — which records
+`[PreToolUse] Executing N hook(s)` for every invocation. If an event shows a
+count of zero while others run, the hook is misconfigured, not unsupported.
+
+Two things that make a hook silently never fire:
+
+- **Event keys are PascalCase.** `Stop`, `PreToolUse`, `SessionStart` — a
+  camelCase `"stop"` key matches nothing and fails silently.
+- **VS Code passes only `transcript_path`**, never the response text. The
+  payload is: `timestamp`, `hook_event_name`, `session_id`, `transcript_path`,
+  `tool_name`, `tool_input`, `tool_use_id`, `cwd`. The transcript is JSONL, so
+  parse the last `role: assistant` line rather than reading the file raw.
+
+A hook that is configured but never fires looks exactly like a hook that fires
+and finds nothing. Check the event count before trusting a guard is active.
 
 Verified 2026-08-28, two independent ways:
 
