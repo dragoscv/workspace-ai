@@ -1,6 +1,7 @@
 ---
 paths:
   - "**"
+   - "**/*.ps1"
 ---
 
 # PowerShell Command Safety (always applies)

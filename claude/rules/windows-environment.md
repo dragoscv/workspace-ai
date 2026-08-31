@@ -1,6 +1,8 @@
 ---
 paths:
   - "**"
+  - "**/*.sh"
+  - "**/*.bash"
 ---
 
 # Windows Environment (always applies)

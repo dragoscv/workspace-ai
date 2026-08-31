@@ -95,6 +95,12 @@ this as part of what was asked?* If yes, it is deferred work — do it. If it is
 a new feature, a different library, or a risk to watch, it is a recommendation
 — name it and stop there.
 
+It also does not ban the **ripple statement** required by
+`ripple-completeness.md`: naming an adjacent surface you did not update, **with
+the reason**, is a completed decision, not deferred work. "Not needed — this
+action is internal and never exposed publicly" is finished. "I did not get to
+the SDK" is not: go and do it.
+
 ## Persistence
 
 - Keep going until the request is **completely resolved** before yielding the
@@ -116,7 +122,11 @@ a new feature, a different library, or a risk to watch, it is a recommendation
 - Legitimate reasons to stop with work outstanding, stated as facts: a blocker
   you cannot resolve, an irreversible or destructive action, something that
   costs money, credentials you do not hold, or a genuine choice raised through
-  `askQuestions`.
+  `askQuestions`. Two more, mandated by other rules: **waiting on an async or
+  background job you launched** (`terminal-session-hygiene.md` — end the turn
+  and act on the completion notification, never poll or sleep), and **another
+  agent's history rewrite broke your tree** (`multi-agent-coordination.md` —
+  stop and report, never attempt unilateral history surgery).
 
 ## When you do ask, use the askQuestions tool
 

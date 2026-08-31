@@ -1,6 +1,6 @@
 ---
 paths:
-  - —**—
+  - "**"
 ---
 
 # Secrets & Environment Handling (always applies)

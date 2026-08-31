@@ -5,9 +5,10 @@ paths:
 
 # Use memory, in every phase
 
-Memory guidance was scattered across four rules and no agent could act on it:
-the `memory` tool was absent from every whitelist, so "check memory before
-diagnosing" was unsatisfiable, not ignored. That is fixed — now use it.
+Memory guidance was once scattered across four rules that no agent could act
+on: the `memory` tool was absent from every whitelist, so "check memory before
+diagnosing" was unsatisfiable rather than ignored. All 12 agents now grant it
+(enforced by `test-config-integrity.ps1`), so there is no excuse left.
 
 The cost of not using it is invisible and compounding. A failure mode solved in
 March is rediscovered in August by an agent burning twenty minutes on a wrong

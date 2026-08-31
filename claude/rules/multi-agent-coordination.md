@@ -7,6 +7,13 @@ paths:
 
 Multiple agents routinely work in the SAME clone at the same time (large monorepos). The working tree and git index are shared mutable state — treat them as contested.
 
+> **Scope.** These bans govern a SHARED clone, which is the common case here.
+> On a branch you genuinely own alone — a real PR, a solo repo, an open-source
+> contribution — the branch/PR/rebase mechanics in `git-workflow.md` apply
+> instead. When in doubt assume shared: the cost of being wrong is another
+> agent's lost work. The commit-message and SemVer conventions in
+> `git-workflow.md` always apply, in both modes.
+
 ## Git in a shared clone
 - **Never `git add -A`, `git add .`, or `git commit -a`** — stage only explicit paths you changed. Other agents' uncommitted work is in the working tree and `-A` sweeps it into your commit
 - The rule above is about not *causing* it. If foreign files are **already** staged when you look, that is a different situation: **keep them and commit anyway** — do not `git reset <path>`. Unstaging races another agent that may be mid-`git add`, and a commit is recoverable while a lost stage is not. Before committing, run `git diff --cached --name-only` so you KNOW what is going in, and name any foreign files in your report so the other agent can see where their work landed
