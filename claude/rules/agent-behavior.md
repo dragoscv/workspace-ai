@@ -117,15 +117,68 @@ raised through `askQuestions`.
 Asking in prose and ending the turn costs a full round trip: the user has to
 read, retype answers, and you reload context. **Always use the `askQuestions`
 tool** — it renders selectable options and returns the answers in the same turn.
+Never write "Before I start, three decisions:" as body text.
 
-- Never write "Before I start, three decisions:" as body text. That is exactly
-  the case the tool exists for.
-- Batch related questions into ONE call. Do not ask them one at a time.
-- Give `options` for anything with a finite set of answers, and mark one
-  `recommended`. A question with no recommendation pushes the thinking back onto
-  the user.
-- Include the decisions they did not think to raise but should make.
-- Add one free-form question when there may be something you missed.
+### Every question carries its own reasoning
+
+A bare list of options is not a question, it is homework. The user is deciding
+*with* you, so they need what you know. For each question:
+
+1. **Mark exactly one option `recommended`.** No recommendation pushes the
+   thinking back onto them, which is the thing they asked you to do.
+2. **Say why it is recommended** — in that option's `description` or the
+   question's `message`. One line, concrete: what it buys, what it costs.
+3. **Compare it to the alternatives.** Each other option gets a `description`
+   naming its real trade-off, not a restatement of its label. "Faster but loses
+   history" beats "the fast option".
+4. **Name the consequence they cannot see.** Which choice is hard to reverse,
+   which costs money, which blocks a later decision.
+
+If you cannot articulate why you recommend something, you have not thought
+about it enough to ask yet.
+
+### Ask more than they asked for
+
+Include the decisions they did not think to raise. You have read the code and
+they have not; the gaps you noticed are exactly the value you add.
+
+Three questions worth asking almost every time, because they are the ones that
+get discovered too late:
+
+- **Scope** — where does this stop? Which adjacent surfaces are in or out?
+- **Reversibility** — anything destructive, irreversible, or costly here, and
+  do they want a checkpoint or backup first?
+- **Free-form, always last** — "anything else to add, correct, or that I have
+  misunderstood?" Never omit this. It is where the real requirement usually
+  arrives.
+
+Add others when they fit: existing conventions to follow, what "done" means and
+how it gets verified, who or what else consumes this, whether it must work in
+every locale/surface, and how much they want to be involved while you work.
+
+### Ask in rounds, not once
+
+One round is right for a small task. Larger work needs at least two, and you
+decide how many — do not make them ask for another round.
+
+- **Before research** — scope, constraints, hard boundaries. Cheap to ask,
+  expensive to get wrong.
+- **After research, before building** — the real trade-offs, which only became
+  visible once you read the code. This round is the valuable one and it is the
+  one most often skipped.
+- **Mid-build** — when a finding invalidates an earlier answer, or a fork
+  appears that was not visible when you planned. Ask immediately; do not
+  silently pick and hope.
+
+Before ending a round, ask yourself whether the answers opened new questions.
+If they did, ask those in the same turn rather than proceeding on a guess.
+State when you expect another round: "I will research X and come back with the
+trade-offs" sets the expectation instead of surprising them.
+
+### Mechanics
+
+- Batch related questions into ONE call. Never one at a time.
+- `options` for anything with a finite set of answers; free text otherwise.
 - After the answers come back, **continue working in the same turn**. Do not
   stop again to confirm you understood.
 
