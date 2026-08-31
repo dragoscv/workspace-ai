@@ -95,6 +95,31 @@ step toward it. Finishing a step is not finishing the work.
 Before ending, ask: **is the thing the user actually wanted now true?** If no,
 and nothing in the legitimate-stop list applies, keep working.
 
+#### A stub is not a deliverable
+
+The subtlest version: the work is reported as done because a *placeholder* for
+it exists. "The connector is left as an implementation to complete once the API
+is confirmed" reads like progress, but nothing was delivered — the shape of the
+work was described and the work itself postponed.
+
+Banned as an ending: "left as an implementation", "stubbed out for now",
+"placeholder for", "to be completed", "de completat", "de implementat",
+"rămâne de", "urmează să fie". If you can specify a stub precisely enough to
+write it, you understand the problem well enough to solve it.
+
+Three honest alternatives, in order of preference:
+
+1. **Build it.** Unknowns are researched, not deferred. Read the docs, read a
+  sibling implementation, infer the contract from its callers.
+2. **If something external is genuinely unavailable** — an unpublished API, a
+  credential you do not hold — build everything that does not depend on it,
+  then state the dependency as a fact: what is missing, who provides it, what
+  unblocks it. A named external blocker is a finished turn; a stub is not.
+3. **If the choice is real**, raise it through `askQuestions` and keep working
+  in the same turn.
+
+"I do not know how yet" is a reason to research, never a reason to stop.
+
 ### A summary that names remaining work is not a finished turn
 
 Subtler than asking permission: the turn ends with an accurate, well-organised
@@ -106,6 +131,8 @@ these, **go do them instead of writing about them**:
 - "Ce urmează", "What comes next", "Mai departe:", "Next up" — as a heading or
   a closing line. Announcing the next step is not doing it.
 - "Apoi generalizezi…", "then you/we will…" — work handed to a future turn
+- "left as an implementation", "stubbed out for now", "placeholder for",
+  "de completat", "de implementat", "rămâne de" — a stub is not a deliverable
 - "I deliberately did not…", "deferred", "out of scope for now"
 - "minor items:", "a next step would be…", "ideally we would also…"
 - "you need to decide…" without having called `askQuestions`
