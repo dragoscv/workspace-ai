@@ -1,6 +1,9 @@
 ---
 paths:
   - "**/*.{ts,tsx,js,jsx,py,go,rs}"
+# Deliberately broad: this is the baseline for ALL code. Keep it short — every
+# line here is paid on nearly every edit. Domain guidance belongs in a scoped
+# rule, not here.
 ---
 
 # Code Quality Standards
@@ -27,8 +30,8 @@ paths:
 - Export only what is needed; prefer named exports over default exports
 - Delete dead code; don't comment it out
 
-## Database Schema (Drizzle + PostgreSQL)
-- Use identity columns (`generatedAlwaysAsIdentity()`) not `serial` for primary keys
-- Use `withTimezone: true` on all timestamp columns
-- Define relational queries with `relations()` from `drizzle-orm`
-- Use `pgEnum` for constrained string columns; define as const arrays for type reuse
+## Database
+
+See `database.md` — it is scoped to schema/migration/db paths and is the single
+source for Drizzle conventions. This rule loads on every Go, Rust and Python
+file too, so restating them here only creates a copy that will drift.

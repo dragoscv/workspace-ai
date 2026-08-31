@@ -4,7 +4,7 @@ paths:
   - "**/browser-ext/**"
   - "**/extension/**"
   - "**/content-script*.{ts,js}"
-  - "**/background*.{ts,js}"
+  - "**/*/background.{ts,js}"
   - "**/service-worker*.{ts,js}"
 ---
 

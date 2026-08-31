@@ -22,9 +22,7 @@ Multiple agents routinely work in the SAME clone at the same time (large monorep
 - Version bumps and CHANGELOG: expect merge contention; re-read the file immediately before editing (another agent may have bumped it since you last looked)
 
 ## Processes & resources
-- Don't kill dev servers, watchers, or terminals you didn't start
-- Don't run `pnpm install` casually while other agents build �?" it invalidates node_modules under them; coordinate or do it when quiet
-- Don't run conflicting DB operations (db:push, migrations, reseeds) while another agent's dev server or tests are hitting the same local DB, unless it's the point of the task
+- `pnpm install` rewrites `node_modules` under every other session in the clone, breaking builds already in flight. Run it only when the lockfile actually changed, and say so in your report. If a build lock is held (`run-build.ps1 -Status`), wait for it to clear first
 
 ## Builds are serialised — one per repo
 

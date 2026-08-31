@@ -1,9 +1,11 @@
 ---
 paths:
-  - "**/*.{ts,tsx,jsx}"
   - "**/messages/**"
   - "**/locales/**"
   - "**/i18n/**"
+  - "**/*.{ro,en}.json"
+  - "**/tax-ro/**"
+  - "**/efactura/**"
 ---
 
 # Internationalization & Romanian Localization
@@ -27,7 +29,9 @@ paths:
 - CUI/CIF (tax id), CNP (personal id), nr. ORC / J (trade registry), cont IBAN
 - TVA (VAT), cotă TVA (VAT rate), bază impozabilă (taxable base), scutit de TVA (VAT-exempt), taxare inversă (reverse charge)
 - societate, PFA, SRL, SA; sediu social (registered office)
-- Validate CUI (with/without `RO` prefix) and IBAN format; checksum where applicable
+- Validate CUI (with/without `RO` prefix) and IBAN. **Both have checksums and
+  both must be verified** — CUI uses the mod-11 control digit, IBAN uses
+  mod-97. Format-only validation is not validation.
 
 ## Content Rules
 - Address users with appropriate RO register (consistent formal "dumneavoastră" vs informal "tu" per product voice)

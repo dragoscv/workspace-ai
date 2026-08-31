@@ -20,7 +20,8 @@ paths:
 - Test names: `should [expected behavior] when [condition]`
 - Group related tests with `describe` blocks matching the module/class under test
 - Arrange-Act-Assert (AAA) pattern in every test
-- One assertion per test when practical; related assertions are acceptable
+- One **behaviour** per test, with as many assertions as that behaviour needs.
+  If a failure message would not tell you what broke, split the test.
 
 ## Unit Tests (Vitest 4)
 - Use Vitest 4 exclusively; never Jest
