@@ -66,14 +66,18 @@ hooks; that was wrong, and it meant a broken Stop hook went undiagnosed for
 months because it was assumed inert.
 
 Verify with the extension's own log — `GitHub Copilot Chat Hooks.log` under
-`~/.vscode-server-insiders/data/logs/<session>/` — which records
-`[PreToolUse] Executing N hook(s)` for every invocation. If an event shows a
-count of zero while others run, the hook is misconfigured, not unsupported.
+`%APPDATA%\Code - Insiders\logs\<ts>\window<N>\exthost\GitHub.copilot-chat\`
+for a local window, or `~/.vscode-server-insiders/data/logs/<session>/` for a
+tunnel session — it records `[PreToolUse] Executing N hook(s)` for every
+invocation. If an event shows a count of zero while others run, the hook is
+misconfigured, not unsupported.
 
 Two things that make a hook silently never fire:
 
-- **Event keys are PascalCase.** `Stop`, `PreToolUse`, `SessionStart` — a
-  camelCase `"stop"` key matches nothing and fails silently.
+- **Casing is per-event, so copy what already works.** `preToolUse` and
+  `sessionStart` are camelCase in the live config and `preToolUse` fires
+  thousands of times; the turn-end event only matched as PascalCase `Stop`,
+  never `stop`. Check the log rather than assuming a convention.
 - **VS Code passes only `transcript_path`**, never the response text. The
   payload is: `timestamp`, `hook_event_name`, `session_id`, `transcript_path`,
   `tool_name`, `tool_input`, `tool_use_id`, `cwd`. The transcript is JSONL, so
@@ -82,29 +86,19 @@ Two things that make a hook silently never fire:
 A hook that is configured but never fires looks exactly like a hook that fires
 and finds nothing. Check the event count before trusting a guard is active.
 
-Verified 2026-08-28, two independent ways:
+Which events actually fire, measured 2026-08-31 in a local VS Code window:
+`PreToolUse` **2146**, `Stop` **9**, `SessionStart` **0**. So both guards and
+both Stop hooks are live in VS Code; `session-start.ps1` is the one that does
+not run there.
 
-- `session-start.ps1` appends to `~/.the gateway/copilot-sessions.log` on every
-  session. 202 entries, none for the VS Code workspace that was open at the
-  time.
-- `guard-command.ps1` refuses `pnpm typecheck` (exit 2) when piped the payload
-  by hand — yet that exact command ran unblocked in the VS Code session minutes
-  earlier.
+Note the casing is NOT uniform, and the working config proves it: `preToolUse`
+and `sessionStart` are camelCase in `the gateway-hooks.json` and `preToolUse` fires
+fine, while the turn-end event only matched as PascalCase `Stop`. Do not
+"correct" a working key — check the log before changing casing.
 
-What this means in practice:
-
-- The guards (`guard-command`, `guard-write`), the Stop hooks
-  (`no-permission-stop`, `nudge-parallel`) and the session-start tool audit
-  protect **CLI sessions only**.
-- In VS Code the same protection has to come from the **rules**, which are
-  loaded there — so a rule is not redundant just because a hook covers it.
-- Anything that must hold everywhere belongs in a **repo-level gate**
-  (pre-commit, CI). That layer is harness-independent and is why the build
-  lock also lives in `run-build.ps1` behind an OS mutex rather than in a hook
-  alone.
-
-Do not cite hook coverage as proof a behaviour is enforced without saying which
-harness you mean.
+A repo-level gate (pre-commit, CI) is still the strongest layer, because it is
+harness-independent. That is why the build lock lives in `run-build.ps1` behind
+an OS mutex rather than in a hook alone.
 
 ## Diagnosing "my instructions aren't applied"
 

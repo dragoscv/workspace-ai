@@ -1,9 +1,10 @@
 ---
 paths:
-  - "**/*.{ts,tsx,py}"
   - "**/ai/**"
   - "**/llm/**"
-  - "**/providers/**"
+  - "**/inference/**"
+  - "**/*ai-provider*"
+  - "**/*llm*.{ts,tsx,py}"
 ---
 
 # AI / LLM Engineering

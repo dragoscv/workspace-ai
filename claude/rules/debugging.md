@@ -33,8 +33,8 @@ Revert your OWN edit the same way you made it: an `apply_patch` that undoes it,
 or `git stash push -- <path>` if you want it recoverable. Do **not** reach for
 `git checkout -- <file>`, `git restore` or `git reset --hard` — in a shared
 clone those discard whatever else is uncommitted in that file, which has
-already destroyed another agent's work once. A guard hook blocks them in CLI
-sessions and nothing blocks them in VS Code, so this is on you.
+already destroyed another agent's work once. A guard hook blocks them in both
+Copilot CLI and VS Code, but do not lean on it — verify before you rely on it.
 
 Then: re-measure. If the symptom is unchanged, the hypothesis was wrong — do not
 tweak the same fix, form a different hypothesis. If you have no new hypothesis,

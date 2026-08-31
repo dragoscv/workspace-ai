@@ -100,17 +100,16 @@ Treat these as one contract: no surface is complete until all four exist.
 - Use `startTransition` for state updates that trigger UI transitions
 - Use `<Activity>` component to preserve state while hiding UI (`display: none`)
 
-## Accessibility (WCAG 2.1 AA)
-- Use semantic HTML elements: `nav`, `main`, `article`, `section`, `aside`, `header`, `footer`
-- Include ARIA attributes where semantic HTML is insufficient
-- All images need meaningful `alt` text (or `alt=""` for decorative)
-- Minimum color contrast ratio: 4.5:1 for normal text, 3:1 for large text
-- All interactive elements must be keyboard accessible
-- Focus indicators must be visible
+## Accessibility
+
+See `accessibility.md` — it targets **WCAG 2.2 AA** and loads on the same files
+as this rule. Do not restate its requirements here: an abbreviated copy that
+omitted the 3:1 minimum for UI components and focus indicators used to sit in
+this spot and silently permitted less.
 - Form inputs must have associated labels
 
 ## Animations
-- Use Framer Motion or Tailwind Animate for transitions and effects
+- Use Motion (the `motion` package) or Tailwind Animate for transitions
 - Respect `prefers-reduced-motion` media query
 - Keep animations under 300ms for UI feedback; longer only for deliberate emphasis
 - **React 19 + Motion crash-safety** (recurred 5+ times): NEVER use a shared `layoutId` across conditionally-rendered siblings (tab/nav active indicators) — use a static per-item `<span>` instead. Keyed `AnimatePresence mode="wait"` is the SAFE pattern. Don't wrap HeroUI `<Tab>` content in `motion.div` + variants. When syncing tab state to a dynamic-segment URL, use `history.replaceState`, not `router.push` (segment re-render races setState). Symptom of all these: `NotFoundError: removeChild` (Safari: "The object can not be found here"). Full detail in user memory `react19-framer-motion-crashes.md`

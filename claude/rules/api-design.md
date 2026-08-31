@@ -1,9 +1,10 @@
 ---
 paths:
-  - "**/*.{ts,tsx}"
   - "**/actions/**"
   - "**/api/**"
   - "**/route.ts"
+  - "**/*.route.ts"
+  - "**/server/**"
 ---
 
 # API Design

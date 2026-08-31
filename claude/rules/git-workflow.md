@@ -8,8 +8,9 @@ paths:
 > **Which mode am I in?** This file describes the PR-based flow — feature
 > branches, review, squash merge. Most work on this machine happens in a
 > **shared clone with several agents committing directly to `dev`**, where
-> `multi-agent-coordination.md` takes precedence and forbids `rebase`,
-> `stash`, branch switching and history rewriting outright.
+> `multi-agent-coordination.md` takes precedence: it forbids `rebase`, branch
+> switching, history rewriting and **bare** `git stash`. Path-scoped
+> `git stash push -- <file>` stays allowed — it touches only that file.
 >
 > Use this file when you own the branch (a real PR, a solo repo, an
 > open-source contribution). In a shared clone, follow the commit-message and

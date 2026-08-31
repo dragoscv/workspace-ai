@@ -1,6 +1,7 @@
 ---
 paths:
-  - "**/*.{ts,sql}"
+  - "**/*.sql"
+  - "**/db/**"
   - "**/schema/**"
   - "**/migrations/**"
   - "**/drizzle/**"
