@@ -49,6 +49,42 @@ Worth writing:
 Not worth writing: anything derivable by reading the code in seconds, one-off
 task detail, or restatements of an existing rule.
 
+## Learn from your OWN turns, not just from the code
+
+This is the part that makes memory compound instead of merely accumulate.
+Measured on this machine: memory is touched in 19 of 34 recent sessions and
+read early in 17 of those — so recall is not the problem. What was missing is
+that nothing recorded what the agent itself got right or wrong, so the same
+wrong hypothesis kept being re-derived weeks apart.
+
+**Write a note when you were WRONG.** Not the bug — *your* error:
+
+- A hypothesis you were confident about that the data killed. Record the
+  hypothesis, the evidence that refuted it, and the signal you should have
+  checked first. ("Listener leaks cause the reloads" — refuted three times;
+  the session with the most leaks had zero reloads.)
+- A verification you skipped that would have caught it in one command.
+- A wrong assumption about the environment: which file is read, which process
+  is which, what a default value actually is.
+- A correction the user had to make twice. That is a config gap, not a
+  misunderstanding — see `capture-standing-preferences.md`.
+
+**Write a note when something WORKED and was not obvious.** A reusable
+procedure is worth more than a fact:
+
+- The command sequence that finally isolated a problem, in order.
+- The discriminating signal — the single measurement that separated two
+  competing explanations.
+- A fix that is easy to get subtly wrong, with the exact working form.
+
+**Prefer the shape that helps next time**: *symptom → what I first believed →
+what actually proved it → fix*. The middle term is the valuable one and it is
+the one always omitted.
+
+Before ending a non-trivial session, ask: **did I learn anything that would
+have saved me time if I had known it at the start?** If yes, that is a memory
+write, and it belongs in this turn, not the next one.
+
 ## Pick the right scope
 
 - `/memories/` — **user**: preferences, cross-project patterns, machine facts.
@@ -60,6 +96,16 @@ task detail, or restatements of an existing rule.
 
 Prefer updating an existing file over creating a new one. Before adding, view
 the directory — duplicates make memory less useful, not more.
+
+**Keep `/memories/000-index.md` current.** Only the first ~200 lines of user
+memory load automatically; total content here is ~980 lines, so most of it is
+invisible unless something points at it. When you add or retire a user memory,
+update the index in the same turn — an unindexed memory is one nobody reads.
+
+**Never write session state into `/memories/`.** Eight base64-named session
+folders (104 KB of July/August plans) had accumulated in user memory, competing
+for the auto-loaded window with facts that matter every day. Task state goes in
+`/memories/session/`, repo facts in `/memories/repo/`.
 
 ## Keep it true
 
